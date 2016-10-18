@@ -16,6 +16,7 @@
 				//to avoid to share uselessly important information (the information below are fake data)
 			?>
 			<p>
+			date: 18/8/2016	
 			***** try beam steering with the beam counter(BC)
 			37545 simple catch and dump, BC centered, low hot dump(hD)
 			37546 simple catch and dump, BC centered, low hD
@@ -29,7 +30,7 @@
 			37554 simple catch and dump, BC good,   hD 11933, total 15119
 			37555 simple catch and dump, BC good,   hD 12930, total 15639
 
-
+			date: 19/8/2016
 			***** test pbar RW v8 (0.1MHz on e-RW) and transfer to 1T
 			37556 pbar RW v8, 2nd step RW 0.5MHz             hD 3944 cD 3018 r(40  86) "high cD wrt hD" 
 			37557 transfer (storage B3,B4   20s)             hD 4560 cD    0           "losses in 157.296 156.8 during storage in B3,B4"
@@ -44,6 +45,8 @@
 			37566 transfer (storage B3,B4 100ms, dump MCP gain 1.5kV) --> "we see cold dump at right time but small, not seen in MCP, SC910
 			counts more than SC12, pbar die somewhere else, we see relatively high signal on SC 1T instead of dump"
 
+
+			date: 21/8/2016
 			37567 transfer (storage B3,B4 100ms, dump MCP gain 1.7kV)
 			37568 transfer (storage B3,B4 100ms, dump MCP gain 1.7kV, smooth step for transfer) --> "2nd peak higher than cold dump peak,
 			higher than run 7567"
@@ -56,6 +59,7 @@
 			37571 transfer (storage B4,B5    1s, dump MCP gain 1.7kV, smooth steps, 1T re-shape dump at 30eV)
 			37572 transfer (storage B5,B6    1s, dump MCP gain 1.7kV, smooth steps, 1T re-shape dump at 30eV)
 
+			date: 24/8/2016
 			37573 pbar RW v8, 2nd step RW 0.3MHz
 			37574 pbar RW v8, 2nd step RW 0.4MHz
 			37575 pbar RW v8, 2nd step RW 0.6MHz "no pbar only e, there is electron in the image"

@@ -1,6 +1,5 @@
 <?php
 
-
 function lastRun($dirRawFiles)
 {
 	$rawFiles = glob($dirRawFiles . "run_" ."*.*");
@@ -27,7 +26,45 @@ function lastRun($dirRawFiles)
 	}
 	echo $lastNow; //and I write it
 	echo ", from: " . $lastTime;
-
 }	
+
+function readText( $url )
+{
+	$text = preg_replace( '/\s+/' , '' , file_get_contents( $url ) );
+	return $text;                    
+}
+
+function splitText( $rawText )
+{
+	$result = [];
+	$pieces = explode( "date:" , $rawText );
+	for ( $i = 1 ; $i < count( $pieces ) ; $i++ )
+	{
+		array_push( $result , $pieces[$i] );		
+	}
+	//print_r($pieces);
+	return $result;
+}
+
+function writeChunks( $chunks )
+{
+	for ( $i = 0 ; $i < count( $chunks ) ; $i++ )
+	{
+		echo "<p id = 'run" . $i . "' >";
+		echo $chunks[ $i ]; 
+		echo "</p>";
+	}
+}
+
+function getDates( $chunks )
+{
+	$results = [];
+	for ( $i = 0 ; $i < count( $chunks ) ; $i++ )
+	{
+		$token = substr( $chunks[ $i ] , 0 , 9 );
+		array_push( $results , $token );
+	}	
+	return $results;
+}
 
 ?>

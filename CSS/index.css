@@ -24,5 +24,7 @@ and open the template in the editor.
     right: 10px; }
   .indexGeneral .moveDown {
     margin-top: 82px; }
+  .indexGeneral .scrollable {
+    overflow-y: scroll; }
 
 /*# sourceMappingURL=index.css.map */

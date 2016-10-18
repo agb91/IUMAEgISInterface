@@ -63,7 +63,7 @@
                     </div>
                 </div>    
                 <div class="row">
-                    <div class="col-xs-4" >
+                    <div class="col-xs-8" >
                         <input type="text" id="whichRun" name="whichRun" class="form-control" placeholder="example: 30000; 30001; 30003">
                     </div>
                     <div class="col-xs-2">
@@ -145,14 +145,19 @@
                 </form>
             </div>
         </div>    
-        <div class="col-xs-6">
-            <div class="container moveDown">
-                <pre>
-                    hello world
-                    <?php
-                    ?>
-                </pre>    
-            </div>                
+        <div class="col-xs-6 moveDown">
+            <pre class="scrollable">
+                <?php
+                    echo "<p>"; 
+                    $url = "http://localhost/test-interChangeble/gAn-webIUM/dataLog.php";
+                    $rawText = readText( $url );
+                    $chunks = splitText( $rawText );
+                    writeChunks( $chunks );
+                    $dates = getDates( $chunks );
+                    print_r( $dates );
+                    echo "</p>";
+                ?>
+            </pre>                    
         <div>    
 
         <br><br>
