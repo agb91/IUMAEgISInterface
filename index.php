@@ -152,9 +152,10 @@
                     $url = "http://localhost/test-interChangeble/gAn-webIUM/dataLog.php";
                     $rawText = readText( $url );
                     $chunks = splitText( $rawText );
+                    echo count( $chunks );
                     writeChunks( $chunks );
                     $dates = getDates( $chunks );
-                    print_r( $dates );
+                    //print_r( $dates );
                     echo "</p>";
                 ?>
             </pre>                    

@@ -30,7 +30,7 @@ function lastRun($dirRawFiles)
 
 function readText( $url )
 {
-	$text = preg_replace( '/\s+/' , '' , file_get_contents( $url ) );
+	$text = file_get_contents( $url );
 	return $text;                    
 }
 
@@ -46,12 +46,22 @@ function splitText( $rawText )
 	return $result;
 }
 
+function writeOneChunk( $text )
+{
+	$rows = explode( ";" , $text );
+	for( $i = 0 ; $i < count( $rows ) ; $i++ )
+	{
+		echo trim( $rows[ $i ] ) . "<br>";
+	}
+}
+
 function writeChunks( $chunks )
 {
 	for ( $i = 0 ; $i < count( $chunks ) ; $i++ )
 	{
 		echo "<p id = 'run" . $i . "' >";
-		echo $chunks[ $i ]; 
+		writeOneChunk( $chunks[ $i ] );
+		//echo $chunks[ $i ]; 
 		echo "</p>";
 	}
 }
