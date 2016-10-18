@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 4, 2016, 5:28:11 PM
+    Author     : andrea
+*/
+.fixedDownLeft {
+  position: fixed;
+  bottom: 10px;
+  left: 10px; }
+
+.fixedDownRight {
+  position: fixed;
+  bottom: 10px;
+  right: 10px; }
+
+.fixedTopLeft {
+  position: fixed;
+  top: 10px;
+  left: 10px; }
+
+.fixedTopRight {
+  position: fixed;
+  top: 10px;
+  right: 10px; }
+
+.fixedUnderTopRight {
+  position: fixed;
+  top: 110px;
+  right: 10px; }
+
+.green {
+  background-color: greenyellow; }
+
+.choseImage .carousel .carousel-indicators ol {
+  background-color: blue !important; }
+  .choseImage .carousel .carousel-indicators ol .carousel-index li {
+    background-color: blue !important; }
+
+.typeChose .btn-group .evidentActive:active {
+  background-color: #04233E !important; }
+.typeChose .btn-group .btn-primary:active {
+  background-color: #04233E !important; }
+.typeChose .btn-group .active {
+  background-color: #04233E !important; }
+
+/*# sourceMappingURL=images.css.map */

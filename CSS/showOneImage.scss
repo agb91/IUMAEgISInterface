@@ -1,0 +1,38 @@
+@import '_variables';
+
+.showImageGeneral
+{
+    .space
+    {
+        height:100px;
+    }
+    padding: 20px;
+    background-color: $general-background;
+
+    .fixedUpCenter
+    {
+        position: fixed;
+        top: 10px;
+        left: 42%;
+    }
+
+    .fixedUpLeft
+    {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+    }
+    .fixedUpRight
+    {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+    }
+    .fixedUpCenter
+    {
+        position: fixed;
+        top: 10px;
+        right: 700px;
+    }
+
+}

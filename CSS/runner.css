@@ -1,0 +1,41 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 4, 2016, 5:28:11 PM
+    Author     : andrea
+*/
+.runnerGeneral {
+  padding: 20px;
+  background-color: #C5D8DA !important; }
+  .runnerGeneral .fixedDownRight {
+    position: fixed;
+    bottom: 10px;
+    right: 10px; }
+  .runnerGeneral .fixedTopLeft {
+    position: fixed;
+    top: 0px;
+    left: 10px; }
+  .runnerGeneral .fixedTopRight {
+    position: fixed;
+    top: 10px;
+    right: 10px; }
+  .runnerGeneral .fixedTopSecondRight {
+    position: fixed;
+    top: 110px;
+    right: 10px; }
+  .runnerGeneral .green {
+    background-color: greenyellow; }
+  .runnerGeneral .red {
+    background-color: red; }
+
+.typeChose .btn-group .evidentActive:active {
+  background-color: #04233E !important; }
+.typeChose .btn-group .btn-primary:active {
+  background-color: #04233E !important; }
+.typeChose .btn-group .active {
+  background-color: #04233E !important; }
+
+/*# sourceMappingURL=runner.css.map */

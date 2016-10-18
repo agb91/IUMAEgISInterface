@@ -1,0 +1,59 @@
+@import '_variables';
+
+
+.runnerGeneral
+{
+    padding: 20px;
+    background-color: $general-background !important;
+    
+    .fixedDownRight
+    {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .fixedTopLeft
+    {
+        position: fixed;
+        top: 0px;
+        left: 10px;
+    }
+
+    .fixedTopRight
+    {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+    }
+
+    .fixedTopSecondRight
+    {
+        position: fixed;
+        top: 110px;
+        right: 10px;
+    }
+   
+    .green
+    {
+        background-color: $active-button;
+    }
+    .red
+    {
+        background-color: $disabled-button;
+    }  
+}
+
+.typeChose{
+    .btn-group{
+        .evidentActive:active{
+            background-color: #04233E !important;
+        }
+        .btn-primary:active{
+            background-color: #04233E !important;
+        }
+        .active{
+            background-color: #04233E !important;
+        }
+    }
+}

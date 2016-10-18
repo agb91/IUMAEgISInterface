@@ -1,0 +1,63 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 3, 2016, 10:31:41 PM
+    Author     : andrea
+*/
+
+@import '_variables';
+
+.configurator
+{
+    padding: 15px;
+    background-color: $general-background;
+
+    .bottomRight
+    {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .topRight
+    {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+    }
+
+    .green
+    {
+        background-color: $active-button;
+    }
+
+
+    .lower
+    {
+        margin-top: 25px;
+        margin-left: 60px;
+    }
+    .editorBlock
+    {
+        .btn-group
+        {
+            .evidentActive:active
+            {
+                background-color: #04233E !important;
+            }
+            .btn-primary:active
+            {
+                background-color: #04233E !important;
+            }
+            .active
+            {
+                background-color: #04233E !important;
+            }
+        }        
+    }
+}
+
+

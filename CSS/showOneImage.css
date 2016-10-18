@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 4, 2016, 5:28:11 PM
+    Author     : andrea
+*/
+.showImageGeneral {
+  padding: 20px;
+  background-color: #C5D8DA; }
+  .showImageGeneral .space {
+    height: 100px; }
+  .showImageGeneral .fixedUpCenter {
+    position: fixed;
+    top: 10px;
+    left: 42%; }
+  .showImageGeneral .fixedUpLeft {
+    position: fixed;
+    top: 10px;
+    left: 10px; }
+  .showImageGeneral .fixedUpRight {
+    position: fixed;
+    top: 10px;
+    right: 10px; }
+  .showImageGeneral .fixedUpCenter {
+    position: fixed;
+    top: 10px;
+    right: 700px; }
+
+/*# sourceMappingURL=showOneImage.css.map */

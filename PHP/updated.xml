@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml>
+<general>
+	<verbosity v="2"/>
+</general>
+
+<analysis_base>
+	<enable_mimito v="1"/>
+	<enable_scint v="0"/>
+	<enable_mcp v="1"/>
+	<enable_hdmcp v="0"/>
+	<enable_pmt v="1"/>
+	<enable_farcup v="1"/>
+</analysis_base>
+</xml>
