@@ -1,6 +1,34 @@
 //when jquery is loaded and document is ready (we can't do nothing before): 
 $( document ).ready(function() {
 
+    $( function() {
+        var dateFormat = "mm/dd/yy",
+        from = $( "#from" ).datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                numberOfMonths: 3
+            }).on( "change", function() {
+                to.datepicker( "option", "minDate", getDate( this ) );
+            }),
+        to = $( "#to" ).datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                numberOfMonths: 3
+            }).on( "change", function() {
+                from.datepicker( "option", "maxDate", getDate( this ) );
+            });
+
+        function getDate( element ) {
+            var date;
+            try {
+                date = $.datepicker.parseDate( dateFormat, element.value );
+            } catch( error ) {
+                date = null;
+            }
+            return date;
+        }
+    });
+
     //to use the tooltip we have to initialize it here
     $('[data-toggle="tooltip"]').tooltip();
 
@@ -34,6 +62,21 @@ function readCleanRun()
     //also with comma and '-' and point
     insertedRun = insertedRun.replace(new RegExp("-", "g"), ";");
     return insertedRun;
+}
+
+function selectDate( thisDate )
+{
+    var dates = $( "#allDates" ).text();
+    var dates = dates.split( ";-;" );
+    //var rex = /\S/;
+    //dates = dates.filter(rex.test.bind(rex));
+    //alert(dates[0]);
+    for( var i = 0; i < dates.length ; i++)
+    {
+        $( "#run" + i ).hide();    
+    }
+    $( "#run" + thisDate ).show();
+    //alert($("#run"+thisDate);
 }
 
 //divide the string by semi-colon, point, comma (all accepted divisors), check if the chucks are numbers

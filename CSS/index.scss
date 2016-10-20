@@ -29,11 +29,16 @@
     }
     .moveDown
     {
-        margin-top: 82px;
+        margin-top: 25px;
     }
     .scrollable
     {
        //height: 100px;
        overflow-y: scroll;
+    }
+    .logBlock
+    {
+        height: 100px;
+        max-height: 100px;
     }
 }

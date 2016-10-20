@@ -5,8 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <script src="JS/jquery.js"></script>
+        <script src="jqueryUI/jquery-ui.js"></script>
         <script src="JS/index.js"></script>
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="jqueryUI/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+          <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
         <link href="CSS/index.css" rel="stylesheet" media="screen">
         <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
         <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -146,17 +149,23 @@
             </div>
         </div>    
         <div class="col-xs-6 moveDown">
+            <p>Chose the date around which to search: <input type="text" id="datepicker"></p>
             <pre class="scrollable">
                 <?php
-                    echo "<p>"; 
                     $url = "http://localhost/test-interChangeble/gAn-webIUM/dataLog.php";
                     $rawText = readText( $url );
                     $chunks = splitText( $rawText );
-                    echo count( $chunks );
-                    writeChunks( $chunks );
+                    //echo count( $chunks );
                     $dates = getDates( $chunks );
-                    //print_r( $dates );
+                    //writeChunks( $chunks );
+                    echo "<p>"; 
+                    echo "<nav aria-label='...'>";
+                    echo "<ul class='pagination'>";
+                    writeDates( $dates );
+                    echo "</ul>";
+                    echo "</nav>";
                     echo "</p>";
+                    writeChunks( $chunks );
                 ?>
             </pre>                    
         <div>    

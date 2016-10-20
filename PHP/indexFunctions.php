@@ -55,11 +55,34 @@ function writeOneChunk( $text )
 	}
 }
 
+function writeDates( $dates )
+{
+	//first I write all the dates in an hidden space to let javascript see them
+	echo "<p id='allDates' hidden>";
+	for( $i = 0 ; $i < count( $dates ) ; $i++ )
+	{
+		echo $dates[$i] . ";-;";
+	}
+	echo "</p>";
+	//after I prepare the navbar that show the dates and allows the users to select them
+	for( $i = 0 ; $i < count( $dates ) ; $i++ )
+	{
+		if( $i == 0 )
+		{
+			echo "<li onclick='selectDate(" . $i .")'><a href='#'>" . $dates[ $i ] . "</a></li>";
+   		}
+   		else
+   		{
+   			echo "<li onclick='selectDate(" . $i .")'><a href='#'>" . $dates[ $i ] . "</a></li>";
+   		}
+	}
+}
+
 function writeChunks( $chunks )
 {
 	for ( $i = 0 ; $i < count( $chunks ) ; $i++ )
 	{
-		echo "<p id = 'run" . $i . "' >";
+		echo "<p class = 'logBlock' hidden id = 'run" . $i . "' >";
 		writeOneChunk( $chunks[ $i ] );
 		//echo $chunks[ $i ]; 
 		echo "</p>";
@@ -71,7 +94,7 @@ function getDates( $chunks )
 	$results = [];
 	for ( $i = 0 ; $i < count( $chunks ) ; $i++ )
 	{
-		$token = substr( $chunks[ $i ] , 0 , 9 );
+		$token = substr( $chunks[ $i ] , 0 , 10 );
 		array_push( $results , $token );
 	}	
 	return $results;
