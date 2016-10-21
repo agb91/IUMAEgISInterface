@@ -6,9 +6,13 @@
     {
         .logoImage
         {
-            width: 100%;
-            max-width: 575px; //retina compatible
-            max-height: 155px; //retina compatible
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: 110px;
+            width: auto;
+            //max-width: 575px; //retina compatible
+            //max-height: 155px; //retina compatible
         }
     }
     padding: 20px;
@@ -27,6 +31,14 @@
         top: 10px;
         right: 10px;
     }
+    .releaseAegis
+    {
+        margin-top: 120px;
+    }
+    .moveUp
+    {
+        margin-top: -45px;
+    }
     .moveDown
     {
         margin-top: 25px;
@@ -38,7 +50,7 @@
     }
     .logBlock
     {
-        height: 350px;
-        max-height: 350px;
+        height: 270px;
+        max-height: 270px;
     }
 }

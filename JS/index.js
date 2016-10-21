@@ -1,32 +1,5 @@
 //when jquery is loaded and document is ready (we can't do nothing before): 
 $( document ).ready(function() {
-/*    $( function() {
-        var dateFormat = "mm/dd/yy",
-        from = $( "#from" ).datepicker({
-                defaultDate: "+1w",
-                changeMonth: true,
-                numberOfMonths: 3
-            }).on( "change", function() {
-                to.datepicker( "option", "minDate", getDate( this ) );
-            }),
-        to = $( "#to" ).datepicker({
-                defaultDate: "+1w",
-                changeMonth: true,
-                numberOfMonths: 3
-            }).on( "change", function() {
-                from.datepicker( "option", "maxDate", getDate( this ) );
-            });
-
-        function getDate( element ) {
-            var date;
-            try {
-                date = $.datepicker.parseDate( dateFormat, element.value );
-            } catch( error ) {
-                date = null;
-            }
-            return date;
-        }
-    });*/
     $( "#datepicker" ).datepicker();
 
     //to use the tooltip we have to initialize it here
@@ -53,6 +26,12 @@ $( document ).ready(function() {
         validate();
     });
 });
+
+//select if you want to work with single or multiple runs
+function selectSingleVsMultiple( n )
+{
+    alert("you choose " + n);
+}
 
 //it is a good idea if we standardize comma and '-' with semicolon
 function readCleanRun()

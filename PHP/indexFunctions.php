@@ -57,6 +57,7 @@ function writeOneChunk( $text )
 
 function writeDates( $dates )
 {
+    echo "<ul class='nav nav-tabs moveUp'>";
 	//first I write all the dates in an hidden space to let javascript see them
 	echo "<p id='allDates' hidden>";
 	for( $i = 0 ; $i < count( $dates ) ; $i++ )
@@ -67,17 +68,25 @@ function writeDates( $dates )
 	//after I prepare the navbar that show the dates and allows the users to select them
 	for( $i = 0 ; $i < count( $dates ) ; $i++ )
 	{
-		if( $i == 0 )
-		{
-			echo "<li onclick='selectDate(" . $i .")' class='active'><a href='#''> " . $dates[ $i ] .  "</a></li>" ;
-			//echo "<li onclick='selectDate(" . $i .")'><a href='#'>" . $dates[ $i ] . "</a></li>";
-   		}
-   		else
-   		{
-   			echo "<li onclick='selectDate(" . $i .")' class='active'><a href='#''> " . $dates[ $i ] .  "</a></li>" ;
-			//echo "<li onclick='selectDate(" . $i .")'><a href='#'>" . $dates[ $i ] . "</a></li>";
-   		}
+		echo "<li onclick='selectDate(" . $i .")' class='active'><a href='#''> " . $dates[ $i ] .  "</a></li>" ;
 	}
+	echo "</ul>";
+                    
+}
+
+function writeInitialOptions()
+{
+	echo "<nav class='navbar navbar-default'>";
+    echo "<div class='container-fluid'>";
+    echo "<div class='navbar-header'>";
+    echo "<a class='navbar-brand' href='#'>WebSiteName</a>";
+    echo "</div>";
+    echo "<ul class='nav navbar-nav'>";
+    echo "<li onclick='selectSingleVsMultiple(0)'><a href='#''>Work with a Single Run</a></li>";
+    echo "<li onclick='selectSingleVsMultiple(1)'><a href='#''>Work with Multiple Runs</a></li>";
+    echo "</ul>";
+    echo "</div>";
+    echo "</nav>";
 }
 
 function writeChunks( $chunks )
