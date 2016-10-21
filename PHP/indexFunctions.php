@@ -69,11 +69,13 @@ function writeDates( $dates )
 	{
 		if( $i == 0 )
 		{
-			echo "<li onclick='selectDate(" . $i .")'><a href='#'>" . $dates[ $i ] . "</a></li>";
+			echo "<li onclick='selectDate(" . $i .")' class='active'><a href='#''> " . $dates[ $i ] .  "</a></li>" ;
+			//echo "<li onclick='selectDate(" . $i .")'><a href='#'>" . $dates[ $i ] . "</a></li>";
    		}
    		else
    		{
-   			echo "<li onclick='selectDate(" . $i .")'><a href='#'>" . $dates[ $i ] . "</a></li>";
+   			echo "<li onclick='selectDate(" . $i .")' class='active'><a href='#''> " . $dates[ $i ] .  "</a></li>" ;
+			//echo "<li onclick='selectDate(" . $i .")'><a href='#'>" . $dates[ $i ] . "</a></li>";
    		}
 	}
 }

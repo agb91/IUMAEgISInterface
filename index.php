@@ -35,7 +35,6 @@
             <div class="row"><!-- run row -->
                 <h3> Choose a run. Last existing run: 
                     <?php
-
                         include "PHP/indexFunctions.php";
                         include "Globals.php";
                         include "PHP/genericFunctions.php";
@@ -148,6 +147,7 @@
                 </form>
             </div>
         </div>    
+        
         <div class="col-xs-6 moveDown">
             <p>Chose the date around which to search: <input type="text" id="datepicker"></p>
             <pre class="scrollable">
@@ -155,17 +155,15 @@
                     $url = "http://localhost/test-interChangeble/gAn-webIUM/dataLog.php";
                     $rawText = readText( $url );
                     $chunks = splitText( $rawText );
-                    //echo count( $chunks );
                     $dates = getDates( $chunks );
-                    //writeChunks( $chunks );
-                    echo "<p>"; 
-                    echo "<nav aria-label='...'>";
-                    echo "<ul class='pagination'>";
+                    echo "<div class='container logBlock'>";
+                    echo "<ul class='nav nav-tabs'>";
                     writeDates( $dates );
                     echo "</ul>";
-                    echo "</nav>";
-                    echo "</p>";
+                    echo "<p>";
                     writeChunks( $chunks );
+                    echo "</p>"; 
+                    echo "<div>";
                 ?>
             </pre>                    
         <div>    

@@ -1,7 +1,6 @@
 //when jquery is loaded and document is ready (we can't do nothing before): 
 $( document ).ready(function() {
-
-    $( function() {
+/*    $( function() {
         var dateFormat = "mm/dd/yy",
         from = $( "#from" ).datepicker({
                 defaultDate: "+1w",
@@ -27,7 +26,8 @@ $( document ).ready(function() {
             }
             return date;
         }
-    });
+    });*/
+    $( "#datepicker" ).datepicker();
 
     //to use the tooltip we have to initialize it here
     $('[data-toggle="tooltip"]').tooltip();

@@ -27,7 +27,7 @@ and open the template in the editor.
   .indexGeneral .scrollable {
     overflow-y: scroll; }
   .indexGeneral .logBlock {
-    height: 100px;
-    max-height: 100px; }
+    height: 350px;
+    max-height: 350px; }
 
 /*# sourceMappingURL=index.css.map */
