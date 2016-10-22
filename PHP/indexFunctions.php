@@ -68,7 +68,7 @@ function writeDates( $dates )
 	//after I prepare the navbar that show the dates and allows the users to select them
 	for( $i = 0 ; $i < count( $dates ) ; $i++ )
 	{
-		echo "<li onclick='selectDate(" . $i .")' class='active'><a href='#''> " . $dates[ $i ] .  "</a></li>" ;
+		echo "<li onclick='selectDate(" . $i .")' ><a id='link" . $i ."' onclick='setGreen(" . $i .")' class='white' href='#''> " . $dates[ $i ] .  "</a></li>" ;
 	}
 	echo "</ul>";
                     
@@ -96,13 +96,8 @@ function writeInitialOptions()
     echo "<div hidden id='changeModality' class='row' >";
     echo "<div class='col-xs-4'></div>";
 	echo "<div class='col-xs-4'>";
-	echo "<nav class='navbar navbar-default'>";
-    echo "<div class='container-fluid'>";
-    echo "<ul class='nav navbar-nav'>";
-    echo "<li onclick='changeModality'><a class='blackText' href='#''>Change Modality (single vs multiple run)</a></li>";
-    echo "</ul>";
-    echo "</div>";
-    echo "</nav>";
+	echo "<button id='nowSingle' class='btn btn-primary center' onclick='changeModality()'>Now Modality is \"Single Run\", CHANGE</button>";
+  	echo "<button id='nowMultiple' class='btn btn-primary center' onclick='changeModality()<'>Now Modality is \"Multiple Runs\", CHANGE</button>";
     echo "</div>";
     echo "<div class='col-xs-4'></div>";
     echo "</div>";

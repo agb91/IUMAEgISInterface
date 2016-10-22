@@ -17,6 +17,28 @@
     }
     padding: 20px;
     background-color: $general-background;
+    .center
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .white
+    {
+        background: white;
+        &:hover 
+        {
+            background: $active-button;
+        }
+    }
+    .green
+    {
+        background: $active-button;
+        &:focus
+        {
+            background: $active-button;
+        }
+    }
     .full
     {
         width: 100%;

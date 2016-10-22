@@ -48,7 +48,37 @@ function selectSingleVsMultiple( n )
     }*/
     $( "#chooseModality" ).hide();
     $( "#changeModality" ).show();
+    if( n == 0)//and the other red
+    {
+        $( "#nowSingle" ).show();
+        $( "#nowMultiple" ).hide();    
+    }
+    else
+    {
+        
+        $( "#nowMultiple" ).show();
+        $( "#nowSingle" ).hide();
+    }
     showOtherObject();    
+}
+
+function setGreen(n)
+{
+    var dates = $( "#allDates" ).text();
+    var dates = dates.split( ";-;" );
+    for( var i = 0; i < dates.length ; i++)
+    {
+        //alert("#link" + i);
+        $( "#link" + i ).toggleClass( "green" , false );
+        $( "#link" + i ).addClass("white");
+    }
+    $( "#link" + n ).toggleClass( "white" , false );
+    $( "#link" + n ).addClass("green");
+}
+
+function changeModality()
+{
+    location.reload();//simple reload the page and re-propose the choice
 }
 
 //show all the rest of the page

@@ -16,6 +16,18 @@ and open the template in the editor.
     margin-right: auto;
     height: 110px;
     width: auto; }
+  .indexGeneral .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .indexGeneral .white {
+    background: white; }
+    .indexGeneral .white:hover {
+      background: greenyellow; }
+  .indexGeneral .green {
+    background: greenyellow; }
+    .indexGeneral .green:focus {
+      background: greenyellow; }
   .indexGeneral .full {
     width: 100%; }
   .indexGeneral .half {
