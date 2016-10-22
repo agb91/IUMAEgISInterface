@@ -17,6 +17,20 @@
     }
     padding: 20px;
     background-color: $general-background;
+    .full
+    {
+        width: 100%;
+    }
+    .half
+    {
+        width: 50%;
+    }
+    .greenWell
+    {
+        &:hover {
+            background: $active-button;
+        }        
+    }
     .green
     {
         background-color: $active-button;
@@ -24,6 +38,10 @@
     .red
     {
         background-color: $disabled-button;
+    }
+    .blackText 
+    {
+        color: black;
     } 
     .fixedTopRight
     {

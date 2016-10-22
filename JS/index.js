@@ -30,7 +30,31 @@ $( document ).ready(function() {
 //select if you want to work with single or multiple runs
 function selectSingleVsMultiple( n )
 {
-    alert("you choose " + n);
+    //alert("you choose " + n);
+    //toggle previous classes
+    /*$( "#choice0" ).toggleClass( "redWell" , false );
+    $( "#choice1" ).toggleClass( "redWell" , false );
+    $( "#choice0" ).toggleClass( "greenWell" , false );
+    $( "#choice1" ).toggleClass( "greenWell" , false );
+
+    $( "#choice" + n ).addClass( "greenWell" );// set the chosen button green
+    if( n == 0)//and the other red
+    {
+        $( "#choice1" ).addClass( "redWell" );    
+    }
+    else
+    {
+        $( "#choice0" ).addClass( "redWell" );   
+    }*/
+    $( "#chooseModality" ).hide();
+    $( "#changeModality" ).show();
+    showOtherObject();    
+}
+
+//show all the rest of the page
+function showOtherObject()
+{
+    $( "#workBlock" ).show();
 }
 
 //it is a good idea if we standardize comma and '-' with semicolon

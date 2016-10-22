@@ -76,17 +76,36 @@ function writeDates( $dates )
 
 function writeInitialOptions()
 {
+	//the row that asks the user what modality (single vs multiple run) he prefers
+	echo "<div id='chooseModality' class='row'>";
+	echo "<div class='col-xs-4'></div>";
+	echo "<div class='col-xs-4'>";
+	//echo "<nav class='navbar navbar-default'>";
+    //echo "<div class='container-fluid'>";
+    echo "<ul class='nav navbar-nav full'>";
+    echo "<li id='choice0' class='well well-sm greenWell half' onclick='selectSingleVsMultiple(0)'><div class='blackText'>Work with a Single Run</div></li>";
+    echo "<li id='choice1' class='well well-sm greenWell half' onclick='selectSingleVsMultiple(1)'><div class='blackText'>Work with Multiple Runs</div></li>";
+    echo "</ul>";
+    //echo "</div>";
+    //echo "</nav>";
+    echo "</div>";
+    echo "<div class='col-xs-4'></div>";
+    echo "</div>";
+
+    // the rows that allows the user to change modality (single vs multiple run)
+    echo "<div hidden id='changeModality' class='row' >";
+    echo "<div class='col-xs-4'></div>";
+	echo "<div class='col-xs-4'>";
 	echo "<nav class='navbar navbar-default'>";
     echo "<div class='container-fluid'>";
-    echo "<div class='navbar-header'>";
-    echo "<a class='navbar-brand' href='#'>WebSiteName</a>";
-    echo "</div>";
     echo "<ul class='nav navbar-nav'>";
-    echo "<li onclick='selectSingleVsMultiple(0)'><a href='#''>Work with a Single Run</a></li>";
-    echo "<li onclick='selectSingleVsMultiple(1)'><a href='#''>Work with Multiple Runs</a></li>";
+    echo "<li onclick='changeModality'><a class='blackText' href='#''>Change Modality (single vs multiple run)</a></li>";
     echo "</ul>";
     echo "</div>";
     echo "</nav>";
+    echo "</div>";
+    echo "<div class='col-xs-4'></div>";
+    echo "</div>";
 }
 
 function writeChunks( $chunks )

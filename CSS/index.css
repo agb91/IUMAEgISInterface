@@ -16,10 +16,18 @@ and open the template in the editor.
     margin-right: auto;
     height: 110px;
     width: auto; }
+  .indexGeneral .full {
+    width: 100%; }
+  .indexGeneral .half {
+    width: 50%; }
+  .indexGeneral .greenWell:hover {
+    background: greenyellow; }
   .indexGeneral .green {
     background-color: greenyellow; }
   .indexGeneral .red {
     background-color: red; }
+  .indexGeneral .blackText {
+    color: black; }
   .indexGeneral .fixedTopRight {
     position: fixed;
     top: 10px;
