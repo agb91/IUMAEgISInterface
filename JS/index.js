@@ -83,6 +83,12 @@ function readCleanRun()
     insertedRun = insertedRun.replace(new RegExp(",", "g"), ";");// we want to allow the user to separate the run numbers 
     //also with comma and '-' and point
     insertedRun = insertedRun.replace(new RegExp("-", "g"), ";");
+    insertedRun = insertedRun.replace(new RegExp(" ", "g"), "");
+    if( insertedRun.substr( insertedRun.length - 1 ) == ";" )
+    {
+        insertedRun = insertedRun.substr( 0 , insertedRun.length - 1 );
+    }
+    //alert( insertedRun + "---");
     return insertedRun;
 }
 
@@ -111,7 +117,7 @@ function validate()
     var noNumeric = 0;
     for (i in insertedArray) {
         insertedArray[i] = insertedArray[i].trim();
-        if(acceptable(insertedArray[i])==1)
+        if ( acceptable ( insertedArray[ i ] ) == 1 )
         {
             noNumeric++;
         }
@@ -266,7 +272,7 @@ function acceptable(r)
     //alert(r);
     //console.log(r);
     var risp = 1;
-    if($.isNumeric(r))
+    if($.isNumeric(r) )
     {  
         risp = 0;
     }
