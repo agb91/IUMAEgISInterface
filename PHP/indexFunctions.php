@@ -111,7 +111,7 @@ function writeInitialOptions()
     echo "<div class='col-xs-4'></div>";
 	echo "<div class='col-xs-4'>";
 	echo "<button id='nowSingle' class='btn btn-primary center' onclick='changeModality()'>Now Modality is \"Single Run\", CHANGE</button>";
-  	echo "<button id='nowMultiple' class='btn btn-primary center' onclick='changeModality()<'>Now Modality is \"Multiple Runs\", CHANGE</button>";
+  	echo "<button id='nowMultiple' class='btn btn-primary center' onclick='changeModality()'>Now Modality is \"Multiple Runs\", CHANGE</button>";
     echo "</div>";
     echo "<div class='col-xs-4'></div>";
     echo "</div>";
@@ -137,6 +137,36 @@ function getDates( $chunks )
 		array_push( $results , $token );
 	}	
 	return $results;
+}
+
+function readAnalyzes( $allAnalyzesSingle )
+{
+	//echo "---" . $allAnalyzesSingle . "---";
+	$analyzes = scandir( $allAnalyzesSingle );
+	$cleanAnalyzes = [];
+	
+    echo "<div id='analyzes' hidden>";
+    for ( $i = 0 ; $i < count( $analyzes ) ; $i++ )
+	{
+		if ( substr( $analyzes[ $i ] , -2 ) == ".C")
+		{
+			$toAdd = $analyzes[ $i ];
+			$toAdd = substr( $toAdd , 0 , ( strlen( $toAdd ) - 2 ) );
+			array_push( $cleanAnalyzes , $toAdd );
+			echo $toAdd . "--";
+		}
+	}
+	echo "</div>";
+	echo "<div class='dropdown col-xs-12'>";
+	echo "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Existing Analysis Tools:";
+    echo "<span class='caret'></span></button>";
+    echo "<ul class='dropdown-menu'>";
+    for ( $i = 0 ; $i < count( $cleanAnalyzes ) ; $i++ )
+	{
+		echo "<li><a href='#' onclick='setAnalysis(" . $i . ")'>" . $cleanAnalyzes[ $i ] . "</a></li>";    
+	}
+    echo "</ul>";
+    echo "</div>"; 
 }
 
 ?>

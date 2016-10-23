@@ -35,22 +35,6 @@ $( document ).ready(function() {
 //select if you want to work with single or multiple runs
 function selectSingleVsMultiple( n )
 {
-    //alert("you choose " + n);
-    //toggle previous classes
-    /*$( "#choice0" ).toggleClass( "redWell" , false );
-    $( "#choice1" ).toggleClass( "redWell" , false );
-    $( "#choice0" ).toggleClass( "greenWell" , false );
-    $( "#choice1" ).toggleClass( "greenWell" , false );
-
-    $( "#choice" + n ).addClass( "greenWell" );// set the chosen button green
-    if( n == 0)//and the other red
-    {
-        $( "#choice1" ).addClass( "redWell" );    
-    }
-    else
-    {
-        $( "#choice0" ).addClass( "redWell" );   
-    }*/
     $( "#chooseModality" ).hide();
     $( "#changeModality" ).show();
     if( n == 0)//and the other red
@@ -150,25 +134,9 @@ function validate()
         $("#warningRunNumber").hide();
     }
 }
-/*
-function wait(ms){
-   var start = new Date().getTime();
-   var end = start;
-   while(end < start + ms) {
-     end = new Date().getTime();
-  }
-}
 
-function moveBar(newPoint)
-{
-    console.log("alive: ", newPoint);
-}*/
-    
-/*
- * do something in the seconds in that the program is loading
- */
 function manageWait() {
-     w = document.getElementById("wait");
+    w = document.getElementById("wait");
     w.style.display = 'block';//show the label with "wait until...."
 }
 
@@ -282,13 +250,13 @@ function addRange()
             }
         }
     }
-
-    //console.log("f: " + first);
-    //console.log("l: " + last);
-
-
-   
     $("#modalCloseRange").click();//exit the modal, return to home.
+    validate(); // recheck the send button (is the input acceptable?)
+}
+
+function setAnalysis( n )
+{
+    alert(n);
 }
 
 //has this run number some problems? (not unique, not a number, not empty)
@@ -298,7 +266,7 @@ function acceptable(r)
     //alert(r);
     //console.log(r);
     var risp = 1;
-    if($.isNumeric(r) || r.length==0)
+    if($.isNumeric(r))
     {  
         risp = 0;
     }

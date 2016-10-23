@@ -16,8 +16,7 @@ $rootPathFile = "/opt/lampp/htdocs/test-interChangeble/gAn-web/rootPath.txt"; //
 $allRoots = "/home/andrea/Downloads/";
 $gAnPathFile = "/opt/lampp/htdocs/test-interChangeble/gAn-web/gAnPath.txt";
 $gAnChose = "/opt/lampp/htdocs/Tesi/gAn/";
-//$dirRawFiles = "/opt/lampp/htdocs/Tesi/gAn/gAn-dev/data/";
-//$imagesPath = "gAn/output/";
+$allAnalyzesSingle = "/opt/lampp/htdocs/test-interChangeble/gAn-NEWWAY/analyses/single_run";
 
 static $groups = array();
 

@@ -49,21 +49,11 @@
                                     include "Globals.php";
                                     include "PHP/genericFunctions.php";
                                     $whichgAn = fileReaderGeneral($gAnPathFile);
-                                    //echo $whichgAn . "<br>"; 
-                                    //echo $sourceRootPathNew . "<br>";
-
                                     if( isgAnSafe($whichgAn) == 1 )
                                     {
                                         $whichgAn = "gAn-dev";
-                                        //echo "I return to the standard gAn path...";
                                     }
-                                    //echo "dirRaw before :" . $dirRawFiles;
-                                    //$dirRawFiles = "/opt/lampp/htdocs/Tesi/gAn/gAn-dev/data/";
-                                    //echo "dirRaw after: " . $dirRawFiles;
                                     lastRun($dirRawFiles);
-                                    //echo "<div hidden id='rootPath'>";
-                                    //echo $sourceRootPath;
-                                    //echo "</div>"; 
                                 ?>
                             </h3>
                         </div>
@@ -75,20 +65,25 @@
                                 </div>
                             </div>    
                             <div class="row">
-                                <div class="col-xs-8" >
+                                <div class="col-xs-2">
+                                    <h4 id="thisgAn">
+                                        <?php
+                                            echo '<div title="You can change it by the \'Other Configurations\' button " class="fixedTopRight well"> You are using: ' . $whichgAn . '</div>';
+                                        ?>
+                                    </h4>
+                                </div>   
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6" >
                                     <input type="text" id="whichRun" name="whichRun" class="form-control" placeholder="example: 30000; 30001; 30003">
                                 </div>
+                                <div class="col-xs-4">
+                                    <?php readAnalyzes( $allAnalyzesSingle ); ?>
+                                </div> 
                                 <div class="col-xs-2">
                                     <button id="sendRunButton" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait()" type="submit" class="red btn btn-secondary"> Send </button>
                                 </div>
                                 <div class="col-xs-2">
-                                    <h4 id="thisgAn">
-                                        <?php
-                                            echo '<div title="You can change it by the button chose gAn Branch" class="fixedTopRight well"> You are using: ' . $whichgAn . '</div>';
-                                        ?>
-                                    </h4>
-                                </div>
-                                <div class="col-xs-4">
                                     <h4 id="warningRunNumber">
                                         <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Only numbers </div>
                                     </h4>
@@ -143,15 +138,16 @@
                         </div>    
                         <br><br>
 
-                        <div>
+                        <!-- TODO you must decide what to do with these buttons (choose gAn and choose root)-->
+                        <div hidden>
                             <form>
                                 <input type="button" data-toggle="tooltip" title="Change the path to the thisroot.sh file needed to identify the correct Root intallation (you have to chose between existing Root installations)" class="btn btn-primary" value="Chose Root Version" onclick="window.location.href='editRootPath.php'" />
                             </form>
                         </div> 
 
                         <br><br> 
-
-                        <div>
+                        <!-- TODO you must decide what to do with these buttons (choose gAn and choose root)-->
+                        <div hidden>
                             <form>
                                 <input type="button" data-toggle="tooltip" title="Chose which branch of gAn do you want to use" class="btn btn-primary" value="Chose gAn branch" onclick="window.location.href='editgAnBranch.php'" />
                             </form>
