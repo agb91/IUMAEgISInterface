@@ -58,7 +58,7 @@
                                         //echo "I return to the standard gAn path...";
                                     }
                                     //echo "dirRaw before :" . $dirRawFiles;
-                                    $dirRawFiles = "/opt/lampp/htdocs/Tesi/gAn/gAn-dev/data/";
+                                    //$dirRawFiles = "/opt/lampp/htdocs/Tesi/gAn/gAn-dev/data/";
                                     //echo "dirRaw after: " . $dirRawFiles;
                                     lastRun($dirRawFiles);
                                     //echo "<div hidden id='rootPath'>";

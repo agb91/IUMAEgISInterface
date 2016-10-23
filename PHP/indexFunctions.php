@@ -1,6 +1,6 @@
 <?php
 
-function lastRun($dirRawFiles)
+function findLastRunAndTime($dirRawFiles)
 {
 	$rawFiles = glob($dirRawFiles . "run_" ."*.*");
 	//echo count($rawFiles);
@@ -24,8 +24,22 @@ function lastRun($dirRawFiles)
 			$lastTime = $timeChunck;
 		}
 	}
-	echo $lastNow; //and I write it
-	echo ", from: " . $lastTime;
+	return $lastNow . "-" . $lastTime;
+}
+
+function getLastTime( $dirRawFiles )
+{
+	$dataLast = findLastRunAndTime( $dirRawFiles );
+	$splittedDataLast = explode ( "-" , $dataLast );
+	return $splittedDataLast[ 1 ]; //and I write it
+}
+
+function lastRun( $dirRawFiles )
+{
+	$dataLast = findLastRunAndTime( $dirRawFiles );
+	$splittedDataLast = explode ( "-" , $dataLast );
+	echo $splittedDataLast[ 0 ]; //and I write it
+	echo ", from: <text id = 'lastTime'>" . $splittedDataLast[ 1 ] . "</text>";
 }	
 
 function readText( $url )

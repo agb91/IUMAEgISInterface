@@ -1,6 +1,11 @@
 //when jquery is loaded and document is ready (we can't do nothing before): 
 $( document ).ready(function() {
     $( "#datepicker" ).datepicker();
+    lastDate = $( "#lastTime" ).text();
+    dd = lastDate.split( "/" )[0];
+    mm = lastDate.split( "/" )[1];
+    yy = lastDate.split( "/" )[2];
+    $( "#datepicker" ).datepicker( 'setDate' , mm + '/' + dd + "/" + yy );
 
     //to use the tooltip we have to initialize it here
     $('[data-toggle="tooltip"]').tooltip();
