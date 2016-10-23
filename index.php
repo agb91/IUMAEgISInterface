@@ -38,9 +38,9 @@
             ?>
         </div>
         <div hidden id="workBlock" >
-            <div id="single">
+            <div id="multiple"> Hello, one day I'll be a web page
             </div>
-            <div id="multiple">    
+            <div id="single">    
                 <div class="row">
                     <div class="col-xs-6">    
                         <div class="row"><!-- run row -->
@@ -173,6 +173,6 @@
                     <div>    
                 </div>     
             </div>       
-        </div>
+        </div>    
     </body>
 </html>

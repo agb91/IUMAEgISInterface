@@ -48,7 +48,7 @@ function selectSingleVsMultiple( n )
         $( "#nowMultiple" ).show();
         $( "#nowSingle" ).hide();
     }
-    showOtherObject();    
+    showOtherObject(n);    
 }
 
 function setGreen(n)
@@ -71,9 +71,22 @@ function changeModality()
 }
 
 //show all the rest of the page
-function showOtherObject()
+function showOtherObject( n )
 {
     $( "#workBlock" ).show();
+    if( n == 0)
+    {
+        $( "#multiple" ).hide();
+        $( "#single" ).show();
+        alert( "single" );  
+    }
+    else
+    {
+        $( "#multiple" ).show();
+        $( "#single" ).hide();
+        alert( "multiple" );    
+    }
+    
 }
 
 //it is a good idea if we standardize comma and '-' with semicolon
