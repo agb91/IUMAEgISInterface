@@ -40,29 +40,34 @@
         <div hidden id="workBlock" >
             <div class="row">
                 <div class="col-xs-6">
-                    <div id="multiple"> Hello, one day I'll be a web page
-                        <div class="col-xs-2">
-                            <button onclick="addRangeModal()" data-toggle="tooltip" title="Insert a list of runs selecting the first and the last of the list" type="submit" class="moveAdder btn btn-secondary"> Add runs by range</button>
+                    <div id="multiple"> 
+                        <div class="row">
+                            Hello, one day I'll be a web page
                         </div>
-                        <div class="modal fade" id="addRangeModal" role="dialog">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" id="modalCloseRange">&times;</button>
-                                        <h4><span class="glyphicon"></span> Add runs by range </h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label for="newRun"><span class="glyphicon"></span> First run </label>
-                                            <input type="text" class="form-control" id="first"></input>
-                                            <label for="newRun"><span class="glyphicon"></span> Last run </label>
-                                            <input type="text" class="form-control" id="last"></input>
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <button onclick="addRangeModal()" data-toggle="tooltip" title="Insert a list of runs selecting the first and the last of the list" type="submit" class="moveAdder btn btn-secondary"> Add runs by range</button>
+                            </div>
+                            <div class="modal fade" id="addRangeModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" id="modalCloseRange">&times;</button>
+                                            <h4><span class="glyphicon"></span> Add runs by range </h4>
                                         </div>
-                                        <button class="btn btn-default btn-success btn-block" onclick="addRange()"> Add </button>
-                                    </div>
-                                </div>    
-                            </div>   
-                        </div>            
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="newRun"><span class="glyphicon"></span> First run </label>
+                                                <input type="text" class="form-control" id="first"></input>
+                                                <label for="newRun"><span class="glyphicon"></span> Last run </label>
+                                                <input type="text" class="form-control" id="last"></input>
+                                            </div>
+                                            <button class="btn btn-default btn-success btn-block" onclick="addRange()"> Add </button>
+                                        </div>
+                                    </div>    
+                                </div>   
+                            </div>
+                        </div>                
                     </div>
                     <div id="single">    
                         <div class="col-xs-12">    
