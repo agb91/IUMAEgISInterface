@@ -2,7 +2,6 @@
 $( document ).ready(function() {
     $( "#datepickerSingle" ).datepicker();
     lastDate = $( "#lastTimeSingle" ).text();
-    alert( lastDate );
     dd = lastDate.split( "/" )[0];
     mm = lastDate.split( "/" )[1];
     yy = lastDate.split( "/" )[2];
