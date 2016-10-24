@@ -34,12 +34,20 @@ function getLastTime( $dirRawFiles )
 	return $splittedDataLast[ 1 ]; //and I write it
 }
 
-function lastRun( $dirRawFiles )
+function lastRun( $dirRawFiles , $n)
 {
 	$dataLast = findLastRunAndTime( $dirRawFiles );
 	$splittedDataLast = explode ( "-" , $dataLast );
 	echo $splittedDataLast[ 0 ]; //and I write it
-	echo ", from: <text id = 'lastTime'>" . $splittedDataLast[ 1 ] . "</text>";
+	if( $n == 0)
+	{
+		echo ", from: <text id = 'lastTimeSingle'>" . $splittedDataLast[ 1 ] . "</text>";	
+	}
+	else
+	{
+		echo ", from: <text id = 'lastTimeMultiple'>" . $splittedDataLast[ 1 ] . "</text>";	
+	}
+	
 }	
 
 function readText( $url )

@@ -1,34 +1,35 @@
 //when jquery is loaded and document is ready (we can't do nothing before): 
 $( document ).ready(function() {
-    $( "#datepicker" ).datepicker();
-    lastDate = $( "#lastTime" ).text();
+    $( "#datepickerSingle" ).datepicker();
+    lastDate = $( "#lastTimeSingle" ).text();
+    alert( lastDate );
     dd = lastDate.split( "/" )[0];
     mm = lastDate.split( "/" )[1];
     yy = lastDate.split( "/" )[2];
-    $( "#datepicker" ).datepicker( 'setDate' , mm + '/' + dd + "/" + yy );
+    $( "#datepickerSingle" ).datepicker( 'setDate' , mm + '/' + dd + "/" + yy );
 
     //to use the tooltip we have to initialize it here
     $('[data-toggle="tooltip"]').tooltip();
 
     //validate the inserted runs
     //first of all, disable the run-send-button (until the run number isn't correct)
-    $("#sendRunButton").prop("disabled",true);
-    $("#warningRunNumber").hide();
+    $("#sendRunButtonSingle").prop("disabled",true);
+    $("#warningRunNumberSingle").hide();
     //check if the run-number make sense, and at that moment unlock the send-run-button
-    validate();
+    validate( 0 );
 
-    $( "#whichRun" ).keyup(function() {//check every time the user uses the keyboard 
-        validate();
+    $( "#whichRunSingle" ).keyup(function() {//check every time the user uses the keyboard 
+        validate( 0 );
     });  
 
-    $( "#whichRun" ).click(function() {//check every time the user clicks with the mouse on the input form
-        validate();
+    $( "#whichRunSingle" ).click(function() {//check every time the user clicks with the mouse on the input form
+        validate( 0 );
     });  
 
-    $( "#whichRun" ).mouseover(function() {//check also only if the mouse pass on the input form
+    $( "#whichRunSingle" ).mouseover(function() {//check also only if the mouse pass on the input form
         //it make sense because if you insert by range when the form is empty this check and only this 
         // allows the green button 
-        validate();
+        validate( 0 );
     });
 });
 
@@ -57,7 +58,6 @@ function setGreen(n)
     var dates = dates.split( ";-;" );
     for( var i = 0; i < dates.length ; i++)
     {
-        //alert("#link" + i);
         $( "#link" + i ).toggleClass( "green" , false );
         $( "#link" + i ).addClass("white");
     }
@@ -78,21 +78,27 @@ function showOtherObject( n )
     {
         $( "#multiple" ).hide();
         $( "#single" ).show();
-        alert( "single" );  
     }
     else
     {
         $( "#multiple" ).show();
         $( "#single" ).hide();
-        alert( "multiple" );    
     }
     
 }
 
 //it is a good idea if we standardize comma and '-' with semicolon
-function readCleanRun()
+function readCleanRun( n )
 {
-    var insertedRun = $("#whichRun").val();
+    var insertedRun = "";
+    if( n == 0)
+    {
+        insertedRun = $("#whichRunSingle").val();
+    }
+    else
+    {
+        insertedRun = $("#whichRunMultiple").val();
+    }
     insertedRun = insertedRun.replace(new RegExp(",", "g"), ";");// we want to allow the user to separate the run numbers 
     //also with comma and '-' and point
     insertedRun = insertedRun.replace(new RegExp("-", "g"), ";");
@@ -121,49 +127,85 @@ function selectDate( thisDate )
 }
 
 //divide the string by semi-colon, point, comma (all accepted divisors), check if the chucks are numbers
-function validate() 
+function validate( n ) 
 {
-    var insertedRun = readCleanRun();
-    var insertedArray = insertedRun.split(";"); 
-    var singleRun;
-   
-    var noNumeric = 0;
-    for (i in insertedArray) {
-        insertedArray[i] = insertedArray[i].trim();
-        if ( acceptable ( insertedArray[ i ] ) == 1 )
-        {
-            noNumeric++;
-        }
-    }
-    //alert("not numeric objects: " + noNumeric);
-    if(noNumeric==0)
+    if( n == 0)
     {
-        $("#sendRunButton").prop("disabled",false);
-        $("#sendRunButton").removeClass( "red" ).addClass( "green" );
-        $("#warningRunNumber").hide();
+        var insertedRun = readCleanRun( 0 );
+        var insertedArray = insertedRun.split(";"); 
+        var singleRun;
+       
+        var noNumeric = 0;
+        for (i in insertedArray) {
+            insertedArray[i] = insertedArray[i].trim();
+            if ( acceptable ( insertedArray[ i ] ) == 1 )
+            {
+                noNumeric++;
+            }
+        }
+        //alert("not numeric objects: " + noNumeric);
+        if(noNumeric==0)
+        {
+            $("#sendRunButtonSingle").prop("disabled",false);
+            $("#sendRunButtonSingle").removeClass( "red" ).addClass( "green" );
+            $("#warningRunNumberSingle").hide();
+        }
+        else
+        {
+            $("#sendRunButtonSingle").prop("disabled",true);
+            $("#sendRunButtonSingle").removeClass( "green" ).addClass( "red" );
+            $("#warningRunNumberSingle").show();
+        }
+        if(insertedRun.length=="0")
+        {
+            $("#warningRunNumberSingle").hide();
+        }
+    }  
+    else
+    {
+        var insertedRun = readCleanRun( 1 );
+        var insertedArray = insertedRun.split(";"); 
+        var singleRun;
+
+        var noNumeric = 0;
+        for (i in insertedArray) {
+            insertedArray[i] = insertedArray[i].trim();
+            if ( acceptable ( insertedArray[ i ] ) == 1 )
+            {
+                noNumeric++;
+            }
+        }
+        //alert("not numeric objects: " + noNumeric);
+        if(noNumeric==0)
+        {
+            $("#sendRunButtonMultiple").prop("disabled",false);
+            $("#sendRunButtonMultiple").removeClass( "red" ).addClass( "green" );
+            $("#warningRunNumberMultiple").hide();
+        }
+        else
+        {
+            $("#sendRunButtonMultiple").prop("disabled",true);
+            $("#sendRunButtonMultiple").removeClass( "green" ).addClass( "red" );
+            $("#warningRunNumberMultiple").show();
+        }
+        if(insertedRun.length=="0")
+        {
+            $("#warningRunNumberMultiple").hide();
+        } 
+    }  
+}
+
+function manageWait( n ) {
+    if( n == 0)
+    {
+        w = document.getElementById("waitSingle");
+        w.style.display = 'block';//show the label with "wait until...."
     }
     else
     {
-        $("#sendRunButton").prop("disabled",true);
-        $("#sendRunButton").removeClass( "green" ).addClass( "red" );
-        $("#warningRunNumber").show();
+        w = document.getElementById("waitMultiple");
+        w.style.display = 'block';//show the label with "wait until...."
     }
-    if(insertedRun.length=="0")
-    {
-        $("#warningRunNumber").hide();
-    }
-}
-
-function manageWait() {
-    w = document.getElementById("wait");
-    w.style.display = 'block';//show the label with "wait until...."
-}
-
-/* 
- * open the modal that add a run through a prompt 
- */
-function addRun(){
-    $("#addRunModal").modal();
 }
 
 /*
@@ -184,56 +226,43 @@ function changeRootPath()
 }*/
 
 //check if there is another chunk with the same name, (double runs are useless)
-function checkAlreadyExist(needle)
+function checkAlreadyExist(needle , n)
 {
-    needle = " " + needle; //javascript wants a string or it will crash with the trim....
-    //alert("needle: " + needle);
-    haystack = $("#whichRun").val().split(";");
-    //alert("haystack: " + haystack);
-    var alreadyExist = false;
-    for (i in haystack) 
+    if( n == 0)
     {
-        //console.log("needle " + needle);
-        if(haystack[i].trim()==needle.trim())
+        needle = " " + needle; //javascript wants a string or it will crash with the trim....
+        //alert("needle: " + needle);
+        haystack = $("#whichRunSingle").val().split(";");
+        //alert("haystack: " + haystack);
+        var alreadyExist = false;
+        for (i in haystack) 
         {
-            alreadyExist = true;
+            //console.log("needle " + needle);
+            if(haystack[i].trim()==needle.trim())
+            {
+                alreadyExist = true;
+            }
         }
-    }
-    //alert("answer: " + alreadyExist);
-    return alreadyExist;
-}
-
-/* 
- * add the new run, written in the modal, in the input form 
- */
-function addNumber()
-{
-    var newNumber = $("#newRun").val().trim();
-    if(acceptable(newNumber)==0 && !checkAlreadyExist(newNumber))//if it is acceptable and unique
-    {            
-        old = $("#whichRun").val();    
-        if(old.length!==0)
-        {
-            var newNumber = old + "; " + newNumber;
-        }        
-        newNumber = newNumber.replace(";;", ";"); //avoid little (harmless) bugs related to 
-        //double semicolon 
-        $("#whichRun").val(newNumber);
+        return alreadyExist;
     }
     else
     {
-        if(checkAlreadyExist(newNumber))
+        needle = " " + needle; //javascript wants a string or it will crash with the trim....
+        //alert("needle: " + needle);
+        haystack = $("#whichRunMultiple").val().split(";");
+        //alert("haystack: " + haystack);
+        var alreadyExist = false;
+        for (i in haystack) 
         {
-            alert("This run number already exists");
+            //console.log("needle " + needle);
+            if(haystack[i].trim()==needle.trim())
+            {
+                alreadyExist = true;
+            }
         }
-        else
-        {
-            alert("Only numeric values admitted");
-        }
-    }   
-    $("#modalClose").click();//exit the modal, return to home.
+        return alreadyExist;
+    }
 }
-
 
 /*
 add the range of runs written in the modal to the input form
@@ -255,7 +284,7 @@ function addRange()
             if(acceptable(r)==0 && !checkAlreadyExist(r))
             {            
                 //console.log("thiscase");
-                old = $("#whichRun").val();    
+                old = $("#whichRunMultiple").val();    
                 if(old.length!==0)
                 {
                     var newNumber = old + "; " + r;
@@ -265,7 +294,7 @@ function addRange()
                     newNumber = r;
                 }  
                 newNumber = newNumber.replace(";;", ";"); 
-                $("#whichRun").val(newNumber);
+                $("#whichRunMultiple").val(newNumber);
             }
         }
     }
