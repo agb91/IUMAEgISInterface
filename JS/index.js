@@ -130,11 +130,16 @@ function validate( n )
 {
     if( n == 0)
     {
+
         var insertedRun = readCleanRun( 0 );
         var insertedArray = insertedRun.split(";"); 
         var singleRun;
        
         var noNumeric = 0;
+        if ( insertedArray.length > 1 )
+        {
+            noNumeric++;
+        }
         for (i in insertedArray) {
             insertedArray[i] = insertedArray[i].trim();
             if ( acceptable ( insertedArray[ i ] ) == 1 )
@@ -308,7 +313,7 @@ function setAnalysis( n )
 
 //has this run number some problems? (not unique, not a number, not empty)
 // 0=good;      1=bad
-function acceptable(r)
+function acceptable( r )
 {
     //alert(r);
     //console.log(r);
