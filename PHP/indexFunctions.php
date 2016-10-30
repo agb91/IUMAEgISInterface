@@ -175,7 +175,11 @@ function readAnalyzes( $allAnalyzesSingle )
 	}
     echo "</ul>";
     echo "</div>"; 
-    echo "<div name='whichAnalysisSingle' hidden id='selectedAnalysis'></div>";
+    echo "<p hidden>";
+    echo "<input type='text' id='selectedAnalysis' name='selectedAnalysis' class='form-control'>";
+    echo "</p>";
+    
+
 }
 
 ?>

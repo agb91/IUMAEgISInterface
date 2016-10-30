@@ -321,7 +321,7 @@ function setAnalysis( n )
     var analyzes = $("#analyzes").text();
     var analyzesVector = analyzes.split("--");
     var selectedAnalysis = analyzesVector[ n ];
-    $("#selectedAnalysis").text(selectedAnalysis);
+    $("#selectedAnalysis").val(selectedAnalysis);
     $("#buttonSelectAnalysis").text("Selected: " + selectedAnalysis);
     //alert(selectedAnalysis);
     validate( 0 );

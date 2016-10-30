@@ -29,7 +29,6 @@
                     include 'Globals.php';
                     $whichRun = $_POST["whichRun"];
                     $whichAnalysis = $_POST["whichAnalysisSingle"];
-                    echo "write here: " . $whichAnalysis;
                     echo "<button data-toggle='tooltip' title='Look at the images created by running gAn' onclick=\"window.location.href='images.php?runs=" . cleanRuns($whichRun) . "'\" type=\"button\" class=\"btn btn-primary btn-lg fixedTopRight \">";
                     echo "Look at the images";
                     echo "</button>";
