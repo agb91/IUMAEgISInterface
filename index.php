@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="col-xs-2">
                                         <h4 id="warningRunNumberSingle">
-                                            <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Only numbers </div>
+                                            <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert a correct run-number and select an analysis!</div>
                                         </h4>
                                     </div>
                                 </div>    

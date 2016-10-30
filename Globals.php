@@ -6,16 +6,17 @@
  */
 
 $iniFilePath = "/opt/lampp/htdocs/Tesi/gAn/gAn-updated/gUser.ini"; // path of the ini file
-//$iniFilePath = "/opt/lampp/htdocs/Tesi/gAn/gAn-updated/newXml.xml"; // path of the ini file
 $sourceRootPath = "/home/andrea/Downloads/buildRoot/bin/thisroot.sh"; //path of thisroot.sh
-$gAnPath = "/opt/lampp/htdocs/Tesi/gAn/gAn-dev/"; //path of gAn
+//$gAnPath = "/opt/lampp/htdocs/Tesi/gAn/gAn-dev/"; //path of gAn
+$gAnPath = "/opt/lampp/htdocs/test-interChangeble/gAn-NEWWAY"; //new path of gAn
 $imagesPath = "/opt/lampp/htdocs/Tesi/gAn/gAn-dev/output/"; // where are the images?
-$baseFolder = "/opt/lampp/htdocs/test-interChangeble/gAn-web"; //basic folder that includes the project
+//$baseFolder = "/opt/lampp/htdocs/test-interChangeble/gAn-web"; //basic folder that includes the project
+$baseFolder = "/opt/lampp/htdocs/test-interChangeble/gAn-webIUM"; //basic folder that includes the project
 $dirRawFiles = "/opt/lampp/htdocs/Tesi/gAn/gAn-dev/data/";
 $rootPathFile = "/opt/lampp/htdocs/test-interChangeble/gAn-web/rootPath.txt"; // here there is a file that containt the root path (to thisroot.sh)
 $allRoots = "/home/andrea/Downloads/";
 $gAnPathFile = "/opt/lampp/htdocs/test-interChangeble/gAn-web/gAnPath.txt";
-$gAnChose = "/opt/lampp/htdocs/Tesi/gAn/";
+$gAnChose = "/opt/lampp/htdocs/test-interChangeble/gAn-NEWWAY";
 $allAnalyzesSingle = "/opt/lampp/htdocs/test-interChangeble/gAn-NEWWAY/analyses/single_run";
 
 static $groups = array();

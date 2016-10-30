@@ -166,7 +166,7 @@ function readAnalyzes( $allAnalyzesSingle )
 	}
 	echo "</div>";
 	echo "<div class='dropdown col-xs-12'>";
-	echo "<button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Existing Analysis Tools:";
+	echo "<button id='buttonSelectAnalysis' class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select an Analysis Tools:";
     echo "<span class='caret'></span></button>";
     echo "<ul class='dropdown-menu'>";
     for ( $i = 0 ; $i < count( $cleanAnalyzes ) ; $i++ )
@@ -175,6 +175,7 @@ function readAnalyzes( $allAnalyzesSingle )
 	}
     echo "</ul>";
     echo "</div>"; 
+    echo "<div name='whichAnalysisSingle' hidden id='selectedAnalysis'></div>";
 }
 
 ?>

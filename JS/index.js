@@ -21,6 +21,10 @@ $( document ).ready(function() {
         validate( 0 );
     });  
 
+    $( "#buttonSelectAnalysis" ).click(function() {//check every time the user click this button
+        validate( 0 );
+    });
+    
     $( "#whichRunSingle" ).click(function() {//check every time the user clicks with the mouse on the input form
         validate( 0 );
     });  
@@ -135,20 +139,25 @@ function validate( n )
         var insertedArray = insertedRun.split(";"); 
         var singleRun;
        
-        var noNumeric = 0;
+        var problems = 0;
         if ( insertedArray.length > 1 )
         {
-            noNumeric++;
+            problems++;
+        }
+        //have you selected an analysis?
+        if( $("#buttonSelectAnalysis").text() == "Select an Analysis Tools:"  )
+        {
+            problems++;
         }
         for (i in insertedArray) {
             insertedArray[i] = insertedArray[i].trim();
             if ( acceptable ( insertedArray[ i ] ) == 1 )
             {
-                noNumeric++;
+                problems++;
             }
         }
         //alert("not numeric objects: " + noNumeric);
-        if(noNumeric==0)
+        if(problems==0)
         {
             $("#sendRunButtonSingle").prop("disabled",false);
             $("#sendRunButtonSingle").removeClass( "red" ).addClass( "green" );
@@ -306,9 +315,16 @@ function addRange()
     validate(); // recheck the send button (is the input acceptable?)
 }
 
+//write which analysis the user chooses 
 function setAnalysis( n )
 {
-    alert(n);
+    var analyzes = $("#analyzes").text();
+    var analyzesVector = analyzes.split("--");
+    var selectedAnalysis = analyzesVector[ n ];
+    $("#selectedAnalysis").text(selectedAnalysis);
+    $("#buttonSelectAnalysis").text("Selected: " + selectedAnalysis);
+    //alert(selectedAnalysis);
+    validate( 0 );
 }
 
 //has this run number some problems? (not unique, not a number, not empty)
