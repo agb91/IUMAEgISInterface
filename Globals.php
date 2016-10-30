@@ -5,7 +5,7 @@
  *
  */
 
-$iniFilePath = "/opt/lampp/htdocs/Tesi/gAn/gAn-updated/gUser.ini"; // path of the ini file
+$xmlConfigFilePath = "/opt/lampp/htdocs/test-interChangeble/gAn-NEWWAY/AEgSettings.xml"; // path of the ini file
 $sourceRootPath = "/home/andrea/Downloads/buildRoot/bin/thisroot.sh"; //path of thisroot.sh
 //$gAnPath = "/opt/lampp/htdocs/Tesi/gAn/gAn-dev/"; //path of gAn
 $gAnPath = "/opt/lampp/htdocs/test-interChangeble/gAn-NEWWAY"; //new path of gAn

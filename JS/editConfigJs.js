@@ -1,22 +1,9 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-function changeVerbose(n)
-{
-    readValues[0] = n;
-    $("#labelVerbose").text("Verbose now: "+n);
-    $("#VerboseButton").text("Verbose " +n); 
-    $("#configConfirmationButton").toggleClass("btn-primary",false);
-    $("#configConfirmationButton").addClass("green");
-} 
+//alert ("called");
 
 function changer(position, newValue)
 {
-    group = readGroupValues[position];
-    readValues[position] = newValue;
+    group = groups[position];
+    values[position] = newValue;
     if(newValue==1)
     {
         $("#label"+group).text(group + " now: "+"Yes");
@@ -36,9 +23,9 @@ function changer(position, newValue)
 function writeToFile(file)
 {
     var toPrintValues = [];
-    for (i = 0; i < readGroupValues.length; i++)
+    for (i = 0; i < groups.length; i++)
     {
-        if(readValues[i]==1)
+        if(values[i]==1)
         {
             toPrintValues.push("yes");
         }
@@ -49,21 +36,28 @@ function writeToFile(file)
     }
 
     var toAlert = "";
-    toAlert = "you 've inserted: \n " + readGroupValues[0] + ": " + readValues[0] + " \n ";
-    for (i = 1; i < readGroupValues.length; i++)
+    toAlert = "you 've inserted: \n ";
+    for (i = 0; i < groups.length; i++)
     {
-        toAlert+= readGroupValues[i] + " : " + toPrintValues[i] + " \n ";
+        toAlert+= groups[i] + " : " + values[i] + " \n ";
     }
-    alert(toAlert);
+    //alert(toAlert);
 
     var toHref = "";
-    toHref = 'PHP/editConfigFunction.php/?'  + readGroupValues[0] + '='+readValues[0];
-    for (i = 1; i < readGroupValues.length; i++)
+    toHref = 'PHP/editConfigFunction.php/?';
+    for (i = 0; i < groups.length; i++)
     {
-        toHref+='&' + readGroupValues[i] + '=' + readValues[i];
+        if(i==0)
+        {
+            toHref+= groups[i] + '=' + values[i];
+        }
+        else// the & symbol is useless at the beginning....
+        {
+            toHref+='&' + groups[i] + '=' + values[i];
+        }        
     }
     toHref+="&path=" + file;
-
+    //alert( toHref );
     window.location.href = toHref;
 }
 
