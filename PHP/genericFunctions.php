@@ -44,8 +44,26 @@ function fileReaderGeneral($path)
     return trim($fileContent);
 }
 
+function isAnalysisSafe( $analisys ) //0 is ok, 1 problems
+{
+    $ris = 0;
+    if( strlen($analisys) > 20 )
+    {
+        $ris = 1;
+    }
+    if ( strpos($analisys, " ") !== false )
+    {
+        $ris = 1;
+    }
+    if ( strpos($analisys, ";") !== false )
+    {
+        $ris = 1;
+    }
+    return $ris;
+}
 
-function isgAnSafe($whichgAn)// 0 is ok, 1 problems
+
+function isgAnSafe( $whichgAn )// 0 is ok, 1 problems
 {
     //echo "whichRun: |".$whichgAn."|";
     $ris = 0;

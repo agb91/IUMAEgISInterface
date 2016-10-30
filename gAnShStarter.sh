@@ -34,12 +34,12 @@ source /home/andrea/Downloads/buildRoot/bin/thisroot.sh
 #source /home/andrea/Downloads/buildRoot/bin/thisroot.sh #questo pc
 #source /usr/local/root/bin/thisroot.sh # altra
 
-cd $3
+cd $4
 #cd gAn/gAn-updated/ #questo pc
 #cd /home/aegis/aegis-offline/gAn # altra
 #pwd
 #echo 'run ls'
 #ls
 
-root -l -b rungAn.C\($1\,true\) #questo pc
+root -l -b rungAn.C\($1\,$2 \,true\) #questo pc
 

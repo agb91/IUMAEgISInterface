@@ -17,12 +17,12 @@ include 'genericFunctions.php';
  * The function is prepared to read the errors log 
  * The function return the output of the bash.
  */
-function run($wr, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnChose)
+function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnChose)
 {
     //echo 'path now: '. $gAnPath . ' <br> ';
     //echo 'source: '. $sourceRootPath . '<br>';
 
-    if (!is_numeric($wr))
+    if ( !is_numeric($wr) )
     {
         echo "Inserted run is not acceptable";
         $wr = 0;
@@ -37,6 +37,13 @@ function run($wr, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnChose)
     {
         $whichgAn = "gAn-dev";
         echo "I return to the standard gAn path...";
+    }
+
+
+    if( isAnalysisSafe($analisys) == 1 )
+    {
+        echo "selected analysis is not acceptable"
+        $analisys = "---";
     }
 
     if( isPathSafe($sourceRootPathNew) == 1 )
@@ -57,7 +64,7 @@ function run($wr, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnChose)
     try 
     {
         //call the rooc data analisys program with the correct arguments by running a bash file
-        $command = "./gAnShStarter.sh " . $wr . " " .$sourceRootPathNew. " " . $gAnPath;
+        $command = "./gAnShStarter.sh " . $wr . " " . $analisys . " " . $sourceRootPathNew. " " . $gAnPath;
         $descriptorspec = array(
             0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
             1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
@@ -97,7 +104,6 @@ function run($wr, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnChose)
     
     return $output;
 }
-
 
 
 /*

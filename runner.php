@@ -94,9 +94,10 @@
                             echo "<div id= 'run" . $piecesOfRun[$i] . "' style='display:none' name='disappearing'>";
                         }
                         echo "<h4>Run selected: " . $piecesOfRun[$i] . "</h4><br>";
+                        echo "<h4>Kind of analysis selected: " . $whichAnalysis . "</h4><br>";
                         //start root, run gAn and make computation
                         //echo "<h1> going to run: " . $piecesOfRun[$i] . "</h1><br>";
-                        $o = run($piecesOfRun[$i], $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnChose); 
+                        $o = run($piecesOfRun[$i], $whichAnalysis, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnChose); 
                         //echo "<h1> just runned: " . $piecesOfRun[$i] . "</h1><br>";
                         echo $o . "</div>";    
                     }
