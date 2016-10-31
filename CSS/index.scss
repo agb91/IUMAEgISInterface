@@ -2,6 +2,15 @@
 
 .indexGeneral
 {
+    .borderGroup
+    {
+        border-radius: 25px;
+        border: 2px solid $border;
+        padding: 20px; 
+        margin-top: 20px;
+        width: 100%;
+        height: 450px;
+    }
     .row
     {
         .logoImage
@@ -85,6 +94,7 @@
     }
     .scrollable
     {
+    background: #eaeaea;
        //height: 100px;
        overflow-y: scroll;
     }
