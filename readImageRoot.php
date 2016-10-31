@@ -17,19 +17,21 @@
         <div class="showImageGeneral">
             <div class="fixedUpLeft">
                 <?php
+                    include "PHP/genericFunctions.php";
                     /*! \brief dynamically creates the 'back to all images' button
                      *
                      *  Back to all images. Remember that we need to know the selected runs to return in the allImages page
                      *  in a consistent page (otherwise the program doesn't crash, simply doesn't show the images)
                      */
                     $runs = $_GET["runs"];  
+                    $runs = cleanString( $runs );
                     echo '<button onclick="window.location.href=\'images.php?runs=' . $runs . '\'" type="button" class="lower btn btn-primary btn-lg">';
                     echo 'Back to All Images';    
                     echo '</button>';
                 ?>
             </div>
             <?php
-                include "PHP/genericFunctions.php";
+                
                 include "Globals.php";
 
                 $whichgAn = fileReaderGeneral($gAnPathFile);
@@ -60,7 +62,9 @@
                  *  language....) 
                  */
                 $whichRun = $_GET["whichRun"];
+                $whichRun = cleanString( $whichRun );
                 $whichImage = $_GET["image"];
+                $whichImage = cleanString( $whichImage );
                 echo "<p id='getRun' style='display: none;'>" . $whichRun . "</p>";
                 echo "<p id='getImage' style='display: none;'>" . $whichImage . "</p>";
             ?> 

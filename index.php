@@ -104,7 +104,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-xs-6" >
-                                            <input type="text" id="whichRunSingle" name="whichRunSingle" class="form-control" placeholder="example: 30000">
+                                            <input type="text" id="whichRunSingle" name="whichRun" class="form-control" placeholder="example: 30000">
                                         </div>
                                         <div class="col-xs-4">
                                             <?php readAnalyzes( $allAnalyzesSingle ); ?>

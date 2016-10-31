@@ -27,6 +27,8 @@
                 //echo "alive!";
                 //read runs from get method
                 $runs = $_GET['runs'];
+                $runs = cleanString($runs);
+                //echo $runs;
                 $runs = explode(";", $runs);
                 //echo "alive2!";
             }

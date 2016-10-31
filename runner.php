@@ -27,8 +27,11 @@
             <div class="col-xs-3">
                <?php
                     include 'Globals.php';
+                    include 'PHP/genericFunctions.php';
                     $whichRun = $_POST["whichRun"];
+                    $whichRun = cleanString( $whichRun );
                     $whichAnalysis = $_POST["whichAnalysisSingle"];
+                    $whichAnalysis = cleanString( $whichAnalysis );
                     echo "<button data-toggle='tooltip' title='Look at the images created by running gAn' onclick=\"window.location.href='images.php?runs=" . cleanRuns($whichRun) . "'\" type=\"button\" class=\"btn btn-primary btn-lg fixedTopRight \">";
                     echo "Look at the images";
                     echo "</button>";
@@ -40,8 +43,6 @@
                 <ul class="pagination">            
                     <?php
                         include 'PHP/runnerFunctions.php';
-
-
                         /*! \brief this script allows us to show in the navbar the chosen runs 
                          *
                          *  we can select a run in the navbar, the program will show only the output
@@ -50,6 +51,8 @@
 
                         // clean the read values: no white spaces, no doubles, no comma or point or '-'
                         $whichRun = cleanRuns($_POST["whichRun"]);
+                        $whichRun = cleanString( $whichRun );
+                        //echo $whichRun;
                         $piecesOfRun = explode(";", $whichRun);
                         for ($i = 0; $i < count($piecesOfRun)-1; $i++) //show the possible runs computed, the user can chose
                         {
@@ -97,7 +100,7 @@
                         echo "<h4>Kind of analysis selected: " . $whichAnalysis . "</h4><br>";
                         //start root, run gAn and make computation
                         //echo "<h1> going to run: " . $piecesOfRun[$i] . "</h1><br>";
-                        $o = run($piecesOfRun[$i], $whichAnalysis, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnChose); 
+                        $o = run($piecesOfRun[$i], $whichAnalysis, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose); 
                         //echo "<h1> just runned: " . $piecesOfRun[$i] . "</h1><br>";
                         echo $o . "</div>";    
                     }

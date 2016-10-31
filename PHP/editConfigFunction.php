@@ -51,8 +51,10 @@ if (!strcmp($_SESSION['logged'], "logged") == 0)
 } 
 else
 {
+    include "genericFunctions.php";
     //I read the path of the received config file
     $path = $_GET["path"];
+    $path = cleanString( $path );
     echo "path: " . $path . "<br>";
 
     $groups = getCleanGetArray(); //without path

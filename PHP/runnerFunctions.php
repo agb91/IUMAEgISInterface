@@ -7,8 +7,7 @@
 
 //include 'editConfigFunctionsCommons.php';
 //include 'PHP/editgAnBranchFunctionsCommons.php';
-include 'genericFunctions.php';
-
+//include 'genericFunctions.php';
 
 
 
@@ -17,7 +16,7 @@ include 'genericFunctions.php';
  * The function is prepared to read the errors log 
  * The function return the output of the bash.
  */
-function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnChose)
+function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose)
 {
     //echo 'path now: '. $gAnPath . ' <br> ';
     //echo 'source: '. $sourceRootPath . '<br>';
@@ -30,19 +29,19 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnC
 
     //echo "rootPathFile: " . $rootPathFile . "<br>";
     $sourceRootPathNew = fileReaderGeneral($rootPathFile); 
-    $whichgAn = fileReaderGeneral($gAnPathFile);
-    
+    //$whichgAn = fileReaderGeneral($gAnPathFile);
+    /*
 
     if( isgAnSafe($whichgAn) == 1 )
     {
         $whichgAn = "gAn-dev";
         echo "I return to the standard gAn path...";
     }
+*/
 
-
-    if( isAnalysisSafe($analisys) == 1 )
+    if( isAnalysisSafe( $analisys ) == 1 )
     {
-        echo "selected analysis is not acceptable"
+        echo "selected analysis is not acceptable";
         $analisys = "---";
     }
 
@@ -51,14 +50,10 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnC
         $sourceRootPathNew = "root";
         echo "I return to the standard root path...";
     }
-    //echo $sourceRootPathNew . "<br>";
-
-    //echo "gAn used : " . $whichgAn . "<br>"; 
-    //echo "base gAns folder : " . $gAnChose . "<br>";
-    echo "gAn path before : " . $gAnPath . "<br>";
-    $gAnPath = $gAnChose . trim($whichgAn);
-    echo "gAn path after : " . $gAnPath . "<br>";
-
+    
+    //echo "gAn path before : " . $gAnPath . "<br>";
+    //$gAnPath = $gAnChose . trim($whichgAn);
+    //echo "gAn path after : " . $gAnPath . "--<br>";
 
     $output="";
     try 
@@ -111,7 +106,7 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPathFile, $gAnC
  * be sure of the cleaning of the system after the Root-gAn running. Thi function
  * return the array of the IDs 
  */
-
+/*
 function findRoot()//used only on Andrea's pc, just for tests (the goal of this tests is check if
 // this program can in special situazione summon "root-zombie" process that can occupy ram. it cannot).
 // Ignore this function, it is useless
@@ -130,11 +125,6 @@ function findRoot()//used only on Andrea's pc, just for tests (the goal of this 
         $output .= stream_get_contents($pipes[1]) . "<br>";
     }    
     fclose($pipes[1]);
-    /*while(!feof($pipes[2])) 
-    {
-        $output .= stream_get_contents($pipes[2]) . "<br>";
-    }   
-    fclose($pipes[2]);*/
     proc_close ( $process );
     // example: 3281 pts/18 00:00:00 root 3282 pts/18 00:00:00 root.exe 
     // now I split the string to return only the vector of the IDs
@@ -150,50 +140,6 @@ function findRoot()//used only on Andrea's pc, just for tests (the goal of this 
     }
     return explode(";", $result);
 }
-
-
-/*
- * this function want to kill all the found Root processes, to clean the system .
- * As input this function want the ID of the process to kill,
- */
-/*function killRoot($id)//only for test, other useless function
-{
-    $command = "./killRoot.sh " . $id;
-    $descriptorspec = array(
-        0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
-        1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
-        2 => array("pipe", "w")  // stderr is a file to write to
-    );
-    $process = proc_open ($command , $descriptorspec , $pipes);
-    fclose($pipes[0]);
-    $output =  "" ;
-    while(!feof($pipes[1])) 
-    {
-        $output .= stream_get_contents($pipes[1]) . "<br>";
-    }    
-    fclose($pipes[1]);
-    while(!feof($pipes[2])) 
-    {
-        $output .= stream_get_contents($pipes[2]) . "<br>";
-    }   
-    fclose($pipes[2]);
-    proc_close ( $process );
-    // example: 3281 pts/18 00:00:00 root 3282 pts/18 00:00:00 root.exe 
-    // now I split the string to return only the vector of the IDs
-    return $output;
-}
 */
-/*
- * with the paradigm haystack-needle, search if in the first string(haystack) there is
- * the second string (needle) and return from where to where it is
- */
-/* dismissed
-function finder ($haystack, $needle)
-{
-    $start = strpos($haystack, $needle);
-    $length = strlen($needle);
-    return [$start,$length];
-}*/
-
 
 ?>

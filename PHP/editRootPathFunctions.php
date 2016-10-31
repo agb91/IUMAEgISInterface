@@ -1,5 +1,6 @@
 <?php
 include '../Globals.php';
+include 'genericFunctions.php';
 
 session_start(); // Starting Session
 if (!strcmp($_SESSION['logged'], "logged") == 0)
@@ -8,7 +9,9 @@ if (!strcmp($_SESSION['logged'], "logged") == 0)
 }
 else
 {
+
 	$newRoot = $_GET["newRoot"];
+	$newRoot = cleanString( $newRoot );
 	if( strcmp(strtolower(substr($newRoot, 0,4) ), "root") == 0)
 	{
 		echo $newRoot;
