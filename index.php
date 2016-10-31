@@ -39,7 +39,7 @@
         </div>
         <div hidden id="workBlock" >
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-xs-7">
                     <div id="multiple"> 
                         <div class="row">
                             Hello, one day I'll be a web page
@@ -111,11 +111,18 @@
                                     <div class="col-xs-2">
                                         <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="red btn btn-secondary"> Send </button>
                                     </div>
-                                    <div class="col-xs-2">
+                                </div>    
+                                <div class="row">    
+                                    <div class="col-xs-6">
                                         <h4 id="warningRunNumberSingle">
-                                            <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert a correct run-number and select an analysis!</div>
+                                            <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert a number, without letters!</div>
                                         </h4>
                                     </div>
+                                    <div class="col-xs-4">
+                                        <h4 id="warningSelectAnalysisSingle">
+                                            <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Select an analysis!</div>
+                                        </h4>
+                                    </div>    
                                 </div>    
                             </form>
                             <br><br>
@@ -160,7 +167,7 @@
                     </div>    
                 </div>    
                         
-                <div class="col-xs-6 moveDown">
+                <div class="col-xs-5 moveDown">
                     <p>Chose the date around which to search: <input type="text" id="datepickerSingle"></p>
                     <pre class="scrollable">
                         <?php

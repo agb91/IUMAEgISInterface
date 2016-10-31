@@ -139,35 +139,51 @@ function validate( n )
         var insertedArray = insertedRun.split(";"); 
         var singleRun;
        
-        var problems = 0;
+        var numberProblems = 0;
+        var analysisProblems = 0;
         if ( insertedArray.length > 1 )
         {
-            problems++;
+            numberProblems++;
         }
         //have you selected an analysis?
         if( $("#buttonSelectAnalysis").text() == "Select an Analysis Tools:"  )
         {
-            problems++;
+            analysisProblems++;
+            //alert("analysis problems");
         }
         for (i in insertedArray) {
             insertedArray[i] = insertedArray[i].trim();
             if ( acceptable ( insertedArray[ i ] ) == 1 )
             {
-                problems++;
+                numberProblems++;
             }
         }
-        //alert("not numeric objects: " + noNumeric);
-        if(problems==0)
-        {
-            $("#sendRunButtonSingle").prop("disabled",false);
-            $("#sendRunButtonSingle").removeClass( "red" ).addClass( "green" );
+
+        if (numberProblems == 0)        {
             $("#warningRunNumberSingle").hide();
         }
         else
         {
+            $("#warningRunNumberSingle").show();
+        }
+
+        if (analysisProblems == 0)        {
+            $("#warningSelectAnalysisSingle").hide();
+        }
+        else
+        {
+            $("#warningSelectAnalysisSingle").show();
+        }
+
+        //alert("not numeric objects: " + noNumeric);
+        if(numberProblems==0 && analysisProblems == 0)
+        {
+            $("#sendRunButtonSingle").prop("disabled",false);
+            $("#sendRunButtonSingle").removeClass( "red" ).addClass( "green" );        }
+        else
+        {
             $("#sendRunButtonSingle").prop("disabled",true);
             $("#sendRunButtonSingle").removeClass( "green" ).addClass( "red" );
-            $("#warningRunNumberSingle").show();
         }
         if(insertedRun.length=="0")
         {
