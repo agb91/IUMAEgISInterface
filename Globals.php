@@ -18,6 +18,8 @@ $allRoots = "/home/andrea/Downloads/";
 $gAnPathFile = "/opt/lampp/htdocs/test-interChangeble/gAn-web/gAnPath.txt";
 $gAnChose = "/opt/lampp/htdocs/test-interChangeble/gAn-NEWWAY";
 $allAnalyzesSingle = "/opt/lampp/htdocs/test-interChangeble/gAn-NEWWAY/analyses/single_run";
+$allAnalyzesMultiple = "/opt/lampp/htdocs/test-interChangeble/gAn-NEWWAY/analyses/multi_run";
+
 
 static $groups = array();
 

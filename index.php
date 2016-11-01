@@ -8,7 +8,6 @@
         <script src="jqueryUI/jquery-ui.js"></script>
         <script src="JS/index.js"></script>
         <link rel="stylesheet" href="jqueryUI/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
         <link href="CSS/index.css" rel="stylesheet" media="screen">
         <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
@@ -34,6 +33,8 @@
         <div class="row releaseAegis">
             <?php
                 include "PHP/indexFunctions.php";
+                include "Globals.php";
+                include "PHP/genericFunctions.php";
                 writeInitialOptions(); 
             ?>
         </div>
@@ -41,10 +42,89 @@
             <div class="row">
                 <div class="col-xs-7">
                     <div class="borderGroup">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <h4 id="thisgAn">
+                                    <?php
+                                        $whichgAn = fileReaderGeneral($gAnPathFile);
+                                        if( isgAnSafe($whichgAn) == 1 )
+                                        {
+                                            $whichgAn = "gAn-dev";
+                                        }
+                                        echo '<div title="" class="fixedTopRight well"> You are using: ' . $whichgAn . '</div>';
+                                    ?>
+                                </h4>
+                            </div>   
+                        </div>
                         <div id="multiple"> 
-                            <div class="row">
-                                Hello, one day I'll be a web page
+                            <div class="col-xs-12">    
+                                <div class="row"><!-- run row -->
+                                    <h3> Choose a run (or more). Last existing run: 
+                                        <?php
+                                            lastRun($dirRawFiles , 0);
+                                        ?>
+                                    </h3>
+                                </div>
+                                
+                                <form class = "well"  action="runner.php" method="post">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label for="whichRunsMultiple" data-toggle="tooltip" title="" class="form-control-label">Insert some Runs: </label>
+                                        </div>
+                                    </div>    
+                                    <div class="row">
+                                        <div class="col-xs-6" >
+                                            <input type="text" id="whichRunsMulitple" name="whichRun" class="form-control" placeholder="example: 30000; 31111; 32222">
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <?php readAnalyzes( $allAnalyzesMultiple ); ?>
+                                        </div> 
+                                        <div class="col-xs-2">
+                                            <button id="sendRunButtonMultiple" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait( 1 )" type="submit" class="red btn btn-secondary"> Send </button>
+                                        </div>
+                                    </div>    
+                                    <div class="row">    
+                                        <div class="col-xs-6">
+                                            <h4 id="warningRunNumberMultiple">
+                                                <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert numbers, without letters!</div>
+                                            </h4>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <h4 id="warningSelectAnalysisMultiple">
+                                                <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Select an analysis!</div>
+                                            </h4>
+                                        </div>    
+                                    </div>    
+                                </form>
+                                <br><br>
+                                <div id="waitMultiple" style="display:none">
+                                    <!--<h1>Just a moment i'm starting...</h1>-->
+                                    <div class="container">
+                                        <h1>Just a moment i'm starting...</h1>
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- TODO you must decide what to do with these buttons (choose gAn and choose root)
+                                <div hidden>
+                                    <form>
+                                        <input type="button" data-toggle="tooltip" title="Change the path to the thisroot.sh file needed to identify the correct Root intallation (you have to chose between existing Root installations)" class="btn btn-primary" value="Chose Root Version" onclick="window.location.href='editRootPath.php'" />
+                                    </form>
+                                </div> 
+
+                                <br><br> 
+                                 TODO you must decide what to do with these buttons (choose gAn and choose root)
+                                <div hidden>
+                                    <form>
+                                        <input type="button" data-toggle="tooltip" title="Chose which branch of gAn do you want to use" class="btn btn-primary" value="Chose gAn branch" onclick="window.location.href='editgAnBranch.php'" />
+                                    </form>
+                                </div>-->
                             </div>
+                            
                             <div class="row">
                                 <div class="col-xs-2">
                                     <button onclick="addRangeModal()" data-toggle="tooltip" title="Insert a list of runs selecting the first and the last of the list" type="submit" class="moveAdder btn btn-secondary"> Add runs by range</button>
@@ -75,8 +155,8 @@
                                 <div class="row"><!-- run row -->
                                     <h3> Choose a run. Last existing run: 
                                         <?php
-                                            include "Globals.php";
-                                            include "PHP/genericFunctions.php";
+                                            //include "Globals.php";
+                                            //include "PHP/genericFunctions.php";
                                             $whichgAn = fileReaderGeneral($gAnPathFile);
                                             if( isgAnSafe($whichgAn) == 1 )
                                             {
@@ -93,15 +173,6 @@
                                             <label for="whichRunSingle" data-toggle="tooltip" title="" class="form-control-label">Insert a Run: </label>
                                         </div>
                                     </div>    
-                                    <div class="row">
-                                        <div class="col-xs-2">
-                                            <h4 id="thisgAnSingle">
-                                                <?php
-                                                    echo '<div title="You can change it by the \'Other Configurations\' button " class="fixedTopRight well"> You are using: ' . $whichgAn . '</div>';
-                                                ?>
-                                            </h4>
-                                        </div>   
-                                    </div>
                                     <div class="row">
                                         <div class="col-xs-6" >
                                             <input type="text" id="whichRunSingle" name="whichRun" class="form-control" placeholder="example: 30000">
