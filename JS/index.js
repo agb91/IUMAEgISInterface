@@ -1,39 +1,59 @@
 //when jquery is loaded and document is ready (we can't do nothing before): 
 $( document ).ready(function() {
-    $( "#datepickerSingle" ).datepicker();
-    lastDate = $( "#lastTimeSingle" ).text();
+    $( "#datepicker" ).datepicker();
+    lastDate = $( "#lastTime" ).text();
     dd = lastDate.split( "/" )[0];
     mm = lastDate.split( "/" )[1];
     yy = lastDate.split( "/" )[2];
-    $( "#datepickerSingle" ).datepicker( 'setDate' , mm + '/' + dd + "/" + yy );
+    $( "#datepicker" ).datepicker( 'setDate' , mm + '/' + dd + "/" + yy );
 
     //to use the tooltip we have to initialize it here
     $('[data-toggle="tooltip"]').tooltip();
 
+    //the following commands are always are executed sometimes in single
+    //version of the interface, some other times in multiple 
     //validate the inserted runs
     //first of all, disable the run-send-button (until the run number isn't correct)
     $("#sendRunButtonSingle").prop("disabled",true);
     $("#warningRunNumberSingle").hide();
+    $("#sendRunButtonMultiple").prop("disabled",true);
+    $("#warningRunNumberMultiple").hide();
+
     //check if the run-number make sense, and at that moment unlock the send-run-button
-    validate( 0 );
+    //validate( 0 );
+    //validate( 1 );
 
     $( "#whichRunSingle" ).keyup(function() {//check every time the user uses the keyboard 
         validate( 0 );
     });  
+    $( "#whichRunsMultiple" ).keyup(function() {//check every time the user uses the keyboard 
+        validate( 1 );
+    });
 
-    $( "#buttonSelectAnalysis" ).click(function() {//check every time the user click this button
+    $( "#buttonSelectAnalysisSingle" ).click(function() {//check every time the user click this button
         validate( 0 );
+    });
+    $( "#buttonSelectAnalysisMultiple" ).click(function() {//check every time the user click this button
+        validate( 1 );
     });
     
     $( "#whichRunSingle" ).click(function() {//check every time the user clicks with the mouse on the input form
         validate( 0 );
     });  
+    $( "#whichRunsMultiple" ).click(function() {//check every time the user clicks with the mouse on the input form
+        validate( 1 );
+    });
 
     $( "#whichRunSingle" ).mouseover(function() {//check also only if the mouse pass on the input form
         //it make sense because if you insert by range when the form is empty this check and only this 
         // allows the green button 
         validate( 0 );
     });
+    $( "#whichRunMultiple" ).mouseover(function() {//check also only if the mouse pass on the input form
+        //it make sense because if you insert by range when the form is empty this check and only this 
+        // allows the green button 
+        validate( 1 );
+    })
 });
 
 //select if you want to work with single or multiple runs
@@ -93,14 +113,14 @@ function showOtherObject( n )
 //it is a good idea if we standardize comma and '-' with semicolon
 function readCleanRun( n )
 {
-    var insertedRun = "";
+    var insertedRun = " ";
     if( n == 0)
     {
         insertedRun = $("#whichRunSingle").val();
     }
     else
     {
-        insertedRun = $("#whichRunMultiple").val();
+        insertedRun = $("#whichRunsMultiple").val();
     }
     insertedRun = insertedRun.replace(new RegExp(",", "g"), ";");// we want to allow the user to separate the run numbers 
     //also with comma and '-' and point
@@ -134,7 +154,6 @@ function validate( n )
 {
     if( n == 0)
     {
-
         var insertedRun = readCleanRun( 0 );
         var insertedArray = insertedRun.split(";"); 
         var singleRun;
@@ -146,7 +165,7 @@ function validate( n )
             numberProblems++;
         }
         //have you selected an analysis?
-        if( $("#buttonSelectAnalysis").text() == "Select an Analysis Tools:"  )
+        if( $("#buttonSelectAnalysisSingle").text() == "Select an Analysis Tools:"  )
         {
             analysisProblems++;
             //alert("analysis problems");
@@ -194,28 +213,50 @@ function validate( n )
     {
         var insertedRun = readCleanRun( 1 );
         var insertedArray = insertedRun.split(";"); 
-        var singleRun;
+        var MultipleRuns;
+       
+        var numberProblems = 0;
+        var analysisProblems = 0;
 
-        var noNumeric = 0;
+        //have you selected an analysis?
+        if( $("#buttonSelectAnalysisMultiple").text() == "Select an Analysis Tools:"  )
+        {
+            analysisProblems++;
+            alert("analysis problems");
+        }
         for (i in insertedArray) {
             insertedArray[i] = insertedArray[i].trim();
             if ( acceptable ( insertedArray[ i ] ) == 1 )
             {
-                noNumeric++;
+                numberProblems++;
             }
         }
-        //alert("not numeric objects: " + noNumeric);
-        if(noNumeric==0)
-        {
-            $("#sendRunButtonMultiple").prop("disabled",false);
-            $("#sendRunButtonMultiple").removeClass( "red" ).addClass( "green" );
+
+        if (numberProblems == 0)        {
             $("#warningRunNumberMultiple").hide();
         }
         else
         {
+            $("#warningRunNumberMultiple").show();
+        }
+
+        if (analysisProblems == 0)        {
+            $("#warningSelectAnalysisMultiple").hide();
+        }
+        else
+        {
+            $("#warningSelectAnalysisMultiple").show();
+        }
+
+        //alert("not numeric objects: " + noNumeric);
+        if(numberProblems==0 && analysisProblems == 0)
+        {
+            $("#sendRunButtonMultiple").prop("disabled",false);
+            $("#sendRunButtonMultiple").removeClass( "red" ).addClass( "green" );        }
+        else
+        {
             $("#sendRunButtonMultiple").prop("disabled",true);
             $("#sendRunButtonMultiple").removeClass( "green" ).addClass( "red" );
-            $("#warningRunNumberMultiple").show();
         }
         if(insertedRun.length=="0")
         {
@@ -332,15 +373,26 @@ function addRange()
 }
 
 //write which analysis the user chooses 
-function setAnalysis( n )
+function setAnalysis( i , n )
 {
-    var analyzes = $("#analyzes").text();
-    var analyzesVector = analyzes.split("--");
-    var selectedAnalysis = analyzesVector[ n ];
-    $("#selectedAnalysis").val(selectedAnalysis);
-    $("#buttonSelectAnalysis").text("Selected: " + selectedAnalysis);
+    if( n == 0)
+    {
+        var analyzes = $("#analyzesSingle").text();
+        var analyzesVector = analyzes.split("--");
+        var selectedAnalysis = analyzesVector[ i ];
+        $("#selectedAnalysisSingle").val(selectedAnalysis);
+        $("#buttonSelectAnalysisSingle").text("Selected: " + selectedAnalysis);
+    }
+    else
+    {
+        var analyzes = $("#analyzesMultiple").text();
+        var analyzesVector = analyzes.split("--");
+        var selectedAnalysis = analyzesVector[ i ];
+        $("#selectedAnalysisMultiple").val(selectedAnalysis);
+        $("#buttonSelectAnalysisMultiple").text("Selected: " + selectedAnalysis);
+    }
     //alert(selectedAnalysis);
-    validate( 0 );
+    validate( n );
 }
 
 //has this run number some problems? (not unique, not a number, not empty)

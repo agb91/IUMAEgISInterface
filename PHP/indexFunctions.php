@@ -39,15 +39,7 @@ function lastRun( $dirRawFiles , $n)
 	$dataLast = findLastRunAndTime( $dirRawFiles );
 	$splittedDataLast = explode ( "-" , $dataLast );
 	echo $splittedDataLast[ 0 ]; //and I write it
-	if( $n == 0)
-	{
-		echo ", from: <text id = 'lastTimeSingle'>" . $splittedDataLast[ 1 ] . "</text>";	
-	}
-	else
-	{
-		echo ", from: <text id = 'lastTimeMultiple'>" . $splittedDataLast[ 1 ] . "</text>";	
-	}
-	
+	echo ", from: <text id = 'lastTime'>" . $splittedDataLast[ 1 ] . "</text>";	
 }	
 
 function readText( $url )
@@ -147,13 +139,20 @@ function getDates( $chunks )
 	return $results;
 }
 
-function readAnalyzes( $allAnalyzesSingle )
+function readAnalyzes( $allAnalyzesSingle , $n)
 {
 	//echo "---" . $allAnalyzesSingle . "---";
 	$analyzes = scandir( $allAnalyzesSingle );
 	$cleanAnalyzes = [];
 	
-    echo "<div id='analyzes' hidden>";
+	if( $n == 0 )
+	{
+		echo "<div id='analyzesSingle' hidden>";
+    }
+    else
+    {
+    	echo "<div id='analyzesMultiple' hidden>";
+    }
     for ( $i = 0 ; $i < count( $analyzes ) ; $i++ )
 	{
 		if ( substr( $analyzes[ $i ] , -2 ) == ".C")
@@ -166,17 +165,31 @@ function readAnalyzes( $allAnalyzesSingle )
 	}
 	echo "</div>";
 	echo "<div class='dropdown col-xs-12'>";
-	echo "<button id='buttonSelectAnalysis' class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select an Analysis Tools:";
+	if( $n == 0 )
+	{
+		echo "<button id='buttonSelectAnalysisSingle' class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select an Analysis Tools:";
+	}
+	else
+	{
+		echo "<button id='buttonSelectAnalysisMultiple' class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select an Analysis Tools:";
+	}
     echo "<span class='caret'></span></button>";
     echo "<ul class='dropdown-menu'>";
     for ( $i = 0 ; $i < count( $cleanAnalyzes ) ; $i++ )
 	{
-		echo "<li><a href='#' onclick='setAnalysis(" . $i . ")'>" . $cleanAnalyzes[ $i ] . "</a></li>";    
+		echo "<li><a href='#' onclick='setAnalysis(" . $i . " , " . $n . ")'>" . $cleanAnalyzes[ $i ] . "</a></li>";    
 	}
     echo "</ul>";
     echo "</div>"; 
     echo "<p hidden>";
-    echo "<input type='text' id='selectedAnalysis' name='selectedAnalysis' class='form-control'>";
+    if( $n == 0 )
+    {
+    	echo "<input type='text' id='selectedAnalysisSingle' name='selectedAnalysisSingle' class='form-control'>";
+    }
+    else
+    {
+    	echo "<input type='text' id='selectedAnalysisMultiple' name='selectedAnalysisMultiple' class='form-control'>";	
+    }
     echo "</p>";
     
 

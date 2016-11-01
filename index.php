@@ -74,13 +74,13 @@
                                     </div>    
                                     <div class="row">
                                         <div class="col-xs-6" >
-                                            <input type="text" id="whichRunsMulitple" name="whichRun" class="form-control" placeholder="example: 30000; 31111; 32222">
+                                            <input type="text" id="whichRunsMultiple" name="whichRun" class="form-control" placeholder="example: 30000; 31111; 32222">
                                         </div>
                                         <div class="col-xs-4">
-                                            <?php readAnalyzes( $allAnalyzesMultiple ); ?>
+                                            <?php readAnalyzes( $allAnalyzesMultiple , 1); ?>
                                         </div> 
                                         <div class="col-xs-2">
-                                            <button id="sendRunButtonMultiple" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait( 1 )" type="submit" class="red btn btn-secondary"> Send </button>
+                                            <button id="sendRunButtonMultiple" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait( 1 )" type="submit" class="red btn btn-secondary"> Start </button>
                                         </div>
                                     </div>    
                                     <div class="row">    
@@ -178,16 +178,16 @@
                                             <input type="text" id="whichRunSingle" name="whichRun" class="form-control" placeholder="example: 30000">
                                         </div>
                                         <div class="col-xs-4">
-                                            <?php readAnalyzes( $allAnalyzesSingle ); ?>
+                                            <?php readAnalyzes( $allAnalyzesSingle , 0); ?>
                                         </div> 
                                         <div class="col-xs-2">
-                                            <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="red btn btn-secondary"> Send </button>
+                                            <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="red btn btn-secondary"> Start </button>
                                         </div>
                                     </div>    
                                     <div class="row">    
                                         <div class="col-xs-6">
                                             <h4 id="warningRunNumberSingle">
-                                                <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert a number, without letters!</div>
+                                                <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert a number (only ONE!), and without letters!</div>
                                             </h4>
                                         </div>
                                         <div class="col-xs-4">
@@ -242,7 +242,7 @@
                         
                 <div class="col-xs-5">
                     <div class="borderGroup">
-                        <p>Chose the date around which to search: <input type="text" id="datepickerSingle"></p>
+                        <p>Chose the date around which to search: <input type="text" id="datepicker"></p>
                         <pre class="scrollable">
                             <?php
                                 $url = "http://localhost/test-interChangeble/gAn-webIUM/dataLog.php";
