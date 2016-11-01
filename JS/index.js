@@ -222,7 +222,6 @@ function validate( n )
         if( $("#buttonSelectAnalysisMultiple").text() == "Select an Analysis Tools:"  )
         {
             analysisProblems++;
-            alert("analysis problems");
         }
         for (i in insertedArray) {
             insertedArray[i] = insertedArray[i].trim();

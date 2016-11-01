@@ -30,7 +30,10 @@
                     include 'PHP/genericFunctions.php';
                     $whichRun = $_POST["whichRun"];
                     $whichRun = cleanString( $whichRun );
-                    $whichAnalysis = $_POST["whichAnalysisSingle"];
+                    $whichAnalysis = $_POST["selectedAnalysisSingle"];
+                    $whichAnalysis = $whichAnalysis . $_POST["selectedAnalysisMultiple"];
+                    //print_r($_POST);
+                    //echo "the read analysis is : " . $whichAnalysis;
                     $whichAnalysis = cleanString( $whichAnalysis );
                     echo "<button data-toggle='tooltip' title='Look at the images created by running gAn' onclick=\"window.location.href='images.php?runs=" . cleanRuns($whichRun) . "'\" type=\"button\" class=\"btn btn-primary btn-lg fixedTopRight \">";
                     echo "Look at the images";
