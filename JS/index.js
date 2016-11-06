@@ -265,7 +265,15 @@ function validate( n )
 }
 
 function manageWait( n ) {
-    if( n == 0)
+    $( "#commonTop" ).hide();
+    $( "#commonSemiTop" ).hide();
+    $( "#workBlock" ).hide();
+    //alert( $( "#commonWait") );
+    //$( "#commonWait").show();
+    w = document.getElementById("commonWait");
+    w.style.display = 'block';//show the label with "wait until...."
+   
+    /*if( n == 0)
     {
         w = document.getElementById("waitSingle");
         w.style.display = 'block';//show the label with "wait until...."
@@ -274,7 +282,7 @@ function manageWait( n ) {
     {
         w = document.getElementById("waitMultiple");
         w.style.display = 'block';//show the label with "wait until...."
-    }
+    }*/
 }
 
 /*

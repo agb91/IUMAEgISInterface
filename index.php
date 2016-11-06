@@ -21,7 +21,7 @@
                 header("location: logPage.php");
             } 
         ?>
-        <div class="col-xs-12">
+        <div id = "commonTop" class="col-xs-12">
             <div class="row">
                 <div class="col-xs-3"></div>
                 <div class="col-xs-6">
@@ -30,7 +30,7 @@
                 <div class="col-xs-3"></div>
             </div>
         </div>
-        <div class="row releaseAegis">
+        <div id = "commonSemiTop" class="row releaseAegis">
             <?php
                 include "PHP/indexFunctions.php";
                 include "Globals.php";
@@ -97,8 +97,7 @@
                                     </div>    
                                 </form>
                                 <br><br>
-                                <div id="waitMultiple" style="display:none">
-                                    <!--<h1>Just a moment i'm starting...</h1>-->
+                                <!--<div id="waitMultiple" style="display:none">
                                     <div class="container">
                                         <h1>Just a moment i'm starting...</h1>
                                         <div class="progress progress-striped active">
@@ -106,7 +105,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
 
                                 <!-- TODO you must decide what to do with these buttons (choose gAn and choose root)
@@ -198,8 +197,7 @@
                                     </div>    
                                 </form>
                                 <br><br>
-                                <div id="waitSingle" style="display:none">
-                                    <!--<h1>Just a moment i'm starting...</h1>-->
+                                <!--<div id="waitSingle" style="display:none">
                                     <div class="container">
                                         <h1>Just a moment i'm starting...</h1>
                                         <div class="progress progress-striped active">
@@ -207,7 +205,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
                                 
                                 <br><br>
@@ -262,6 +260,15 @@
                     </div>                   
                 </div>
             </div>    
-            </div>  <!-- close block-->  
+        </div>  <!-- close block-->  
+        <div style="display:none" id="commonWait" class="absoluteCenter" >
+            <div class="container">
+                <h1>Just a moment i'm starting...</h1>
+                <div class="progress progress-striped active">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
