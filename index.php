@@ -211,15 +211,7 @@
 
                                 
                                 <br><br>
-                                <div>
-                                    <form>
-                                        <?php 
-                                            //echo "WhichGan: " . $whichgAn . "<br>";
-                                            echo '<input type="button" data-toggle="tooltip" title="Modify the gUser.ini file" class="btn btn-primary" value="Edit Configuration File" onclick="window.location.href=\'editConfig.php\'" />';
-                                        ?>
-                                    </form>
-                                </div>    
-                                <br><br>
+
 
                                 <!-- TODO you must decide what to do with these buttons (choose gAn and choose root)
                                 <div hidden>
@@ -237,6 +229,16 @@
                                 </div>-->
                             </div>    
                         </div> 
+                        <br><br>
+                        <div>
+                            <form>
+                                <?php 
+                                    //echo "WhichGan: " . $whichgAn . "<br>";
+                                    echo '<input type="button" data-toggle="tooltip" title="Modify the configuration file" class="btn btn-primary" value="Edit Configuration File" onclick="window.location.href=\'editConfig.php\'" />';
+                                ?>
+                            </form>
+                        </div>    
+                        <br><br>
                     </div>       
                 </div>    
                         

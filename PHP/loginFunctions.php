@@ -21,7 +21,7 @@
 			}
 			else 
 			{
-				echo "Password is invalid";
+				echo "<div class='error'> <h1> This Password is not valid </h1></div><br><br>";
 			}
 			
 		}

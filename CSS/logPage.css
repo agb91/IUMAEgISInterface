@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 4, 2016, 5:28:11 PM
+    Author     : andrea
+*/
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #C5D8DA; }
+  body .error {
+    width: 471px;
+    padding: 15px;
+    margin: 0 auto;
+    color: Red; }
+  body .form-signin-heading {
+    width: 514px;
+    padding: 15px;
+    margin: 0 auto; }
+  body .form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto; }
+    body .form-signin .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 16px; }
+      body .form-signin .form-control:hover {
+        z-index: 2; }
+
+/*# sourceMappingURL=logPage.css.map */
