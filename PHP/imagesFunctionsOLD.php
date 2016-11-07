@@ -1,10 +1,5 @@
 <?php
 
-include "editConfigFunctionsCommons2.php";
-
-
-
-
 /*! \brief This script contains functions for the visualisation in html of the images, organized in different
  *         frameworks
  *
@@ -35,15 +30,13 @@ function echoCarouselParts($runs, $iniFilePath)
     $imagesPath = "/opt/lampp/htdocs/Tesi/gAn/" . trim($whichgAn) . "/output/";
     //echo "imagePath after:  " . $imagesPath . "<br>";
 
-    //echo "alive4";
-    $groups = getAllGroups( $iniFilePath );
 
-    //echo "<br>" . count($groups);
+    $groups = menageGroupsForGlobals(getRowContents(fileIniReader($iniFilePath)));
     for ($i = 1; $i < count($groups); $i++) 
     {    
         echo '<div id="' . $groups[$i] . 'PartCarousel" style="display:block">';
         echo '<h4>' . $groups[$i] . ' Group</h4>';
-        showOutputImages($groups[$i],0, $imagesPath, $runs,  $iniFilePath);
+        showOutputImages($groups[$i],0, $imagesPath, $runs);
         echo '</div>';
     }
 }
@@ -71,11 +64,11 @@ function echoVerticalParts($runs, $iniFilePath)
     $imagesPath = "/opt/lampp/htdocs/Tesi/gAn/" . trim($whichgAn) . "/output/";
     //echo "imagePath after:  " . $imagesPath . "<br>";
 
-    $groups = getAllGroups( $iniFilePath );
+    $groups = menageGroupsForGlobals(getRowContents(fileIniReader($iniFilePath)));
     for ($i = 1; $i < count($groups); $i++) 
     {
             echo '<div id="' . $groups[$i] . 'PartVertical" style="display:block" class="row">';
-            showOutputImages($groups[$i],1,$imagesPath, $runs,  $iniFilePath);
+            showOutputImages($groups[$i],1,$imagesPath, $runs);
             echo '</div>';
     }
 }
@@ -84,16 +77,10 @@ function echoVerticalParts($runs, $iniFilePath)
  *
  *  show in a dropdown menu the existing groups the existing groups are the groups readed from the inifile 
  */
-
 function echoGroupList($iniFilePath)
 {
-    //echo $iniFilePath;
     //these 3 functions from Global.php allow us to extract an array of groups from the iniconfig file
-    //echo "alive1";
-
-    //include "../PHP/editConfigFunctionsCommons2.php";
-    $groups = getAllGroups( $iniFilePath );
-    //echo "alive2";
+    $groups = menageGroupsForGlobals(getRowContents(fileIniReader($iniFilePath)));
     for ($i = 1; $i < count($groups); $i++) 
     {
         echo '<li><a href="#" id="' . "groupButton". $i . '" onclick="selectImageType(' . ($i-1) . ')">' . $groups[$i] . '</a></li>';
@@ -299,9 +286,8 @@ function showImagesVertical($dirname, $images, $identifiers, $whichGroup, $runs)
  *  this function show all the images in the folder, if they belong to the 
  *  group $whichGroup (otherwise the function doesn't show nothing)
  */
-function showOutputImages($whichGroup, $layout, $path, $runs,  $iniFilePath)
+function showOutputImages($whichGroup, $layout, $path, $runs)
 {
-    //echo "<br>group: " . $whichGroup . "<br>";
     //echo "at the beginning the run vector is: ";
     //print_r($runs);
     //echo 'path:  '.$path.'<br>';
@@ -317,16 +303,12 @@ function showOutputImages($whichGroup, $layout, $path, $runs,  $iniFilePath)
     // some othe times no (es hsc-scint) so the only way to work is using this little identifiers, that are 
     // strings in a vector with 2 values divided by a '-', on the left there is the name with we search 
     // the image, on the right the name of the group 
-    //echo "aliveA";
-    $identifiers = [];
-    $groups = getAllGroups(  $iniFilePath );
-    //print_r($groups);
-    //echo "groups count : " . count($groups);
-    array_push( $identifiers, "mim-" . $groups[1] );
-    array_push( $identifiers, "hSC-" . $groups[2] );
-    array_push( $identifiers, "c_hdetccd-" . $groups[3]) ;
-    array_push( $identifiers, "pmt-" . $groups[4] );
-    array_push( $identifiers, "fc-" . $groups[5] );
+    $identifiers = array();
+    array_push($identifiers, "mim-mimito");
+    array_push($identifiers, "hSC-scint");
+    array_push($identifiers, "c_hdetccd-hdetccd");
+    array_push($identifiers, "pmt-pmt");
+    array_push($identifiers, "fc-farcup");
 
     if($layout==0)//if carousel generate carousel structure (is carousel usefull? maybe, yet not dicided)
     {

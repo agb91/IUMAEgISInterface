@@ -16,7 +16,7 @@ function updateGUI() {
     //console.log("read image: " + imageGroup);
 
     //var filename = "/home/aegis/aegis-offline/gAn-dev/root/run_"+run+"_gAnOut.root";
-    var filename = "root" + "/run_"+run+"_gAnOut.root";
+    var filename = "output/gAnOut_" + run + ".root";
     //alert(filename);
     
     //console.log("filename:" + filename);
@@ -28,7 +28,7 @@ function updateGUI() {
             var cnt = 1;//in which div the image will be positioned
             var name = file.fKeys[i].fName; 
             //use toUpperCase to have a caps insensitive confrontation 
-            console.log(name.toUpperCase() + '  vs  ' + image.toUpperCase() + ';   risp = ' + (name.toUpperCase().indexOf(image.toUpperCase())>-1)); 
+            //console.log(name.toUpperCase() + '  vs  ' + image.toUpperCase() + ';   risp = ' + (name.toUpperCase().indexOf(image.toUpperCase())>-1)); 
             //if(name.toUpperCase().indexOf(image.toUpperCase())>-1)//if name and image are equal ignoring case
             {
                 file.ReadObject(name, function(obj) {//read the object in the file

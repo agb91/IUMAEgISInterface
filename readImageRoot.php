@@ -25,6 +25,7 @@
                      */
                     $runs = $_GET["runs"];  
                     $runs = cleanString( $runs );
+                    echo "<p hidden id='getRun'>$runs</p>";
                     echo '<button onclick="window.location.href=\'images.php?runs=' . $runs . '\'" type="button" class="lower btn btn-primary btn-lg">';
                     echo 'Back to All Images';    
                     echo '</button>';

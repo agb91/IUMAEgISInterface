@@ -54,7 +54,7 @@ function selectImageType(n)
         $("#" + groups[i] + "PartCarousel").hide();
     }
 
-    $("#groupToShowButton").text("Group: "+thisGroup);
+    $("#groupToShowButton").text("Images Group: "+thisGroup);
     $("#" + thisGroup + "PartCarousel").show();
     $("#" + thisGroup + "PartVertical").show();
     typeSelected = thisGroup;
@@ -157,3 +157,44 @@ function download()
     }
     //console.log(imgSources.length);
 }
+
+function updateGUI() 
+{
+    var runs = $( "#getRuns" ).text();
+    var runsArray = runs.split("-");
+    for( var a = 1; a < runsArray.length ; a++ )
+    {
+        var thisRun = runsArray[ a ];
+        var filename = "output/gAnOut_" + thisRun + ".root";
+        //alert( filename );
+        //console.log("filename:" + filename);
+        //tipical error: filename doesn't exist. If error check this before. (maybe too many slash or no slash)
+        JSROOT.OpenFile(filename, function(file) {
+            console.log(file);
+            for (var i=0;i<file.fKeys.length;i++)//for all the keys in the file
+            {
+                var name = file.fKeys[i].fName; 
+                //alert( name );
+                //use toUpperCase to have a caps insensitive confrontation 
+                //console.log(name.toUpperCase() + '  vs  ' + image.toUpperCase() + ';   risp = ' + (name.toUpperCase().indexOf(image.toUpperCase())>-1)); 
+                //if(name.toUpperCase().indexOf(image.toUpperCase())>-1)//if name and image are equal ignoring case
+                {
+                    file.ReadObject(name, function(obj) {//read the object in the file
+                        //console.log('object_draw'+(cnt));
+                        //alert('image'+ thisRun );
+                        JSROOT.redraw( 'image' + thisRun , obj, "colz" );//draw the object, in the div object_drawCNT
+                    });
+                }
+            }
+        });   
+    }
+   
+    
+
+    
+}
+
+$( document ).ready(function() {// start only when the page is already charged, to avoid all problems
+  updateGUI();
+});
+

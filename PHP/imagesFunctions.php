@@ -1,5 +1,10 @@
 <?php
 
+include "editConfigFunctionsCommons.php";
+
+
+
+
 /*! \brief This script contains functions for the visualisation in html of the images, organized in different
  *         frameworks
  *
@@ -30,13 +35,15 @@ function echoCarouselParts($runs, $iniFilePath)
     $imagesPath = "/opt/lampp/htdocs/Tesi/gAn/" . trim($whichgAn) . "/output/";
     //echo "imagePath after:  " . $imagesPath . "<br>";
 
+    //echo "alive4";
+    $groups = getAllGroups( $iniFilePath );
 
-    $groups = menageGroupsForGlobals(getRowContents(fileIniReader($iniFilePath)));
+    //echo "<br>" . count($groups);
     for ($i = 1; $i < count($groups); $i++) 
     {    
         echo '<div id="' . $groups[$i] . 'PartCarousel" style="display:block">';
         echo '<h4>' . $groups[$i] . ' Group</h4>';
-        showOutputImages($groups[$i],0, $imagesPath, $runs);
+        showOutputImages($groups[$i],0, $imagesPath, $runs,  $iniFilePath);
         echo '</div>';
     }
 }
@@ -47,8 +54,7 @@ function echoCarouselParts($runs, $iniFilePath)
  */
 function echoVerticalParts($runs, $iniFilePath)
 {
-
-    $whichgAn = fileReaderGeneral("gAnPath.txt");
+    //$whichgAn = fileReaderGeneral("gAnPath.txt");
     //echo $whichgAn . "<br>"; 
     //echo $sourceRootPathNew . "<br>";
     //echo "alive<br>";
@@ -61,27 +67,50 @@ function echoVerticalParts($runs, $iniFilePath)
 
     //echo "IMAGES: " . $whichgAn;
     //echo "imagePath before: " . $imagesPath . "<br>";
-    $imagesPath = "/opt/lampp/htdocs/Tesi/gAn/" . trim($whichgAn) . "/output/";
+    //$imagesPath = "/opt/lampp/htdocs/Tesi/gAn/" . trim($whichgAn) . "/output/";
     //echo "imagePath after:  " . $imagesPath . "<br>";
 
-    $groups = menageGroupsForGlobals(getRowContents(fileIniReader($iniFilePath)));
+    /*$groups = getAllGroups( $iniFilePath );
     for ($i = 1; $i < count($groups); $i++) 
     {
             echo '<div id="' . $groups[$i] . 'PartVertical" style="display:block" class="row">';
-            showOutputImages($groups[$i],1,$imagesPath, $runs);
+            showOutputImages($groups[$i],1,$imagesPath, $runs,  $iniFilePath);
             echo '</div>';
-    }
+    }*/
 }
 
 /*! \brief echoGroupList($iniFilePath)
  *
  *  show in a dropdown menu the existing groups the existing groups are the groups readed from the inifile 
  */
-function echoGroupList($iniFilePath)
+
+function echoGroupList($allAnalyzesSingle)
 {
+    //$allAnalyzesSingle;
+    $analyzes = scandir( $allAnalyzesSingle );
+    $cleanAnalyzes = [];
+    for ( $i = 0 ; $i < count( $analyzes ) ; $i++ )
+    {
+        if ( substr( $analyzes[ $i ] , -2 ) == ".C")
+        {
+            $toAdd = $analyzes[ $i ];
+            $toAdd = substr( $toAdd , 0 , ( strlen( $toAdd ) - 2 ) );
+            array_push( $cleanAnalyzes , $toAdd );
+            //echo $toAdd . "--";
+        }
+    }
+    for ($i = 0; $i < count( $cleanAnalyzes ); $i++) 
+    {
+        echo '<li><a href="#" id="' . "groupButton". $i . '" onclick="selectImageType(' . ($i-1) . ')">' . $cleanAnalyzes[$i] . '</a></li>';
+    } 
+    //echo $iniFilePath;
     //these 3 functions from Global.php allow us to extract an array of groups from the iniconfig file
-    $groups = menageGroupsForGlobals(getRowContents(fileIniReader($iniFilePath)));
-    for ($i = 1; $i < count($groups); $i++) 
+    //echo "alive1";
+
+    //include "../PHP/editConfigFunctionsCommons2.php";
+    //$groups = getAllGroups( $iniFilePath );
+    //echo "alive2";
+    /*for ($i = 1; $i < count($groups); $i++) 
     {
         echo '<li><a href="#" id="' . "groupButton". $i . '" onclick="selectImageType(' . ($i-1) . ')">' . $groups[$i] . '</a></li>';
     }  
@@ -90,7 +119,7 @@ function echoGroupList($iniFilePath)
     {
         echo $groups[$i] . "-";
     }
-    echo '</div>';
+    echo '</div>';*/
 }
 
 /*! \brief showRuns($runs)
@@ -99,8 +128,7 @@ function echoGroupList($iniFilePath)
  */
 function showRuns($runs)
 {
-    //print_r($runs);
-    for ($i = 0; $i < count($runs)-1; $i++) //the -1 is because the last is empty...
+    for ($i = 0; $i < count($runs); $i++) //the -1 is because the last is empty...
     {
         echo "<li><a href='#'' onclick='selRun(" . $runs[$i] . ")'>" . $runs[$i] . "</a></li>";    
     }
@@ -286,8 +314,9 @@ function showImagesVertical($dirname, $images, $identifiers, $whichGroup, $runs)
  *  this function show all the images in the folder, if they belong to the 
  *  group $whichGroup (otherwise the function doesn't show nothing)
  */
-function showOutputImages($whichGroup, $layout, $path, $runs)
+function showOutputImages($whichGroup, $layout, $path, $runs,  $iniFilePath)
 {
+    //echo "<br>group: " . $whichGroup . "<br>";
     //echo "at the beginning the run vector is: ";
     //print_r($runs);
     //echo 'path:  '.$path.'<br>';
@@ -303,12 +332,16 @@ function showOutputImages($whichGroup, $layout, $path, $runs)
     // some othe times no (es hsc-scint) so the only way to work is using this little identifiers, that are 
     // strings in a vector with 2 values divided by a '-', on the left there is the name with we search 
     // the image, on the right the name of the group 
-    $identifiers = array();
-    array_push($identifiers, "mim-mimito");
-    array_push($identifiers, "hSC-scint");
-    array_push($identifiers, "c_hdetccd-hdetccd");
-    array_push($identifiers, "pmt-pmt");
-    array_push($identifiers, "fc-farcup");
+    //echo "aliveA";
+    $identifiers = [];
+    $groups = getAllGroups(  $iniFilePath );
+    //print_r($groups);
+    //echo "groups count : " . count($groups);
+    array_push( $identifiers, "mim-" . $groups[1] );
+    array_push( $identifiers, "hSC-" . $groups[2] );
+    array_push( $identifiers, "c_hdetccd-" . $groups[3]) ;
+    array_push( $identifiers, "pmt-" . $groups[4] );
+    array_push( $identifiers, "fc-" . $groups[5] );
 
     if($layout==0)//if carousel generate carousel structure (is carousel usefull? maybe, yet not dicided)
     {

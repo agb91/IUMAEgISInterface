@@ -12,9 +12,10 @@
     </head>
     <body>
         <?php
-            include 'PHP/imagesFunctions2.php';
-            include 'Globals2.php';
-            include 'PHP/genericFunctions.php';
+            include 'PHP/imagesFunctionsOLD.php';
+            include 'Globals.php';
+            include 'PHP/editConfigFunctionsCommonsOLD.php';
+            include 'PHP/genericFunctionsOLD.php';
 
             session_start(); // Starting Session
             if (!strcmp($_SESSION['logged'], "logged") == 0)
@@ -26,6 +27,8 @@
                 //echo "alive!";
                 //read runs from get method
                 $runs = $_GET['runs'];
+                $runs = cleanString($runs);
+                //echo $runs;
                 $runs = explode(";", $runs);
                 //echo "alive2!";
             }
@@ -82,8 +85,6 @@
                             <li>
                                 <a href="#" onclick="selectImageType(0)">
                                     <?php 
-                                        //include 'PHP/editConfigFunctionsCommons2.php';
-                                        //echo "alive2";
                                         //print in this dropdown the list of all known image groups.
                                         //we can found the existing groups in the ini configuration file
                                         echoGroupList($iniFilePath);
@@ -110,7 +111,6 @@
             <h3>Click on the images to get a detailed root-like vision</h3>   
             <div id="carouselBlock" style="display:none" class="col-xs-12">
                 <?php
-
                     //echo "alive1";
                     //generate a bootstrap-like carousel of the images filtered by run and group
                     echoCarouselParts($runs, $iniFilePath);

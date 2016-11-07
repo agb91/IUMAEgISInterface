@@ -35,7 +35,7 @@
                     //print_r($_POST);
                     //echo "the read analysis is : " . $whichAnalysis;
                     $whichAnalysis = cleanString( $whichAnalysis );
-                    echo "<button data-toggle='tooltip' title='Look at the images created by running gAn' onclick=\"window.location.href='images.php?runs=" . cleanRuns($whichRun) . "'\" type=\"button\" class=\"btn btn-primary btn-lg fixedTopRight \">";
+                    echo "<button data-toggle='tooltip' title='Look at the images created by running gAn' onclick=\"window.location.href='images.php?runs=" . $whichRun . "'\" type=\"button\" class=\"btn btn-primary btn-lg fixedTopRight \">";
                     echo "Look at the images";
                     echo "</button>";
                 ?>
@@ -107,34 +107,6 @@
                         //echo "<h1> just runned: " . $piecesOfRun[$i] . "</h1><br>";
                         echo $o . "</div>";    
                     }
-                
-                    
-                    //the following part is not useful outside the test on my local 
-                    //machine; ignore it
-                    //find root (and if exists, kill the process) the job is done
-                    //$found = array();
-                    //$found = findRoot();
-                    //it is important to kill before the more recent process (bigger id)
-                    //sort($found);
-                    
-                    //now kill all root processes found
-                    //from to ent to the start, because I want to kill before the more recent
-                    // processes
-                    /*$o="";
-                    if(count($found)>0) //if there are root's processes still opened
-                    {
-                        for($i = (count($found)-1); $i>=0 ; $i--)
-                        {
-                            if(strlen($found[$i])!=0)//if there is an ID (sometimes the 
-                            //explode of the vector create an empty cell, useless)
-                            {
-                                echo "<br><br> I found a zombie process root with Id: ";
-                                echo "|".$found[$i] ."|". ";  I'll kill it now" ;
-                                $o = killRoot($found[$i]);
-                            }
-                        }
-                    }                
-                    echo $o;*/
                 } 
                 
 
