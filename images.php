@@ -106,21 +106,21 @@
             <div class="col-xs-2"></div>
         </div>
 
-        <div>
-            <div id="verticalBlock" style="display:block" class="row">
-                <div class= "col-xs-1"></div>
-                <div class= "col-xs-10">
-                    <?php
-                        include "PHP/imagesFunctionsRoot.php";
-                        //echo "alive3";
-                        //generate the structure of images disposed vertically, filtered by run and group
-                        echoRootLike($runs, $allAnalyzesSingle);
-                        //echo "alive4";
-                    ?>
-                    
+        <div class = "row">
+            <div class= "col-xs-2"></div>
+            <div class= "col-xs-8">
+                <div id="verticalBlock" style="display:block">
+
+                        <?php
+                            include "PHP/imagesFunctionsRoot.php";
+                            //echo "alive3";
+                            //generate the structure of images disposed vertically, filtered by run and group
+                            echoRootLike($runs, $allAnalyzesSingle);
+                            //echo "alive4";
+                        ?>
                 </div>
-                <div class= "col-xs-1"></div>
             </div>
+            <div class= "col-xs-2"></div>    
         </div>
         <!-- just to set the default configuration when the user enters in this page -->        
         <script src="JS/imagesInitializer.js"></script>
