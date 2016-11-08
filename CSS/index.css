@@ -11,12 +11,8 @@ and open the template in the editor.
   padding: 20px;
   background-color: #C5D8DA; }
   .indexGeneral .absoluteCenter {
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0; }
+    position: fixed;
+    bottom: 400px; }
   .indexGeneral .borderGroup {
     border-radius: 25px;
     border: 2px solid #5e5ebb;

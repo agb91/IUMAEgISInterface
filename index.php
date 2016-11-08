@@ -42,20 +42,13 @@
             <div class="row">
                 <div class="col-xs-7">
                     <div class="borderGroup">
-                        <div class="row">
+                        <!--<div class="row">
                             <div class="col-xs-2">
                                 <h4 id="thisgAn">
-                                    <?php
-                                        $whichgAn = fileReaderGeneral($gAnPathFile);
-                                        if( isgAnSafe($whichgAn) == 1 )
-                                        {
-                                            $whichgAn = "gAn-dev";
-                                        }
-                                        echo '<div title="" class="fixedTopRight well"> You are using: ' . $whichgAn . '</div>';
-                                    ?>
+                                    <div title="" class="fixedTopRight well"> You are using:</div>
                                 </h4>
                             </div>   
-                        </div>
+                        </div>-->
                         <div id="multiple"> 
                             <div class="col-xs-12">    
                                 <div class="row"><!-- run row -->
