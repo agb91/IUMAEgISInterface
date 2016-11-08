@@ -150,12 +150,24 @@ function img_find() {
 
 function download()
 {
-    imgSources = document.getElementsByName("toSaveImage");
-    for (i = 0; i < imgSources.length; i++) 
-    { 
-        imgSources[i].click();
+    var list = document.getElementsByTagName("svg");
+    //alert( list[0] );
+    for( i = 0; i < list.length; i++)
+    {
+        var svgData = list[ i ].outerHTML;
+        if( svgData.indexOf( '<svg class="jsroot root_canvas"' ) !== -1)
+        {
+            //alert( svgData );
+            var svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
+            var svgUrl = URL.createObjectURL(svgBlob);
+            var downloadLink = document.createElement("a");
+            downloadLink.href = svgUrl;
+            downloadLink.download = "rootImageAegis.svg";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);    
+        }        
     }
-    //console.log(imgSources.length);
 }
 
 function updateGUI() 
@@ -174,22 +186,18 @@ function updateGUI()
         //tipical error: filename doesn't exist. If error check this before. (maybe too many slash or no slash)
         JSROOT.OpenFile(filename, function(file) {
             //console.log(file);
-            for ( var i = 0; i < file.fKeys.length; i++ )//for all the keys in the file
+            for ( var i = 1; i < ( file.fKeys.length - 1 ); i++ )//for all the keys in the file
             {
-                for( var k = 1; k < groupsArray.length; k++ )
-                {
-                    var thisGroup = groupsArray[ k ];
-                    var name = file.fKeys[i].fName; 
-                    //use toUpperCase to have a caps insensitive confrontation 
-                    //if(name.toUpperCase().indexOf(image.toUpperCase())>-1)//if name and image are equal ignoring case
+                var name = file.fKeys[i].fName;
+                file.ReadObject(name, function(obj) {
+                    for( var k = 1; k < groupsArray.length; k++ )
                     {
-                        file.ReadObject(name, function(obj) {//read the object in the file
-                            var whereToDraw = 'image' + thisRun + "-" + thisGroup;
-                            //alert(whereToDraw);
-                            JSROOT.redraw( whereToDraw , obj, "colz" );//draw the object, in the div object_drawCNT
-                        });
-                    }
-                }                
+                        var thisGroup = groupsArray[ k ];
+                        var whereToDraw = 'image' + thisRun + "-" + thisGroup;
+                        //alert (whereToDraw);
+                        JSROOT.redraw( whereToDraw , obj, "colz" );//draw the object, in the div object_drawCNT
+                    }   
+                });
             }
         });  
     }

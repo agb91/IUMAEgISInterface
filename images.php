@@ -8,6 +8,7 @@
         <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" media="screen">
         <script src="bootstrap/js/bootstrap.js"></script>
         <script src="JSROOTlibraries/scripts/JSRootCore.js" type="text/javascript"></script>
+        <script src="jquerySVG/jquery.svg.package-1.5.0"></script>
         <script src="JS/imagesJs.js"></script>
         <link rel="stylesheet" href="CSS/images.css" media="screen">
     </head>
@@ -123,6 +124,6 @@
             <div class= "col-xs-2"></div>    
         </div>
         <!-- just to set the default configuration when the user enters in this page -->        
-        <script src="JS/imagesInitializer.js"></script>
+        <!--<script src="JS/imagesInitializer.js"></script>-->
     </body>
 </html>
