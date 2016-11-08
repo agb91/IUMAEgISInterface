@@ -3,6 +3,23 @@
 	//include 'editConfigFunctionsCommons.php';
 	//include 'PHP/editgAnBranchFunctionsCommons.php';
 
+function getGroupsFromFolder( $allAnalyzes )
+{
+    $analyzes = scandir( $allAnalyzes );
+    $cleanAnalyzes = [];
+    for ( $i = 0 ; $i < count( $analyzes ) ; $i++ )
+    {
+        if ( substr( $analyzes[ $i ] , -2 ) == ".C")
+        {
+            $toAdd = $analyzes[ $i ];
+            $toAdd = substr( $toAdd , 0 , ( strlen( $toAdd ) - 2 ) );
+            array_push( $cleanAnalyzes , $toAdd );
+            //echo $toAdd . "--";
+        }
+    }
+    return $cleanAnalyzes;
+}
+
 function cleanString( $str )
 {
     $str = trim( $str );

@@ -86,19 +86,13 @@ function echoVerticalParts($runs, $iniFilePath)
 
 function echoGroupList($allAnalyzesSingle)
 {
-    //$allAnalyzesSingle;
-    $analyzes = scandir( $allAnalyzesSingle );
-    $cleanAnalyzes = [];
-    for ( $i = 0 ; $i < count( $analyzes ) ; $i++ )
+    $cleanAnalyzes = getGroupsFromFolder( $allAnalyzesSingle );
+    echo "<p hidden id='hereTheGroups'>";
+    for ($i = 0; $i < count( $cleanAnalyzes ); $i++) 
     {
-        if ( substr( $analyzes[ $i ] , -2 ) == ".C")
-        {
-            $toAdd = $analyzes[ $i ];
-            $toAdd = substr( $toAdd , 0 , ( strlen( $toAdd ) - 2 ) );
-            array_push( $cleanAnalyzes , $toAdd );
-            //echo $toAdd . "--";
-        }
-    }
+        echo '-' . $cleanAnalyzes[ $i ];
+    } 
+    echo "</p>";
     for ($i = 0; $i < count( $cleanAnalyzes ); $i++) 
     {
         echo '<li><a href="#" id="' . "groupButton". $i . '" onclick="selectImageType(' . ($i-1) . ')">' . $cleanAnalyzes[$i] . '</a></li>';

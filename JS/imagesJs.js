@@ -162,31 +162,36 @@ function updateGUI()
 {
     var runs = $( "#getRuns" ).text();
     var runsArray = runs.split("-");
+    var groups = $( "#hereTheGroups").text();
+    var groupsArray = groups.split("-");
+    //alert( groupsArray );
+
     for( var a = 1; a < runsArray.length ; a++ )
     {
         var thisRun = runsArray[ a ];
+        //alert( thisGroup );
         var filename = "output/gAnOut_" + thisRun + ".root";
-        //alert( filename );
-        //console.log("filename:" + filename);
         //tipical error: filename doesn't exist. If error check this before. (maybe too many slash or no slash)
         JSROOT.OpenFile(filename, function(file) {
-            console.log(file);
-            for (var i=0;i<file.fKeys.length;i++)//for all the keys in the file
+            //console.log(file);
+            for ( var i = 0; i < file.fKeys.length; i++ )//for all the keys in the file
             {
-                var name = file.fKeys[i].fName; 
-                //alert( name );
-                //use toUpperCase to have a caps insensitive confrontation 
-                //console.log(name.toUpperCase() + '  vs  ' + image.toUpperCase() + ';   risp = ' + (name.toUpperCase().indexOf(image.toUpperCase())>-1)); 
-                //if(name.toUpperCase().indexOf(image.toUpperCase())>-1)//if name and image are equal ignoring case
+                for( var k = 1; k < groupsArray.length; k++ )
                 {
-                    file.ReadObject(name, function(obj) {//read the object in the file
-                        //console.log('object_draw'+(cnt));
-                        //alert('image'+ thisRun );
-                        JSROOT.redraw( 'image' + thisRun , obj, "colz" );//draw the object, in the div object_drawCNT
-                    });
-                }
+                    var thisGroup = groupsArray[ k ];
+                    var name = file.fKeys[i].fName; 
+                    //use toUpperCase to have a caps insensitive confrontation 
+                    //if(name.toUpperCase().indexOf(image.toUpperCase())>-1)//if name and image are equal ignoring case
+                    {
+                        file.ReadObject(name, function(obj) {//read the object in the file
+                            var whereToDraw = 'image' + thisRun + "-" + thisGroup;
+                            //alert(whereToDraw);
+                            JSROOT.redraw( whereToDraw , obj, "colz" );//draw the object, in the div object_drawCNT
+                        });
+                    }
+                }                
             }
-        });   
+        });  
     }
    
     
