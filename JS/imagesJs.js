@@ -29,10 +29,12 @@
 // the run-numbers
 function selRun(run)
 {
-    $("img[name*='n']").hide(); //firstly we hide all images (all images have names that begin with 'n')
+    $( "#runToShowButton" ).text( "Selected Run: " + run );
+    /*$("img[name*='n']").hide(); //firstly we hide all images (all images have names that begin with 'n')
     $("item[name*='n']").hide(); //exactly the same with the item (is a contain) of the carousel
     $("img[name*=" + run+  " ]").show(); // after we show the group that interest us
     $("item[name*=" + run+  " ]").show(); //exactly the same with the li of the carousel
+    */
 }
 
 
@@ -45,7 +47,8 @@ function selectImageType(n)
     var groups = $("#hereTheGroups").text();
     groups = groups.split("-");
     //alert( groups );
-    var thisGroup = groups[ (n + 1) ]; 
+    var thisGroup = groups[ (n + 1) ];
+    $( "#groupToShowButton" ).text( "Selected group: " + thisGroup );
     //alert(thisGroup);
     var typeSelected="none";
     images = $( '[id*="image"]' )
@@ -61,11 +64,6 @@ function selectImageType(n)
             thisImage.style.display = 'block';
         }
     }
-
-/*    $("#groupToShowButton").text("Images Group: "+thisGroup);
-    $("#" + thisGroup + "PartCarousel").show();
-    $("#" + thisGroup + "PartVertical").show();
-    typeSelected = thisGroup;*/
 }
 
 //this function allows the changing of the layout of the images (vertical or 
@@ -106,7 +104,7 @@ function setImageDimension(n)
     thisGroup = groups[n]; 
     if(n==0)//little (is this usefull? maybe is too little?)
     {
-        $("#dimensionButton").text("Image: Little");
+        $("#dimensionButton").text("Selected dimension: Little");
         for (i = 0; i < groups.length; i++)
         {
             $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-6",false);
@@ -119,7 +117,7 @@ function setImageDimension(n)
     }
     if(n==1)//medium
     {
-        $("#dimensionButton").text("Image: Medium");
+        $("#dimensionButton").text("Selected dimension: Medium");
         for (i = 0; i < groups.length; i++)
         {
             $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-3",false);
@@ -132,7 +130,7 @@ function setImageDimension(n)
     }
     if(n==2)//large
     {
-        $("#dimensionButton").text("Image: Big");
+        $("#dimensionButton").text("Selected dimension: Big");
         for (i = 0; i < groups.length; i++)
         {
             $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-3",false);

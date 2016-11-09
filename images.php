@@ -89,7 +89,7 @@
                     <div class="col-xs-4 well well-sm">
                         <h4 class="col-xs-12"> Runs to show: </h4>
                         <div class="dropdown col-xs-12">
-                            <button id="groupToShowButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Runs to show:
+                            <button id="runToShowButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Runs to show:
                             <span class="caret"></span></button>
                             <ul class="dropdown-menu">
                                 <?php
