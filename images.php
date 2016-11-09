@@ -61,7 +61,7 @@
                     <div data-toggle="tooltip" title="Choose between large, medium or little images"class="col-xs-4 well well-sm">
                         <h4 class="col-xs-12"> Set dimension: </h4>
                         <div class="dropdown col-xs-12">
-                            <button id = "imageDimensionButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Images Dimension:
+                            <button id = "dimensionButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Images Dimension:
                             <span class="caret"></span></button>
                             <ul class="dropdown-menu">
                               <li><a href="#" onclick="setImageDimension(0)">Little</a></li>

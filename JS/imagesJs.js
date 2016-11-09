@@ -42,22 +42,30 @@ function selRun(run)
 function selectImageType(n)
 {
     //alert("n: " +n);
-    var groups = $("#groupList").text();
+    var groups = $("#hereTheGroups").text();
     groups = groups.split("-");
-    thisGroup = groups[n]; 
-    //alert(groups);
+    //alert( groups );
+    var thisGroup = groups[ (n + 1) ]; 
+    //alert(thisGroup);
     var typeSelected="none";
-
-    for (i = 0; i < groups.length; i++)
+    images = $( '[id*="image"]' )
+    for ( i = 0; i < images.length; i++ )
     {
-        $("#" + groups[i] + "PartVertical").hide();
-        $("#" + groups[i] + "PartCarousel").hide();
+        thisImage = images[ i ];
+        thisImage.style.display = 'none';
+        //alert( thisImage.id );
+        id = thisImage.id;
+        //alert( id );
+        if( id.indexOf(thisGroup) !== -1 )
+        {
+            thisImage.style.display = 'block';
+        }
     }
 
-    $("#groupToShowButton").text("Images Group: "+thisGroup);
+/*    $("#groupToShowButton").text("Images Group: "+thisGroup);
     $("#" + thisGroup + "PartCarousel").show();
     $("#" + thisGroup + "PartVertical").show();
-    typeSelected = thisGroup;
+    typeSelected = thisGroup;*/
 }
 
 //this function allows the changing of the layout of the images (vertical or 
@@ -98,7 +106,7 @@ function setImageDimension(n)
     thisGroup = groups[n]; 
     if(n==0)//little (is this usefull? maybe is too little?)
     {
-        $("#imageDimensionButton").text("Image: Little");
+        $("#dimensionButton").text("Image: Little");
         for (i = 0; i < groups.length; i++)
         {
             $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-6",false);
@@ -111,7 +119,7 @@ function setImageDimension(n)
     }
     if(n==1)//medium
     {
-        $("#imageDimensionButton").text("Image: Medium");
+        $("#dimensionButton").text("Image: Medium");
         for (i = 0; i < groups.length; i++)
         {
             $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-3",false);
@@ -124,7 +132,7 @@ function setImageDimension(n)
     }
     if(n==2)//large
     {
-        $("#imageDimensionButton").text("Image: Big");
+        $("#dimensionButton").text("Image: Big");
         for (i = 0; i < groups.length; i++)
         {
             $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-3",false);
@@ -185,7 +193,6 @@ function updateGUI()
         var filename = "output/gAnOut_" + thisRun + ".root";
         //tipical error: filename doesn't exist. If error check this before. (maybe too many slash or no slash)
         JSROOT.OpenFile(filename, function(file) {
-            //console.log(file);
             for ( var i = 1; i < ( file.fKeys.length - 1 ); i++ )//for all the keys in the file
             {
                 var name = file.fKeys[i].fName;

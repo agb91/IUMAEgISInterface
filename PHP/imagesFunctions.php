@@ -95,7 +95,7 @@ function echoGroupList($allAnalyzesSingle)
     echo "</p>";
     for ($i = 0; $i < count( $cleanAnalyzes ); $i++) 
     {
-        echo '<li><a href="#" id="' . "groupButton". $i . '" onclick="selectImageType(' . ($i-1) . ')">' . $cleanAnalyzes[$i] . '</a></li>';
+        echo '<li><a href="#" id="' . "groupButton". $i . '" onclick="selectImageType(' . ($i) . ')">' . $cleanAnalyzes[$i] . '</a></li>';
     } 
     //echo $iniFilePath;
     //these 3 functions from Global.php allow us to extract an array of groups from the iniconfig file
