@@ -110,7 +110,7 @@
         <div class = "row">
             <div class= "col-xs-2"></div>
             <div class= "col-xs-8">
-                <div id="verticalBlock" style="display:block">
+                <div id = "verticalBlock" style = "display:block" class = "center" >
 
                         <?php
                             include "PHP/imagesFunctionsRoot.php";

@@ -99,47 +99,36 @@ function imageClicked(n, runs)
 //taken in the dropdown menu 
 function setImageDimension(n)
 {
-    var groups = $("#groupList").text();
-    groups = groups.split("-");
-    thisGroup = groups[n]; 
+    images = $( '[id*="image"]' )
+    for ( i = 0; i < images.length; i++ )
+    {
+        thisImage = images[ i ];
+        //alert(thisImage.style);
+        thisImage.style.removeProperty("height");
+    }
     if(n==0)//little (is this usefull? maybe is too little?)
     {
         $("#dimensionButton").text("Selected dimension: Little");
-        for (i = 0; i < groups.length; i++)
-        {
-            $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-6",false);
-            $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-12",false);
-            $("#" + groups[i] + "PartVertical").children().addClass("col-xs-3");
-        }     
-        $("#carouselBlock").toggleClass("col-xs-12", false);
-        $("#carouselBlock").toggleClass("col-xs-6", false);
-        $("#carouselBlock").addClass("col-xs-3");
+
+        $("#verticalBlock").toggleClass("big", false);
+        $("#verticalBlock").toggleClass("medium", false);
+        $("#verticalBlock").addClass("little");
     }
     if(n==1)//medium
     {
         $("#dimensionButton").text("Selected dimension: Medium");
-        for (i = 0; i < groups.length; i++)
-        {
-            $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-3",false);
-            $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-12",false);
-            $("#" + groups[i] + "PartVertical").children().addClass("col-xs-6");
-        }
-        $("#carouselBlock").toggleClass("col-xs-3", false);
-        $("#carouselBlock").toggleClass("col-xs-12", false);        
-        $("#carouselBlock").addClass("col-xs-6");
+        
+        $("#verticalBlock").toggleClass("big", false);
+        $("#verticalBlock").toggleClass("little", false);
+        $("#verticalBlock").addClass("medium");
     }
     if(n==2)//large
     {
         $("#dimensionButton").text("Selected dimension: Big");
-        for (i = 0; i < groups.length; i++)
-        {
-            $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-3",false);
-            $("#" + groups[i] + "PartVertical").children().toggleClass("col-xs-6",false);
-            $("#" + groups[i] + "PartVertical").children().addClass("col-xs-12");
-        }
-        $("#carouselBlock").toggleClass("col-xs-3", false);
-        $("#carouselBlock").toggleClass("col-xs-6", false);
-        $("#carouselBlock").addClass("col-xs-12");
+
+        $("#verticalBlock").toggleClass("medium", false);
+        $("#verticalBlock").toggleClass("little", false);
+        $("#verticalBlock").addClass("big");
     }
 }
 
