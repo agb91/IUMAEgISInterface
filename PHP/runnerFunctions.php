@@ -10,6 +10,36 @@
 //include 'genericFunctions.php';
 
 
+/*
+ * Print the blocks that contain the results in an ordered way
+ */
+function printBlocks( $blocks )
+{
+    for ( $i = 1; $i < ( count( $blocks ) - 1 ) ; $i++ ) 
+    // does block 0 contain interesting information? ask to Germano,
+    // at the moment I skip them. The last block is related to 
+    // error messages.   
+    {
+        echo "<br><br><br> block " . $i . ": <br>";
+        echo $blocks[ $i ];
+    }
+}
+
+/*
+ * Divide the output in blocks (selected by different separators) to 
+ * show them easily in the future 
+ */
+function getBlocks( $text )
+{
+    $delimiters = array("--------------------------------------", 
+        "=================================================================================",
+        "====================================== oOo ======================================");
+    $text = str_replace( $delimiters, "&&&", $text );
+    //now i split the strig using &&& as delimiter
+    $textPieces = explode("&&&", $text);
+    return $textPieces;
+}
+
 
 /*
  * Run the bash command that starts gAn (external c file that uses root).

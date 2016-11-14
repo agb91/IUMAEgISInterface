@@ -105,7 +105,11 @@
                         //echo "<h1> going to run: " . $piecesOfRun[$i] . "</h1><br>";
                         $o = run($piecesOfRun[$i], $whichAnalysis, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose); 
                         //echo "<h1> just runned: " . $piecesOfRun[$i] . "</h1><br>";
-                        echo $o . "</div>";    
+                        $outputBlocks = getBlocks( $o );
+                        printBlocks( $outputBlocks );
+                        //echo "<br> outputBlocks length: " . count( $outputBlocks ) . "<br>" ;
+                        echo "</div>";
+                        //echo $o . "</div>";    
                     }
                 } 
                 
