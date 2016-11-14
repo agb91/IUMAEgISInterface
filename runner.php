@@ -184,6 +184,7 @@
                             {
                                 echo "<div id= 'run" . $piecesOfRun[$i] . "' style='display:none' name='disappearing'>";
                             }
+                            
                             echo "<h4>Run selected: " . $piecesOfRun[$i] . "; ";
                             echo "Kind of analysis selected: " . $whichAnalysis . "</h4><br>";
                             //start root, run gAn and make computation
