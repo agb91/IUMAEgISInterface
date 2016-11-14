@@ -15,18 +15,39 @@
  */
 function printBlocks( $blocks )
 {
-    for ( $i = 1; $i < ( count( $blocks ) - 1 ) ; $i++ ) 
+    for ( $i = 1 ; $i < ( count( $blocks ) - 1 ) ; $i++ ) 
     // does block 0 contain interesting information? ask to Germano,
     // at the moment I skip them. The last block is related to 
     // error messages.   
     {
-        echo "<br><br><br> block " . $i . ": <br>";
-        echo $blocks[ $i ];
+        echo "<br><br><br> block " . $i . ":<br>";
+        printSingleBlock( $blocks[ $i ] );
     }
 }
 
 /*
- * Divide the output in blocks (selected by different separators) to 
+ *   print a single block in an organized way
+ */
+function printSingleBlock( $thisBlock )
+{
+    $allRows = explode("<br>", $thisBlock);
+    //echo "rows are: " . count( $allRows );
+    // the first and the last are enmpty
+    for ( $i = 1 ; $i < ( count( $allRows ) - 1 ) ; $i++ ) 
+    {
+        printSingleRow( $allRows[ $i ] );
+        //echo $i . " " . $allRows[ $i ] ."<br>";
+    }
+    //echo $thisBlock;
+}
+
+function printSingleRow( $thisRow )
+{
+    echo $thisRow . "<br>";
+}
+
+/*
+ * Split the output in blocks (selected by different separators) to 
  * show them easily in the future 
  */
 function getBlocks( $text )
