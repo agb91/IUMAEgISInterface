@@ -188,7 +188,7 @@
                             echo "Kind of analysis selected: " . $whichAnalysis . "</h4><br>";
                             //start root, run gAn and make computation
                             //echo "<h1> going to run: " . $piecesOfRun[$i] . "</h1><br>";
-                            $o = run($piecesOfRun[$i], $whichAnalysis, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose); 
+                            $o = run($piecesOfRun[$i], $whichAnalysis, $rootPathFile, $gAnPath, $gAnChose); 
                             //echo $o;
                             //echo "<h1> just runned: " . $piecesOfRun[$i] . "</h1><br>";
                             $outputBlocks = getBlocks( $o );
