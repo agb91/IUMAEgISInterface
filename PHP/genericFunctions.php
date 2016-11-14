@@ -29,6 +29,10 @@ function cleanString( $str )
     $str = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
     $str = htmlentities( $str );
     $str = xss_clean( $str );
+    //echo "<br><br><br>string before: " . $str;
+    $str = escapeshellarg( $str );
+    $str = substr( $str , 1 , -1 );
+    //echo "<br>string after: " . $str . "<br><br><br><br>";
     return $str;
 }
 

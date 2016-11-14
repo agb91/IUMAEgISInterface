@@ -23,6 +23,7 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose
 
     if ( !is_numeric($wr) )
     {
+        echo "inserted run: " . $wr;
         echo "Inserted run is not acceptable";
         $wr = 0;
     }
