@@ -5,6 +5,11 @@
 {
     background-color: $general-background !important;
     padding: 20px;
+
+    .navbarColor
+    {
+        background-color: $navbarColor;
+    }
     .runnerGeneral
     {
         .right
@@ -57,10 +62,6 @@
         .singleRow
         {
             color: $simpleRow;
-        }
-        .navbarColor
-        {
-            background-color: $navbarColor;
         }
         .typeChose{
             .btn-group{

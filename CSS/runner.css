@@ -10,6 +10,8 @@ and open the template in the editor.
 .general {
   background-color: #C5D8DA !important;
   padding: 20px; }
+  .general .navbarColor {
+    background-color: white; }
   .general .runnerGeneral .right {
     position: absolute;
     right: 20px; }
@@ -38,8 +40,6 @@ and open the template in the editor.
     color: blue; }
   .general .runnerGeneral .singleRow {
     color: red; }
-  .general .runnerGeneral .navbarColor {
-    background-color: white; }
   .general .runnerGeneral .typeChose .btn-group .evidentActive:active {
     background-color: #04233E !important; }
   .general .runnerGeneral .typeChose .btn-group .btn-primary:active {

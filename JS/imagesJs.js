@@ -1,28 +1,18 @@
-//OLD VERSION OF SELRUN:
-//the user selects one run (or all), this function shows him only what he selected.
-// This function do this simply recharging this page, but with the new parameters 
-//(in this case the parameters are the selected runs).
-/*function selRun(runs)
-{
-    //alert(runs);
-    var toSend = "images.php?runs="; 
+//alert("loaded");
 
-    if (runs.isArray)
-    {
-        alert(runs[0]);
-        //for (var i = 0; i <(runs.length - 1); i++)
-        //{
-         //   toSend = toSend + runs[i] + ';';
-        //};
-        //alert('array');
-    }
-    else
-    {
-        //alert('not array');
-        toSend = toSend + runs + ';';
-    }
-    window.location.href =  toSend;
-}*/
+
+function showImages()
+{
+    $( "#runnerTab" ).hide();
+    $( "#picturesTab" ).show();    
+}
+
+function showTextualRunner()
+{
+    $( "#runnerTab" ).show();
+    $( "#picturesTab" ).hide();    
+}
+
 
 // The user selects one run, this function shows him only what he selected.
 // This function does this checking the names of the images, these names contain 
@@ -43,11 +33,11 @@ function selRun(run)
 // mimito, scint ecc)
 function selectImageType(n)
 {
-    //alert("n: " +n);
     var groups = $("#hereTheGroups").text();
     groups = groups.split("-");
     //alert( groups );
     var thisGroup = groups[ (n + 1) ];
+    //alert( thisGroup );
     $( "#groupToShowButton" ).text( "Selected group: " + thisGroup );
     //alert(thisGroup);
     var typeSelected="none";
@@ -168,15 +158,16 @@ function download()
 function updateGUI() 
 {
     var runs = $( "#getRuns" ).text();
+    //alert( runs );
     var runsArray = runs.split("-");
+    //alert (runsArray);
     var groups = $( "#hereTheGroups").text();
     var groupsArray = groups.split("-");
     //alert( groupsArray );
 
-    for( var a = 1; a < runsArray.length ; a++ )
+    for( var a = 1; a < (runsArray.length - 1)  ; a++ )
     {
         var thisRun = runsArray[ a ];
-        //alert( thisGroup );
         var filename = "output/gAnOut_" + thisRun + ".root";
         //tipical error: filename doesn't exist. If error check this before. (maybe too many slash or no slash)
         JSROOT.OpenFile(filename, function(file) {
