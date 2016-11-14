@@ -14,8 +14,18 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
 	</head>
 	<body class="indexGeneral">
+		<div id = "commonTop" class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6">
+                    <img src="images/aegisLogo-black.gif" class="logoImage">
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+        </div>
+        <div class = "space"></div>
 		<div class="container">
-			<h2 class="form-signin-heading">Insert AEgIS experiment's password</h2>
+			<h2 class="form-signin-heading">Insert AEgIS experiment's password to start</h2>
 			<form action="" method="post" class="form-signin">
 				<label for="inputPassword" class="sr-only">Password</label>
 				<input id="password" name="password" placeholder="**********" type="password" class="form-control">

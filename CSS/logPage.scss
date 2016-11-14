@@ -5,6 +5,28 @@ body {
     padding-bottom: 40px;
     background-color: $general-background;
 
+    .space
+    {
+        height: 200px;
+    }
+
+    .absoluteCenter
+    {
+        position: fixed;
+        bottom: 400px;
+    }
+
+    .logoImage
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 110px;
+        width: auto;
+        //max-width: 575px; //retina compatible
+        //max-height: 155px; //retina compatible
+    }
+
     .error
     {
         width: 471px;
@@ -15,7 +37,7 @@ body {
     }
     .form-signin-heading
     {
-        width: 514px;
+        width: 613px;
         padding: 15px;
         margin: 0 auto;
     }

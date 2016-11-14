@@ -11,13 +11,24 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #C5D8DA; }
+  body .space {
+    height: 200px; }
+  body .absoluteCenter {
+    position: fixed;
+    bottom: 400px; }
+  body .logoImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 110px;
+    width: auto; }
   body .error {
     width: 471px;
     padding: 15px;
     margin: 0 auto;
     color: Red; }
   body .form-signin-heading {
-    width: 514px;
+    width: 613px;
     padding: 15px;
     margin: 0 auto; }
   body .form-signin {
