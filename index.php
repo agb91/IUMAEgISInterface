@@ -149,11 +149,7 @@
                                         <?php
                                             //include "Globals.php";
                                             //include "PHP/genericFunctions.php";
-                                            $whichgAn = fileReaderGeneral($gAnPathFile);
-                                            if( isgAnSafe($whichgAn) == 1 )
-                                            {
-                                                $whichgAn = "gAn-dev";
-                                            }
+                                            $whichgAn = "gAn-dev";
                                             lastRun($dirRawFiles , 0);
                                         ?>
                                     </h3>

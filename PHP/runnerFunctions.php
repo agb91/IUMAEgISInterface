@@ -118,17 +118,10 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose
     }
 
     //echo "rootPathFile: " . $rootPathFile . "<br>";
-    $sourceRootPathNew = fileReaderGeneral($rootPathFile); 
+    //$sourceRootPathNew = fileReaderGeneral($rootPathFile); 
     //$whichgAn = fileReaderGeneral($gAnPathFile);
-    /*
-
-    if( isgAnSafe($whichgAn) == 1 )
-    {
-        $whichgAn = "gAn-dev";
-        echo "I return to the standard gAn path...";
-    }
-*/
-
+    $whichgAn = "gAn-dev";
+    
     if( isAnalysisSafe( $analisys ) == 1 )
     {
         echo "selected analysis is not acceptable";

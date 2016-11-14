@@ -42,5 +42,5 @@ echo $2
 pwd
 #echo 'run ls'
 #ls
-root -l rungAn.C\($1\,\"$2\"\,true\)
+root -l -b rungAn.C\($1\,\"$2\"\,true\)
 

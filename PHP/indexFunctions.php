@@ -2,6 +2,7 @@
 
 function findLastRunAndTime($dirRawFiles)
 {
+	//echo $dirRawFiles;
 	$rawFiles = glob($dirRawFiles . "run_" ."*.*");
 	//echo count($rawFiles);
 	$lastNow = 0; //it is a number.. but printable by echo without problems

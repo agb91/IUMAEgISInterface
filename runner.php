@@ -41,6 +41,12 @@
 
                             $whichRun = $_POST["whichRun"];
                             $whichRun = cleanString( $whichRun );
+
+                            //echo " the run is: " . $whichRun;
+
+                            $piecesOfRun = explode(";", $whichRun);
+                            //print_r( $piecesOfRun );
+
                             $whichAnalysis = $_POST["selectedAnalysisSingle"];
                             $whichAnalysis = $whichAnalysis . $_POST["selectedAnalysisMultiple"];
                             //print_r($_POST);
@@ -166,8 +172,10 @@
                          *  show bash results for all (the useless parts will be covered by js)
                          *  is this solution efficient? yes, because the useless parts are already computed...
                          */
+                        //print_r( $piecesOfRun );
                         for ($i = 0; $i < count($piecesOfRun)-1; $i++) 
                         {
+                            //echo "alive";
                             if($i==0)//before the user choise show the first run as default
                             {
                                 echo "<div id= 'run" . $piecesOfRun[$i] . "' style='display:block' name='disappearing'>";
