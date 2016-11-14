@@ -105,7 +105,7 @@ function getBlocks( $text )
  * The function is prepared to read the errors log 
  * The function return the output of the bash.
  */
-function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose)
+function run($wr, $analisys ,$gAnPath)
 {
     //echo 'path now: '. $gAnPath . ' <br> ';
     //echo 'source: '. $sourceRootPath . '<br>';
@@ -117,32 +117,18 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose
         $wr = 0;
     }
 
-    //echo "rootPathFile: " . $rootPathFile . "<br>";
-    //$sourceRootPathNew = fileReaderGeneral($rootPathFile); 
-    //$whichgAn = fileReaderGeneral($gAnPathFile);
-    $whichgAn = "gAn-dev";
-    
     if( isAnalysisSafe( $analisys ) == 1 )
     {
         echo "selected analysis is not acceptable";
         $analisys = "---";
     }
 
-    if( isPathSafe($sourceRootPathNew) == 1 )
-    {
-        $sourceRootPathNew = "root";
-        echo "I return to the standard root path...";
-    }
-    
-    //echo "gAn path before : " . $gAnPath . "<br>";
-    //$gAnPath = $gAnChose . trim($whichgAn);
-    //echo "gAn path after : " . $gAnPath . "--<br>";
 
     $output="";
     try 
     {
         //call the rooc data analisys program with the correct arguments by running a bash file
-        $command = "./gAnShStarter.sh " . $wr . " " . $analisys . " " . $sourceRootPathNew. " " . $gAnPath;
+        $command = "./gAnShStarter.sh " . $wr . " " . $analisys . " " . $gAnPath;
         //echo "<br><br><br>the inserted command: --> " . $command . "<br><br>";
         $descriptorspec = array(
             0 => array("pipe", "r"),  // stdin is a pipe that the child will read from

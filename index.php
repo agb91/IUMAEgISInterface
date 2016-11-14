@@ -1,3 +1,10 @@
+<?php
+    //here all the includes
+    include "PHP/indexFunctions.php";
+    include "Globals.php";
+    include "PHP/genericFunctions.php";
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,9 +39,6 @@
         </div>
         <div id = "commonSemiTop" class="row releaseAegis">
             <?php
-                include "PHP/indexFunctions.php";
-                include "Globals.php";
-                include "PHP/genericFunctions.php";
                 writeInitialOptions(); 
             ?>
         </div>
@@ -42,13 +46,6 @@
             <div class="row">
                 <div class="col-xs-7">
                     <div class="borderGroup">
-                        <!--<div class="row">
-                            <div class="col-xs-2">
-                                <h4 id="thisgAn">
-                                    <div title="" class="fixedTopRight well"> You are using:</div>
-                                </h4>
-                            </div>   
-                        </div>-->
                         <div id="multiple"> 
                             <div class="col-xs-12">    
                                 <div class="row"><!-- run row -->
@@ -149,7 +146,6 @@
                                         <?php
                                             //include "Globals.php";
                                             //include "PHP/genericFunctions.php";
-                                            $whichgAn = "gAn-dev";
                                             lastRun($dirRawFiles , 0);
                                         ?>
                                     </h3>
@@ -220,7 +216,6 @@
                         <div>
                             <form>
                                 <?php 
-                                    //echo "WhichGan: " . $whichgAn . "<br>";
                                     echo '<input type="button" data-toggle="tooltip" title="Modify the configuration file" class="btn btn-primary" value="Edit Configuration File" onclick="window.location.href=\'editConfig.php\'" />';
                                 ?>
                             </form>

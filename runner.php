@@ -1,3 +1,12 @@
+<?php
+    //here all the includes
+    include 'Globals.php';
+    include 'PHP/genericFunctions.php';
+    include 'PHP/imagesFunctions.php';
+    include 'PHP/runnerFunctions.php';
+    include "PHP/imagesFunctionsRoot.php";
+?>
+
 <html>
     <head>
         <title>gAn web interface</title>
@@ -33,14 +42,8 @@
                         }
                         else
                         {
-                            include 'Globals.php';
-                            include 'PHP/genericFunctions.php';
-                            include 'PHP/imagesFunctions.php';
-                            include 'PHP/runnerFunctions.php';
-                            include "PHP/imagesFunctionsRoot.php";
-
                             $whichRun = $_POST["whichRun"];
-                            $whichRun = cleanString( $whichRun );
+                            $whichRun = cleanString( $whichRun 
 
                             //echo " the run is: " . $whichRun;
 
@@ -98,29 +101,17 @@
 
 
         <div id="runnerTab" class="runnerGeneral">
-            <!--<button onclick="window.location.href='index.php'" type="button" 
-                    class="lower btn btn-primary btn-lg fixedDownRight">
-                Back to Home
-            </button>-->
-               
             <div class="row">
                 <div class="col-xs-3">
                     <h1> Results: </h1>
                 </div>
-                <div class="col-xs-6"></div>
-                <div class="col-xs-3">
-                   <?php
-                        /*echo "<button data-toggle='tooltip' title='Look at the images created by running gAn' onclick=\"window.location.href='images.php?runs=" . $whichRun . "'\" type=\"button\" class=\"btn btn-primary btn-lg fixedTopRight \">";
-                        echo "Look at the images";
-                        echo "</button>";*/
-                    ?>
-                </div>
+                <div class="col-xs-9"></div>
             </div>
             <div>
                 <nav id="navBlock" data-toggle="tooltip" title=" Select by run which results to show " class="fixedTopLeft" aria-label="Page navigation">
                     <ul class="pagination">            
                         <?php
-                            session_start(); // Starting Session
+                            /*session_start(); // Starting Session
                             if (!strcmp($_SESSION['logged'], "logged") == 0)
                             {
                                 echo "not logged";
@@ -135,17 +126,17 @@
                                  */
 
                                 // clean the read values: no white spaces, no doubles, no comma or point or '-'
-                                $whichRun = cleanRuns($_POST["whichRun"]);
-                                $whichRun = cleanString( $whichRun );
+                                //whichRun = cleanRuns($_POST["whichRun"]);
+                                //$whichRun = cleanString( $whichRun );
                                 //echo $whichRun;
-                                $piecesOfRun = explode(";", $whichRun);
+                                //$piecesOfRun = explode(";", $whichRun);
                                 /*for ($i = 0; $i < count($piecesOfRun)-1; $i++) //show the possible runs computed, the user can chose
                                 {
                                     //navclick will hide the useless information and show only the run that the user selected
                                     echo "<li><a onclick='navClick(" . $piecesOfRun[$i] . ")'> run: " . $piecesOfRun[$i] . "</a></li>";
                                     //echo ($i+1) . "° run: |" . $piecesOfRun[$i] .  "|<br>";
-                                } */
-                            } 
+                                } 
+                            } */
                         ?>
                     </ul>
                 </nav>
@@ -156,8 +147,6 @@
                 ?>
 
                 <?php
-
-
                     session_start(); // Starting Session
                     if (!strcmp($_SESSION['logged'], "logged") == 0)
                     {
@@ -188,7 +177,7 @@
                             echo "Kind of analysis selected: " . $whichAnalysis . "</h4><br>";
                             //start root, run gAn and make computation
                             //echo "<h1> going to run: " . $piecesOfRun[$i] . "</h1><br>";
-                            $o = run($piecesOfRun[$i], $whichAnalysis, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose); 
+                            $o = run($piecesOfRun[$i], $whichAnalysis, $gAnPath); 
                             //echo $o;
                             //echo "<h1> just runned: " . $piecesOfRun[$i] . "</h1><br>";
                             $outputBlocks = getBlocks( $o );
@@ -314,11 +303,7 @@
                     <div id = "verticalBlock" style = "display:block" class = "center" >
 
                             <?php
-                                //include "PHP/imagesFunctionsRoot.php";
-                                //echo "alive3";
-                                //generate the structure of images disposed vertically, filtered by run and group
                                 echoRootLike($runs, $allAnalyzesSingle);
-                                //echo "alive4";
                             ?>
                     </div>
                 </div>
