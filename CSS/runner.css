@@ -8,8 +8,10 @@ and open the template in the editor.
     Author     : andrea
 */
 .runnerGeneral {
-  padding: 20px;
   background-color: #C5D8DA !important; }
+  .runnerGeneral .right {
+    position: absolute;
+    right: 20px; }
   .runnerGeneral .fixedDownRight {
     position: fixed;
     bottom: 10px;
@@ -24,7 +26,7 @@ and open the template in the editor.
     right: 10px; }
   .runnerGeneral .fixedTopSecondRight {
     position: fixed;
-    top: 110px;
+    top: 150px;
     right: 10px; }
   .runnerGeneral .green {
     background-color: greenyellow; }
@@ -35,6 +37,8 @@ and open the template in the editor.
     color: blue; }
   .runnerGeneral .singleRow {
     color: red; }
+  .runnerGeneral .navbarColor {
+    background-color: white; }
 
 .typeChose .btn-group .evidentActive:active {
   background-color: #04233E !important; }

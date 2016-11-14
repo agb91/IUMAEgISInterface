@@ -14,11 +14,58 @@
         <script src="jqueryUI/jquery-ui.js"></script>
     </head>
     <body id="body" class="runnerGeneral">
-        <button onclick="window.location.href='index.php'" type="button" 
+        <!--<button onclick="window.location.href='index.php'" type="button" 
                 class="lower btn btn-primary btn-lg fixedDownRight">
             Back to Home
-        </button>
-        <br>
+        </button>-->
+        <div class = "row" >
+            <ul class="nav nav-tabs navbarColor">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        <h1> Textual Output </h1>    
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" title="Look at the images created by running gAn">
+                    <?php 
+                        session_start(); // Starting Session
+                        if (!strcmp($_SESSION['logged'], "logged") == 0)
+                        {
+                            echo "not logged";
+                            header("location: logPage.php");
+                        }
+                        else
+                        {
+                            include 'Globals.php';
+                            include 'PHP/genericFunctions.php';
+                            $whichRun = $_POST["whichRun"];
+                            $whichRun = cleanString( $whichRun );
+                            $whichAnalysis = $_POST["selectedAnalysisSingle"];
+                            $whichAnalysis = $whichAnalysis . $_POST["selectedAnalysisMultiple"];
+                            //print_r($_POST);
+                            //echo "the read analysis is : " . $whichAnalysis;
+                            $whichAnalysis = cleanString( $whichAnalysis );
+                            echo "<a class='nav-link' href='images.php?runs=" . $whichRun . "'>";
+                        }
+                    ?>    
+                        <h1> Images </h1>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle='tooltip' title='Download the .root file related to the selected run'>
+                    <a class="nav-link" onclick="rootDownload()">
+                        <h1> Download .root File 
+                            <?php
+                                echo "<div hidden id='rootFileRun'> " . $whichRun . "<div>";    
+                            ?>
+                        </h1>    
+                    </a>
+                </li>
+                <li class="nav-item right" data-toggle='tooltip' title='Return to the Homepage of this gAn-Web'>
+                    <a class="nav-link" href="index.php">
+                        <h1> Back to Home </h1>    
+                    </a>
+                </li>
+            </ul>
+        </div>    
         <div class="row">
             <div class="col-xs-3">
                 <h1> Results: </h1>
@@ -26,18 +73,9 @@
             <div class="col-xs-6"></div>
             <div class="col-xs-3">
                <?php
-                    include 'Globals.php';
-                    include 'PHP/genericFunctions.php';
-                    $whichRun = $_POST["whichRun"];
-                    $whichRun = cleanString( $whichRun );
-                    $whichAnalysis = $_POST["selectedAnalysisSingle"];
-                    $whichAnalysis = $whichAnalysis . $_POST["selectedAnalysisMultiple"];
-                    //print_r($_POST);
-                    //echo "the read analysis is : " . $whichAnalysis;
-                    $whichAnalysis = cleanString( $whichAnalysis );
-                    echo "<button data-toggle='tooltip' title='Look at the images created by running gAn' onclick=\"window.location.href='images.php?runs=" . $whichRun . "'\" type=\"button\" class=\"btn btn-primary btn-lg fixedTopRight \">";
+                    /*echo "<button data-toggle='tooltip' title='Look at the images created by running gAn' onclick=\"window.location.href='images.php?runs=" . $whichRun . "'\" type=\"button\" class=\"btn btn-primary btn-lg fixedTopRight \">";
                     echo "Look at the images";
-                    echo "</button>";
+                    echo "</button>";*/
                 ?>
             </div>
         </div>
@@ -45,24 +83,33 @@
             <nav id="navBlock" data-toggle="tooltip" title=" Select by run which results to show " class="fixedTopLeft" aria-label="Page navigation">
                 <ul class="pagination">            
                     <?php
-                        include 'PHP/runnerFunctions.php';
-                        /*! \brief this script allows us to show in the navbar the chosen runs 
-                         *
-                         *  we can select a run in the navbar, the program will show only the output
-                         *  related to the chosen run (it is very useful if we selected multiple runs)
-                         */
-
-                        // clean the read values: no white spaces, no doubles, no comma or point or '-'
-                        $whichRun = cleanRuns($_POST["whichRun"]);
-                        $whichRun = cleanString( $whichRun );
-                        //echo $whichRun;
-                        $piecesOfRun = explode(";", $whichRun);
-                        for ($i = 0; $i < count($piecesOfRun)-1; $i++) //show the possible runs computed, the user can chose
+                        session_start(); // Starting Session
+                        if (!strcmp($_SESSION['logged'], "logged") == 0)
                         {
-                            //navclick will hide the useless information and show only the run that the user selected
-                            echo "<li><a onclick='navClick(" . $piecesOfRun[$i] . ")'> run: " . $piecesOfRun[$i] . "</a></li>";
-                            //echo ($i+1) . "° run: |" . $piecesOfRun[$i] .  "|<br>";
-                        }  
+                            echo "not logged";
+                            header("location: logPage.php");
+                        }
+                        else
+                        {
+                            include 'PHP/runnerFunctions.php';
+                            /*! \brief this script allows us to show in the navbar the chosen runs 
+                             *
+                             *  we can select a run in the navbar, the program will show only the output
+                             *  related to the chosen run (it is very useful if we selected multiple runs)
+                             */
+
+                            // clean the read values: no white spaces, no doubles, no comma or point or '-'
+                            $whichRun = cleanRuns($_POST["whichRun"]);
+                            $whichRun = cleanString( $whichRun );
+                            //echo $whichRun;
+                            $piecesOfRun = explode(";", $whichRun);
+                            /*for ($i = 0; $i < count($piecesOfRun)-1; $i++) //show the possible runs computed, the user can chose
+                            {
+                                //navclick will hide the useless information and show only the run that the user selected
+                                echo "<li><a onclick='navClick(" . $piecesOfRun[$i] . ")'> run: " . $piecesOfRun[$i] . "</a></li>";
+                                //echo ($i+1) . "° run: |" . $piecesOfRun[$i] .  "|<br>";
+                            } */
+                        } 
                     ?>
                 </ul>
             </nav>
@@ -99,8 +146,8 @@
                         {
                             echo "<div id= 'run" . $piecesOfRun[$i] . "' style='display:none' name='disappearing'>";
                         }
-                        echo "<h4>Run selected: " . $piecesOfRun[$i] . "</h4><br>";
-                        echo "<h4>Kind of analysis selected: " . $whichAnalysis . "</h4><br>";
+                        echo "<h4>Run selected: " . $piecesOfRun[$i] . "; ";
+                        echo "Kind of analysis selected: " . $whichAnalysis . "</h4><br>";
                         //start root, run gAn and make computation
                         //echo "<h1> going to run: " . $piecesOfRun[$i] . "</h1><br>";
                         $o = run($piecesOfRun[$i], $whichAnalysis, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose); 

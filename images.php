@@ -12,7 +12,7 @@
         <script src="JS/imagesJs.js"></script>
         <link rel="stylesheet" href="CSS/images.css" media="screen">
     </head>
-    <body>
+    <body class= "imagesGeneral">
         <?php
             include 'PHP/imagesFunctions.php';
             include 'Globals.php';
@@ -41,18 +41,37 @@
 
 
         ?>
-        <button onclick="window.location.href='index.php'" type="button" 
+        <div class = "row" >
+            <ul class="nav nav-tabs navbarColor">
+                <li class="nav-item">
+                    <a class="nav-link active" href="javascript:history.back()">
+                        <h1> Textual Output </h1>    
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" title="Look at the images created by running gAn">
+                    <a class="nav-link" href="#">
+                        <h1> Images </h1>    
+                    </a>
+                </li>
+                <li class="nav-item right">
+                    <a class="nav-link" href="index.php">
+                        <h1> Back to Home </h1>    
+                    </a>
+                </li>
+            </ul>
+        </div>    
+        <!--<button onclick="window.location.href='index.php'" type="button" 
                 class="btn btn-primary btn-lg fixedTopRight">
             Back to Home
-        </button>
+        </button>-->
         <button data-toggle="tooltip" title="Download automatically on your hard disk (in the default download folder) all the images related created by gAn" onclick="download()" type="button" 
                 class="btn btn-lg fixedUnderTopRight green">
             Download All Images
         </button>
-        <button onclick="window.history.back();" type="button" 
+        <!--<button onclick="window.history.back();" type="button" 
                 class="btn btn-primary btn-lg fixedTopLeft">
             Back Previous Page
-        </button>        
+        </button>-->        
         <div class="row">    
             <div class="col-xs-2"></div>
             <div class="col-xs-8">
