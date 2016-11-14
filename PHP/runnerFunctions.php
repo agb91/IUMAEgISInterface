@@ -20,7 +20,7 @@ function printBlocks( $blocks )
     // at the moment I skip them. The last block is related to 
     // error messages.   
     {
-        echo "<br><br><br> block " . $i . ":<br>";
+        echo "<br><br>";
         printSingleBlock( $blocks[ $i ] );
     }
 }
@@ -32,8 +32,11 @@ function printSingleBlock( $thisBlock )
 {
     $allRows = explode("<br>", $thisBlock);
     //echo "rows are: " . count( $allRows );
-    // the first and the last are enmpty
-    for ( $i = 1 ; $i < ( count( $allRows ) - 1 ) ; $i++ ) 
+    
+    // the 0 and the last are empty
+    // the 1 is the title of the block, need a different treatment
+    writeTitleRow( $allRows[ 1 ] );
+    for ( $i = 2 ; $i < ( count( $allRows ) - 1 ) ; $i++ ) 
     {
         printSingleRow( $allRows[ $i ] );
         //echo $i . " " . $allRows[ $i ] ."<br>";
@@ -41,10 +44,45 @@ function printSingleBlock( $thisBlock )
     //echo $thisBlock;
 }
 
+/*
+ * Check if the row is simple or complex (with an equal or an arrow)
+ */
 function printSingleRow( $thisRow )
 {
-    echo $thisRow . "<br>";
+    $delimiters = array("=", 
+        "->");
+    $thisRow = str_replace( $delimiters, "&&&", $thisRow );
+    //now i split the strig using &&& as delimiter
+    $rowPieces = explode("&&&", $thisRow);
+    $dim = count( $rowPieces );
+    if( $dim === 1)
+    {
+        writeSimpleRow( $thisRow );
+    } 
+    else
+    {
+        writeComplexRow( $rowPieces );
+    }
 }
+
+function writeTitleRow( $row )
+{
+    echo "<h2>" . $row . ": </h2>";
+}
+
+function writeSimpleRow( $row )
+{
+    echo "<br><span class = 'singleRow' >" . $row . "</span>";
+}
+
+function writeComplexRow( $row )
+{
+    echo "<br><span class = 'leftEqual' >" . $row[ 0 ] . "</span>";
+    echo "  =  ";
+    echo $row[ 1 ];    
+}
+
+
 
 /*
  * Split the output in blocks (selected by different separators) to 

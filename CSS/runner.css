@@ -30,6 +30,11 @@ and open the template in the editor.
     background-color: greenyellow; }
   .runnerGeneral .red {
     background-color: red; }
+  .runnerGeneral .leftEqual {
+    font-weight: bold;
+    color: blue; }
+  .runnerGeneral .singleRow {
+    color: red; }
 
 .typeChose .btn-group .evidentActive:active {
   background-color: #04233E !important; }
