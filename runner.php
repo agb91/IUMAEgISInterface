@@ -180,7 +180,7 @@
                             {
                                 echo "<div id= 'run" . $piecesOfRun[$i] . "' style='display:block' name='disappearing'>";
                             }
-                            else
+                            else 
                             {
                                 echo "<div id= 'run" . $piecesOfRun[$i] . "' style='display:none' name='disappearing'>";
                             }
