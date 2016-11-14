@@ -133,7 +133,7 @@ function img_find() {
     return imgSrcs;
 }
 
-function download()
+function downloadImages()
 {
     var list = document.getElementsByTagName("svg");
     //alert( list[0] );
@@ -155,7 +155,7 @@ function download()
     }
 }
 
-function updateGUI() 
+/*function updateGUI() 
 {
     var runs = $( "#getRuns" ).text();
     //alert( runs );
@@ -173,6 +173,7 @@ function updateGUI()
         JSROOT.OpenFile(filename, function(file) {
             for ( var i = 1; i < ( file.fKeys.length - 1 ); i++ )//for all the keys in the file
             {
+                console.log( file );
                 var name = file.fKeys[i].fName;
                 file.ReadObject(name, function(obj) {
                     for( var k = 1; k < groupsArray.length; k++ )
@@ -185,11 +186,42 @@ function updateGUI()
                 });
             }
         });  
-    }
-   
-    
+    }   
+}*/
 
-    
+
+function updateGUI() 
+{
+    var runs = $( "#getRuns" ).text();
+    //alert( runs );
+    var runsArray = runs.split("-");
+    //alert (runsArray);
+    var groups = $( "#hereTheGroups").text();
+    var groupsArray = groups.split("-");
+    //alert( groupsArray );
+
+    for( var a = 1; a < (runsArray.length - 1)  ; a++ )
+    {
+        var thisRun = runsArray[ a ];
+        var filename = "output/gout_" + thisRun + ".root";
+        //tipical error: filename doesn't exist. If error check this before. (maybe too many slash or no slash)
+        JSROOT.OpenFile(filename, function(file) {
+            for ( var i = 1; i < ( file.fKeys.length - 1 ); i++ )//for all the keys in the file
+            {
+                //console.log( file );
+                var name = file.fKeys[i].fName;
+                file.ReadObject(name, function(obj) {
+                    for( var k = 1; k < groupsArray.length; k++ )
+                    {
+                        var thisGroup = groupsArray[ k ];
+                        var whereToDraw = 'image' + thisRun + "-" + thisGroup;
+                        //alert (whereToDraw);
+                        JSROOT.redraw( whereToDraw , obj, "colz" );//draw the object, in the div object_drawCNT
+                    }   
+                });
+            }
+        });  
+    }   
 }
 
 $( document ).ready(function() {// start only when the page is already charged, to avoid all problems

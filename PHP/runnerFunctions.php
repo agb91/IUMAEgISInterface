@@ -150,6 +150,7 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose
     {
         //call the rooc data analisys program with the correct arguments by running a bash file
         $command = "./gAnShStarter.sh " . $wr . " " . $analisys . " " . $sourceRootPathNew. " " . $gAnPath;
+        //echo "<br><br><br>the inserted command: --> " . $command . "<br><br>";
         $descriptorspec = array(
             0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
             1 => array("pipe", "w"),  // stdout is a pipe that the child will write to

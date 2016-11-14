@@ -61,8 +61,8 @@
                         </h2>    
                     </a>
                 </li>
-                <li class="nav-item" data-toggle='tooltip' title='Download all images as image files'>
-                    <a class="nav-link" onclick="rootDownload()">
+                <li class="nav-item" data-toggle='tooltip' title='Download all images as a vector based image files'>
+                    <a class="nav-link" onclick="downloadImages()" >
                         <h2> Download All Images 
                             <?php
                                 echo "<div hidden id='rootFileRun'> " . $whichRun . "<div>";    
@@ -181,12 +181,12 @@
                             //start root, run gAn and make computation
                             //echo "<h1> going to run: " . $piecesOfRun[$i] . "</h1><br>";
                             $o = run($piecesOfRun[$i], $whichAnalysis, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose); 
+                            //echo $o;
                             //echo "<h1> just runned: " . $piecesOfRun[$i] . "</h1><br>";
                             $outputBlocks = getBlocks( $o );
                             printBlocks( $outputBlocks );
                             //echo "<br> outputBlocks length: " . count( $outputBlocks ) . "<br>" ;
-                            echo "</div>";
-                            //echo $o . "</div>";    
+                            echo "</div>";  
                         }
                     } 
                 ?>
@@ -238,10 +238,10 @@
                     class="btn btn-primary btn-lg fixedTopRight">
                 Back to Home
             </button>-->
-            <button data-toggle="tooltip" title="Download automatically on your hard disk (in the default download folder) all the images related created by gAn" onclick="download()" type="button" 
+            <!--<button data-toggle="tooltip" title="Download automatically on your hard disk (in the default download folder) all the images related created by gAn" onclick="download()" type="button" 
                     class="btn btn-lg fixedUnderTopRight green">
                 Download All Images
-            </button>
+            </button>-->
             <!--<button onclick="window.history.back();" type="button" 
                     class="btn btn-primary btn-lg fixedTopLeft">
                 Back Previous Page
