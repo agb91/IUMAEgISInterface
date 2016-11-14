@@ -53,6 +53,15 @@
                         <h1> Images </h1>    
                     </a>
                 </li>
+                <li class="nav-item" data-toggle='tooltip' title='Download the .root file related to the selected run'>
+                    <a class="nav-link" onclick="rootDownload()">
+                        <h1> Download .root File 
+                            <?php
+                                echo "<div hidden id='rootFileRun'> " . $runs[ 0 ] . "<div>";    
+                            ?>
+                        </h1>    
+                    </a>
+                </li>
                 <li class="nav-item right">
                     <a class="nav-link" href="index.php">
                         <h1> Back to Home </h1>    

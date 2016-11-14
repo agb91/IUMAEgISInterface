@@ -7,44 +7,44 @@ and open the template in the editor.
     Created on : Jun 4, 2016, 5:28:11 PM
     Author     : andrea
 */
-.runnerGeneral {
-  background-color: #C5D8DA !important; }
-  .runnerGeneral .right {
+.general {
+  background-color: #C5D8DA !important;
+  padding: 20px; }
+  .general .runnerGeneral .right {
     position: absolute;
     right: 20px; }
-  .runnerGeneral .fixedDownRight {
+  .general .runnerGeneral .fixedDownRight {
     position: fixed;
     bottom: 10px;
     right: 10px; }
-  .runnerGeneral .fixedTopLeft {
+  .general .runnerGeneral .fixedTopLeft {
     position: fixed;
     top: 0px;
     left: 10px; }
-  .runnerGeneral .fixedTopRight {
+  .general .runnerGeneral .fixedTopRight {
     position: fixed;
     top: 10px;
     right: 10px; }
-  .runnerGeneral .fixedTopSecondRight {
+  .general .runnerGeneral .fixedTopSecondRight {
     position: fixed;
     top: 150px;
     right: 10px; }
-  .runnerGeneral .green {
+  .general .runnerGeneral .green {
     background-color: greenyellow; }
-  .runnerGeneral .red {
+  .general .runnerGeneral .red {
     background-color: red; }
-  .runnerGeneral .leftEqual {
+  .general .runnerGeneral .leftEqual {
     font-weight: bold;
     color: blue; }
-  .runnerGeneral .singleRow {
+  .general .runnerGeneral .singleRow {
     color: red; }
-  .runnerGeneral .navbarColor {
+  .general .runnerGeneral .navbarColor {
     background-color: white; }
-
-.typeChose .btn-group .evidentActive:active {
-  background-color: #04233E !important; }
-.typeChose .btn-group .btn-primary:active {
-  background-color: #04233E !important; }
-.typeChose .btn-group .active {
-  background-color: #04233E !important; }
+  .general .runnerGeneral .typeChose .btn-group .evidentActive:active {
+    background-color: #04233E !important; }
+  .general .runnerGeneral .typeChose .btn-group .btn-primary:active {
+    background-color: #04233E !important; }
+  .general .runnerGeneral .typeChose .btn-group .active {
+    background-color: #04233E !important; }
 
 /*# sourceMappingURL=runner.css.map */
