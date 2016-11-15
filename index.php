@@ -208,7 +208,7 @@
                         <p>Chose the date around which to search: <input type="text" id="datepicker"></p>
                         <pre class="scrollable">
                             <?php
-                                $url = "http://localhost/test-interChangeble/gAn-webIUM/dataLog.php";
+                                $url = "dataLog.php";
                                 $rawText = readText( $url );
                                 $chunks = splitText( $rawText );
                                 $dates = getDates( $chunks );
