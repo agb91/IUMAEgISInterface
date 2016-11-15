@@ -105,11 +105,10 @@ function getBlocks( $text )
  * The function is prepared to read the errors log 
  * The function return the output of the bash.
  */
-function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose)
+function run($wr, $analisys, $gAnPath)
 {
     //echo 'path now: '. $gAnPath . ' <br> ';
-    //echo 'source: '. $sourceRootPath . '<br>';
-
+    
     if ( !is_numeric($wr) )
     {
         echo "inserted run: " . $wr;
@@ -117,27 +116,17 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose
         $wr = 0;
     }
 
-    //echo "rootPathFile: " . $rootPathFile . "<br>";
-    //$sourceRootPathNew = fileReaderGeneral($rootPathFile); 
-    //$whichgAn = fileReaderGeneral($gAnPathFile);
-    $whichgAn = "gAn-dev";
-    
     if( isAnalysisSafe( $analisys ) == 1 )
     {
         echo "selected analysis is not acceptable";
         $analisys = "---";
     }
 
-    $sourceRootPathNew = "root";
-    
-    //echo "gAn path before : " . $gAnPath . "<br>";
-    //$gAnPath = $gAnChose . trim($whichgAn);
-    //echo "gAn path after : " . $gAnPath . "--<br>";
-
     $output="";
     try 
     {
         //call the rooc data analisys program with the correct arguments by running a bash file
+        // escapeshellarg is useful to avoid code injection
         $command = "./gAnShStarter.sh " . escapeshellarg($wr ) . " " . escapeshellarg($analisys) . " " . escapeshellarg($gAnPath);
         //echo "<br><br><br>the inserted command: --> " . $command . "<br><br>";
         $descriptorspec = array(
@@ -145,10 +134,7 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose
             1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
             2 => array("pipe", "w")  // stderr is a file to write to
         );
-        //$command = "rm niente";
-        //echo "<br>command after: " . $command;
-        //proc_open is considered insicure (but php doesn't deprecate it): 
-        //but there is no other solution to run a root program from php
+        //proc_open is insicure? yes, but we use an escaper so no problem
         $process = proc_open ($command , $descriptorspec , $pipes);
         fclose($pipes[0]);
         $output =  "--" ;
