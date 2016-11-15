@@ -2,19 +2,26 @@
 
 .indexGeneral
 {
+
+    padding: 20px;
+    background-color: $general-background;
+
     .littleRight
     {
         margin-left: 13px;
     }
+    
     .well-height
     {
         height: 250px   //139px;
     }
+    
     .absoluteCenter
     {
         position: fixed;
         bottom: 400px;
     }
+    
     .borderGroup
     {
         border-radius: 25px;
@@ -24,6 +31,12 @@
         width: 100%;
         height: 450px;
     }
+
+    .starter
+    {
+        margin-top: 4px;
+    }
+    
     .row
     {
         .logoImage
@@ -37,14 +50,14 @@
             //max-height: 155px; //retina compatible
         }
     }
-    padding: 20px;
-    background-color: $general-background;
+
     .center
     {
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
+
     .white
     {
         background: white;
@@ -53,6 +66,7 @@
             background: $active-button;
         }
     }
+
     .green
     {
         background: $active-button;
@@ -61,45 +75,54 @@
             background: $active-button;
         }
     }
+
     .full
     {
         width: 100%;
     }
+
     .half
     {
         width: 50%;
     }
+
     .greenWell
     {
         &:hover {
             background: $active-button;
         }        
     }
+
     .green
     {
         background-color: $active-button;
     }
+
     .red
     {
         color: white;
         background-color: $disabled-button;
     }
+
     .blackText 
     {
         color: black;
-    } 
+    }
+
     .fixedTopRight
     {
         position: fixed;
         top: 10px;
         right: 10px;
     }
+
     .fixedTopLeft
     {
         position: absolute;
         top: 10px;
         left: 10px;
     }
+
     .releaseAegis
     {
         margin-top: 120px;
@@ -108,35 +131,42 @@
             text-align: center;
         }
     }
+
     .moveUp
     {
         margin-top: -45px;
     }
+
     .moveDown
     {
         margin-top: 25px;
     }
+
     .scrollable
     {
         background: #eaeaea;
         //height: 100px;
         overflow-y: scroll;
     }
+
     .logBlock
     {
         height: 270px;
         max-height: 270px;
     }
+
     .littlePadding
     {
         margin: 5px;
     }
+
     .setting
     {
         position: absolute;
         left: 78px;
         top: 265px;
     }
+
     .settingButton
     {
         font-weight: bold;

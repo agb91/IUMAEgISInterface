@@ -20,6 +20,9 @@
             {
                 header("location: logPage.php");
             } 
+            include "PHP/indexFunctions.php";
+            include "Globals.php";
+            include "PHP/genericFunctions.php";
         ?>
         <div hidden id = "modalityWell" class="well col-xs-2 fixedTopLeft"> 
             Sigle Run vs Multiple Run Analysis 
@@ -35,9 +38,6 @@
         </div>
         <div id = "commonSemiTop" class="row releaseAegis">
             <?php
-                include "PHP/indexFunctions.php";
-                include "Globals.php";
-                include "PHP/genericFunctions.php";
                 writeInitialOptions(); 
             ?>
         </div>
@@ -59,64 +59,51 @@
                                 </div>
                                 
                                 <form class = "well well-height"  action="runner.php" method="post">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <label for="whichRunsMultiple" data-toggle="tooltip" title="" class="form-control-label">Insert some Runs: </label>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <label for="buttonSelectAnalysisMultiple" class="form-control-label littleRight">Choose an analysis</label>
-                                        </div>
-                                    </div>    
-                                    <div class="row">
-                                        <div class="col-xs-6" >
-                                            <input type="text" id="whichRunsMultiple" name="whichRun" class="form-control littlePadding" placeholder="example: 30000; 31111; 32222">
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <?php readAnalyzes( $allAnalyzesMultiple , 1); ?>
-                                        </div> 
-                                        <div id = "mouseOverTargetMultiple" class="col-xs-2">
-                                            <button id="sendRunButtonMultiple" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait( 1 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
-                                        </div>
-                                    </div>    
-                                    <div class="row">    
-                                        <div class="col-xs-6">
-                                            <h4 id="warningRunNumberMultiple">
-                                                <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert numbers, without letters!</div>
-                                            </h4>
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <h4 id="warningSelectAnalysisMultiple">
-                                                <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Select an analysis!</div>
-                                            </h4>
-                                        </div>    
-                                    </div>    
-                                </form>
-                                <br><br>
-                                <!--<div id="waitMultiple" style="display:none">
-                                    <div class="container">
-                                        <h1>Just a moment i'm starting...</h1>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                    <div class = "row" >
+                                        <div class = "col-xs-6">
+                                            <div class = "row" >
+                                                <label for="whichRunsMultiple" data-toggle="tooltip" title="" class="form-control-label">Insert some Runs: </label>
+                                            </div>   
+                                            <div class = "row" >
+                                                <input type="text" id="whichRunsMultiple" name="whichRun" class="form-control littlePadding" placeholder="example: 30000; 31111; 32222">
+                                            </div> 
+                                            <div class = "row" >
+                                                <h4 id="warningRunNumberMultiple">
+                                                    <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert numbers, without letters!</div>
+                                                </h4>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>-->
-
-
-                                <!-- TODO you must decide what to do with these buttons (choose gAn and choose root)
-                                <div hidden>
-                                    <form>
-                                        <input type="button" data-toggle="tooltip" title="Change the path to the thisroot.sh file needed to identify the correct Root intallation (you have to chose between existing Root installations)" class="btn btn-primary" value="Chose Root Version" onclick="window.location.href='editRootPath.php'" />
-                                    </form>
-                                </div> 
-
-                                <br><br> 
-                                 TODO you must decide what to do with these buttons (choose gAn and choose root)
-                                <div hidden>
-                                    <form>
-                                        <input type="button" data-toggle="tooltip" title="Chose which branch of gAn do you want to use" class="btn btn-primary" value="Chose gAn branch" onclick="window.location.href='editgAnBranch.php'" />
-                                    </form>
-                                </div>-->
+                                        <div class = "col-xs-4">
+                                            <div class = "row" >
+                                                <label for="buttonSelectAnalysisMultiple" class="form-control-label littleRight">Choose an analysis</label>
+                                            </div>   
+                                            <div class = "row" >
+                                                <?php readAnalyzes( $allAnalyzesMultiple , 1); ?>
+                                            </div> 
+                                            <div class = "row" >
+                                                <h4 id="warningSelectAnalysisMultiple">
+                                                    <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Select an analysis!</div>
+                                                </h4>
+                                            </div>
+                                        </div>    
+                                        <div class = "col-xs-2">
+                                            <div class = "row" >
+                                                <label class="form-control-label littleRight"><div hidden class = "col-xs-2"> place </div></label> 
+                                            </div>   
+                                            <div class = "row" >
+                                                <div id = "mouseOverTargetMultiple" class="col-xs-2 starter">
+                                                    <button id="sendRunButtonMultiple" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait( 1 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
+                                                </div>
+                                            </div> 
+                                            <div class = "row" >
+                                            </div>
+                                        </div>    
+                                    </div>    
+                                        
+                                        
+                                                         
+                                </form>
+                                <br><br>
                             </div>
                             
                             <div class="row">
@@ -159,68 +146,50 @@
                                     </h3>
                                 </div>
                                 
-                                <form class = "well well-height"  action="runner.php" method="post">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <label for="whichRunSingle" data-toggle="tooltip" title="" class="form-control-label">Insert a Run: </label>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <label for="buttonSelectAnalysisSingle" class="form-control-label littleRight">Choose an analysis</label>
-                                        </div>
-                                    </div>    
-                                    <div class="row">
-                                        <div class="col-xs-6" >
-                                            <input type="text" id="whichRunSingle" name="whichRun" class="littlePadding form-control" placeholder="example: 30000">
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <?php readAnalyzes( $allAnalyzesSingle , 0); ?>
-                                        </div> 
-                                        <div id = "mouseOverTargetSingle" class="col-xs-2">
-                                            <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
-                                        </div>
-                                    </div>    
-                                    <div class="row">    
-                                        <div class="col-xs-6">
-                                            <h4 id="warningRunNumberSingle">
-                                                <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert one run number, without letters!</div>
-                                            </h4>
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <h4 id="warningSelectAnalysisSingle">
-                                                <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Select an analysis!</div>
-                                            </h4>
-                                        </div>    
-                                    </div>    
-                                </form>
-                                <br><br>
-                                <!--<div id="waitSingle" style="display:none">
-                                    <div class="container">
-                                        <h1>Just a moment i'm starting...</h1>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                <form class = "well well-height" action="runner.php" method="post">
+                                    <div class = "row" >
+                                        <div class = "col-xs-6">
+                                            <div class = "row" >
+                                                <label for="whichRunSingle" data-toggle="tooltip" title="" class="form-control-label">Insert a Run: </label>
+                                            </div>   
+                                            <div class = "row" >
+                                                <input type="text" id="whichRunSingle" name="whichRun" class="form-control littlePadding" placeholder="example: 30000">
+                                            </div> 
+                                            <div class = "row" >
+                                                <h4 id="warningRunNumberSingle">
+                                                    <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert a number (only one!), without letters!</div>
+                                                </h4>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>-->
-
-                                
+                                        <div class = "col-xs-4">
+                                            <div class = "row" >
+                                                <label for="buttonSelectAnalysisSingle" class="form-control-label littleRight">Choose an analysis</label>
+                                            </div>   
+                                            <div class = "row" >
+                                                <?php readAnalyzes( $allAnalyzesSingle , 0); ?>
+                                            </div> 
+                                            <div class = "row" >
+                                                <h4 id="warningSelectAnalysisSingle">
+                                                    <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Select an analysis!</div>
+                                                </h4>
+                                            </div>
+                                        </div>    
+                                        <div class = "col-xs-2">
+                                            <div class = "row" >
+                                                <label class="form-control-label littleRight"><div hidden class = "col-xs-2"> place </div></label> 
+                                            </div>   
+                                            <div class = "row" >
+                                                <div id = "mouseOverTargetSingle" class="col-xs-2 starter">
+                                                    <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
+                                                </div>
+                                            </div> 
+                                            <div class = "row" >
+                                            </div>
+                                        </div>    
+                                    </div>       
+                                </form>
                                 <br><br>
-
-
-                                <!-- TODO you must decide what to do with these buttons (choose gAn and choose root)
-                                <div hidden>
-                                    <form>
-                                        <input type="button" data-toggle="tooltip" title="Change the path to the thisroot.sh file needed to identify the correct Root intallation (you have to chose between existing Root installations)" class="btn btn-primary" value="Chose Root Version" onclick="window.location.href='editRootPath.php'" />
-                                    </form>
-                                </div> 
-
-                                <br><br> 
-                                 TODO you must decide what to do with these buttons (choose gAn and choose root)
-                                <div hidden>
-                                    <form>
-                                        <input type="button" data-toggle="tooltip" title="Chose which branch of gAn do you want to use" class="btn btn-primary" value="Chose gAn branch" onclick="window.location.href='editgAnBranch.php'" />
-                                    </form>
-                                </div>-->
+                                <br><br>
                             </div>    
                         </div> 
                         <br><br>
