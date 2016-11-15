@@ -284,8 +284,8 @@
             </div>
 
             <div class = "row">
-                <div class= "col-xs-2"></div>
-                <div class= "col-xs-8">
+                <div class= "col-xs-1"></div>
+                <div class= "col-xs-10">
                     <div id = "verticalBlock" style = "display:block" class = "center" >
 
                             <?php
@@ -297,7 +297,7 @@
                             ?>
                     </div>
                 </div>
-                <div class= "col-xs-2"></div>    
+                <div class= "col-xs-1"></div>    
             </div>
  
             <!-- just to set the default configuration when the user enters in this page -->        
