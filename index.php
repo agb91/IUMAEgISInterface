@@ -74,8 +74,8 @@
                                         <div class="col-xs-4">
                                             <?php readAnalyzes( $allAnalyzesMultiple , 1); ?>
                                         </div> 
-                                        <div class="col-xs-2">
-                                            <button id="sendRunButtonMultiple" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait( 1 )" type="submit" class="red btn btn-secondary"> Start </button>
+                                        <div id = "mouseOverTargetMultiple" class="col-xs-2">
+                                            <button id="sendRunButtonMultiple" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait( 1 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
                                         </div>
                                     </div>    
                                     <div class="row">    
@@ -175,14 +175,14 @@
                                         <div class="col-xs-4">
                                             <?php readAnalyzes( $allAnalyzesSingle , 0); ?>
                                         </div> 
-                                        <div class="col-xs-2">
+                                        <div id = "mouseOverTargetSingle" class="col-xs-2">
                                             <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
                                         </div>
                                     </div>    
                                     <div class="row">    
                                         <div class="col-xs-6">
                                             <h4 id="warningRunNumberSingle">
-                                                <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert a number (only ONE!), and without letters!</div>
+                                                <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert one run number, without letters!</div>
                                             </h4>
                                         </div>
                                         <div class="col-xs-4">

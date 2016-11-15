@@ -14,6 +14,7 @@ $( document ).ready(function() {
     //version of the interface, some other times in multiple 
     //validate the inserted runs
     //first of all, disable the run-send-button (until the run number isn't correct)
+    //$( "#sendRunButtonSingle" ).prop("disabled",true);
     $( "#sendRunButtonSingle" ).prop("disabled",true);
     $( "#warningRunNumberSingle" ).hide();
     $( "#sendRunButtonMultiple" ).prop("disabled",true);
@@ -47,22 +48,11 @@ $( document ).ready(function() {
         validate( 1 );
     });
 
-    /*$( "#whichRunSingle" ).mouseover(function() {//check also only if the mouse pass on the input form
-        //it make sense because if you insert by range when the form is empty this check and only this 
-        // allows the green button 
+    $( "#mouseOverTargetSingle" ).mouseover(function() {
         validate( 0 );
     });
-    $( "#whichRunMultiple" ).mouseover(function() {//check also only if the mouse pass on the input form
-        //it make sense because if you insert by range when the form is empty this check and only this 
-        // allows the green button 
-        validate( 1 );
-    });*/
-
-    $( "#mouseOverTargetSingle" ).mouseover(function() {
-        alert( "move" );
-    });
     $( "#mouseOverTargetMultiple" ).mouseover(function() {
-        alert( "move" );
+        validate( 1 );
     });
 });
 
@@ -217,10 +207,6 @@ function validate( n )
             $("#sendRunButtonSingle").prop("disabled",true);
             $("#sendRunButtonSingle").removeClass( "green" ).addClass( "red" );
         }
-        if(insertedRun.length=="0")
-        {
-            $("#warningRunNumberSingle").hide();
-        }
     }  
     else
     {
@@ -270,10 +256,6 @@ function validate( n )
             $("#sendRunButtonMultiple").prop("disabled",true);
             $("#sendRunButtonMultiple").removeClass( "green" ).addClass( "red" );
         }
-        if(insertedRun.length=="0")
-        {
-            $("#warningRunNumberMultiple").hide();
-        } 
     }  
 }
 
