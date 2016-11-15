@@ -48,7 +48,7 @@
                         <div id="multiple"> 
                             <div class="col-xs-12">    
                                 <div class="row"><!-- run row -->
-                                    <h3> Choose a run (or more). 
+                                    <h3> 
                                         <span data-toggle='tooltip' title='This is the most recent run in the database'>
                                             Last existing run: 
                                             <?php
@@ -69,7 +69,7 @@
                                     </div>    
                                     <div class="row">
                                         <div class="col-xs-6" >
-                                            <input type="text" id="whichRunsMultiple" name="whichRun" class="form-control" placeholder="example: 30000; 31111; 32222">
+                                            <input type="text" id="whichRunsMultiple" name="whichRun" class="form-control littlePadding" placeholder="example: 30000; 31111; 32222">
                                         </div>
                                         <div class="col-xs-4">
                                             <?php readAnalyzes( $allAnalyzesMultiple , 1); ?>
@@ -147,7 +147,7 @@
                         <div id="single">    
                             <div class="col-xs-12">    
                                 <div class="row"><!-- run row -->
-                                    <h3> Choose a run. 
+                                    <h3>  
                                         <span data-toggle='tooltip' title='This is the most recent run in the database'>
                                             Last existing run: 
                                             <?php
@@ -170,13 +170,13 @@
                                     </div>    
                                     <div class="row">
                                         <div class="col-xs-6" >
-                                            <input type="text" id="whichRunSingle" name="whichRun" class="form-control" placeholder="example: 30000">
+                                            <input type="text" id="whichRunSingle" name="whichRun" class="littlePadding form-control" placeholder="example: 30000">
                                         </div>
                                         <div class="col-xs-4">
                                             <?php readAnalyzes( $allAnalyzesSingle , 0); ?>
                                         </div> 
                                         <div class="col-xs-2">
-                                            <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="red btn btn-secondary"> Start </button>
+                                            <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
                                         </div>
                                     </div>    
                                     <div class="row">    

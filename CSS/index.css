@@ -76,5 +76,7 @@ and open the template in the editor.
   .indexGeneral .logBlock {
     height: 270px;
     max-height: 270px; }
+  .indexGeneral .littlePadding {
+    margin: 5px; }
 
 /*# sourceMappingURL=index.css.map */
