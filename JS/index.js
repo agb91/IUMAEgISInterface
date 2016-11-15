@@ -20,6 +20,8 @@ $( document ).ready(function() {
     $( "#warningRunNumberMultiple" ).hide();
     $( "#warningSelectAnalysisSingle" ).hide();
     $( "#warningSelectAnalysisMultiple" ).hide();
+
+
     //check if the run-number make sense, and at that moment unlock the send-run-button
     //validate( 0 );
     //validate( 1 );
@@ -45,16 +47,23 @@ $( document ).ready(function() {
         validate( 1 );
     });
 
-    //$( "#whichRunSingle" ).mouseover(function() {//check also only if the mouse pass on the input form
+    /*$( "#whichRunSingle" ).mouseover(function() {//check also only if the mouse pass on the input form
         //it make sense because if you insert by range when the form is empty this check and only this 
         // allows the green button 
-        //validate( 0 );
-    //});
-    //$( "#whichRunMultiple" ).mouseover(function() {//check also only if the mouse pass on the input form
+        validate( 0 );
+    });
+    $( "#whichRunMultiple" ).mouseover(function() {//check also only if the mouse pass on the input form
         //it make sense because if you insert by range when the form is empty this check and only this 
         // allows the green button 
-        //validate( 1 );
-    //})
+        validate( 1 );
+    });*/
+
+    $( "#mouseOverTargetSingle" ).mouseover(function() {
+        alert( "move" );
+    });
+    $( "#mouseOverTargetMultiple" ).mouseover(function() {
+        alert( "move" );
+    });
 });
 
 //select if you want to work with single or multiple runs
@@ -166,7 +175,7 @@ function validate( n )
             numberProblems++;
         }
         //have you selected an analysis?
-        if( $("#buttonSelectAnalysisSingle").text() == "Select an Analysis Tools:"  )
+        if( $("#buttonSelectAnalysisSingle").text() == "Select an Analysis:"  )
         {
             analysisProblems++;
             //alert("analysis problems");
@@ -220,7 +229,7 @@ function validate( n )
         var analysisProblems = 0;
 
         //have you selected an analysis?
-        if( $("#buttonSelectAnalysisMultiple").text() == "Select an Analysis Tools:"  )
+        if( $("#buttonSelectAnalysisMultiple").text() == "Select an Analysis:"  )
         {
             analysisProblems++;
         }

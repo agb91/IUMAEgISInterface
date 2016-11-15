@@ -171,14 +171,14 @@ function readAnalyzes( $allAnalyzesSingle , $n)
 		}
 	}
 	echo "</div>";
-	echo "<div class='dropdown col-xs-12'>";
+	echo "<div  data-toggle='tooltip' title='Select an analysis from the dropdown menu; this will be applied to the selected run' class='dropdown col-xs-12'>";
 	if( $n == 0 )
 	{
-		echo "<button id='buttonSelectAnalysisSingle' class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select an Analysis Tools:";
+		echo "<button id='buttonSelectAnalysisSingle' class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select an Analysis:";
 	}
 	else
 	{
-		echo "<button id='buttonSelectAnalysisMultiple' class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select an Analysis Tools:";
+		echo "<button id='buttonSelectAnalysisMultiple' class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>Select an Analysis:";
 	}
     echo "<span class='caret'></span></button>";
     echo "<ul class='dropdown-menu'>";

@@ -55,10 +55,13 @@
                                     </h3>
                                 </div>
                                 
-                                <form class = "well"  action="runner.php" method="post">
+                                <form class = "well well-height"  action="runner.php" method="post">
                                     <div class="row">
-                                        <div class="col-xs-12">
+                                        <div class="col-xs-6">
                                             <label for="whichRunsMultiple" data-toggle="tooltip" title="" class="form-control-label">Insert some Runs: </label>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <label for="buttonSelectAnalysisMultiple" class="form-control-label littleRight">Choose an analysis</label>
                                         </div>
                                     </div>    
                                     <div class="row">
@@ -153,10 +156,13 @@
                                     </h3>
                                 </div>
                                 
-                                <form class = "well"  action="runner.php" method="post">
+                                <form class = "well well-height"  action="runner.php" method="post">
                                     <div class="row">
-                                        <div class="col-xs-12">
+                                        <div class="col-xs-6">
                                             <label for="whichRunSingle" data-toggle="tooltip" title="" class="form-control-label">Insert a Run: </label>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <label for="buttonSelectAnalysisSingle" class="form-control-label littleRight">Choose an analysis</label>
                                         </div>
                                     </div>    
                                     <div class="row">
