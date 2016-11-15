@@ -60,9 +60,9 @@
                                 
                                 <form class = "well well-height"  action="runner.php" method="post">
                                     <div class = "row" >
-                                        <div class = "col-xs-6">
+                                        <div data-toggle="tooltip" title="Insert here some run numbers, on which the selected multiple-run analyzes will be applied." class = "col-xs-6">
                                             <div class = "row" >
-                                                <label for="whichRunsMultiple" data-toggle="tooltip" title="" class="form-control-label">Insert some Runs: </label>
+                                                <label for="whichRunsMultiple" class="form-control-label">Insert some Runs: </label>
                                             </div>   
                                             <div class = "row" >
                                                 <input type="text" id="whichRunsMultiple" name="whichRun" class="form-control littlePadding" placeholder="example: 30000; 31111; 32222">
@@ -73,7 +73,7 @@
                                                 </h4>
                                             </div>
                                         </div>
-                                        <div class = "col-xs-4">
+                                        <div class = "col-xs-4" data-toggle='tooltip' title='Select an analysis from the dropdown menu; this will be applied to the selected run'>
                                             <div class = "row" >
                                                 <label for="buttonSelectAnalysisMultiple" class="form-control-label littleRight">Choose an analysis</label>
                                             </div>   
@@ -148,9 +148,9 @@
                                 
                                 <form class = "well well-height" action="runner.php" method="post">
                                     <div class = "row" >
-                                        <div class = "col-xs-6">
+                                        <div class = "col-xs-6" data-toggle="tooltip" title="Insert here a run number, on which the selected single-run analysis will be applied.">
                                             <div class = "row" >
-                                                <label for="whichRunSingle" data-toggle="tooltip" title="" class="form-control-label">Insert a Run: </label>
+                                                <label for="whichRunSingle" class="form-control-label">Insert a Run: </label>
                                             </div>   
                                             <div class = "row" >
                                                 <input type="text" id="whichRunSingle" name="whichRun" class="form-control littlePadding" placeholder="example: 30000">
@@ -161,7 +161,7 @@
                                                 </h4>
                                             </div>
                                         </div>
-                                        <div class = "col-xs-4">
+                                        <div class = "col-xs-4" data-toggle='tooltip' title='Select an analysis from the dropdown menu; this will be applied to the selected run'>
                                             <div class = "row" >
                                                 <label for="buttonSelectAnalysisSingle" class="form-control-label littleRight">Choose an analysis</label>
                                             </div>   

@@ -117,8 +117,7 @@ function writeInitialOptions()
     echo "<div hidden id='changeModality' class='row' >";
     echo "<div class='col-xs-4'></div>";
 	echo "<div class='col-xs-4'>";
-	echo "<button id='nowSingle' class='btn btn-primary center' onclick='changeModality()'>Return to \"Choose Modality\" Single vs Multiple</button>";
-  	echo "<button id='nowMultiple' class='btn btn-primary center' onclick='changeModality()'>Return to \"Choose Modality\" Single vs Multiple</button>";
+	echo "<button id='modalityNow' data-toggle = 'tooltip' title = 'Return to the previous screen, where you will able to choose another modality (single run vs multiple run)'  class='btn btn-primary center' onclick='changeModality()'>Return to \"Choose Modality\" Single vs Multiple</button>";
     echo "</div>";
     echo "<div class='col-xs-4'></div>";
     echo "</div>";
@@ -171,7 +170,7 @@ function readAnalyzes( $allAnalyzesSingle , $n)
 		}
 	}
 	echo "</div>";
-	echo "<div  data-toggle='tooltip' title='Select an analysis from the dropdown menu; this will be applied to the selected run' class='dropdown col-xs-12'>";
+	echo "<div class='dropdown col-xs-12'>";
 	if( $n == 0 )
 	{
 		echo "<button id='buttonSelectAnalysisSingle' class='btn btn-primary dropdown-toggle littlePadding' type='button' data-toggle='dropdown'>Select an Analysis:";
