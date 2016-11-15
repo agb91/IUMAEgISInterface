@@ -21,6 +21,9 @@
                 header("location: logPage.php");
             } 
         ?>
+        <div hidden id = "modalityWell" class="well col-xs-2 fixedTopLeft"> 
+            Sigle Run vs Multiple Run Analysis 
+        </div>
         <div id = "commonTop" class="col-xs-12">
             <div class="row">
                 <div class="col-xs-3"></div>
@@ -225,7 +228,7 @@
                             <form>
                                 <?php 
                                     //echo "WhichGan: " . $whichgAn . "<br>";
-                                    echo '<input type="button" data-toggle="tooltip" title="Modify the configuration file" class="btn btn-primary" value="Edit Configuration File" onclick="window.location.href=\'editConfig.php\'" />';
+                                    echo '<input type="button" data-toggle="tooltip" title="With this button you can modify some parameters of the configuration file: be careful, it is for advanced users" class="btn btn-primary" value="Edit Configuration File" onclick="window.location.href=\'editConfig.php\'" />';
                                 ?>
                             </form>
                         </div>    

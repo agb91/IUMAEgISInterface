@@ -73,12 +73,15 @@ function selectSingleVsMultiple( n )
     $( "#changeModality" ).show();
     if( n == 0)//and the other red
     {
+        $( "#modalityWell").text( "You are working with Single Run Analysis" );
+        $( "#modalityWell").show();
         $( "#nowSingle" ).show();
         $( "#nowMultiple" ).hide();    
     }
     else
     {
-        
+        $( "#modalityWell").text( "You are working with Multiple Runs Analysis" );
+        $( "#modalityWell").show();        
         $( "#nowMultiple" ).show();
         $( "#nowSingle" ).hide();
     }

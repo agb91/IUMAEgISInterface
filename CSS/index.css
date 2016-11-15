@@ -58,6 +58,10 @@ and open the template in the editor.
     position: fixed;
     top: 10px;
     right: 10px; }
+  .indexGeneral .fixedTopLeft {
+    position: fixed;
+    top: 10px;
+    left: 10px; }
   .indexGeneral .releaseAegis {
     margin-top: 120px; }
     .indexGeneral .releaseAegis .center {
