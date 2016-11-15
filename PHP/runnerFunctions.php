@@ -128,11 +128,7 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose
         $analisys = "---";
     }
 
-    if( isPathSafe($sourceRootPathNew) == 1 )
-    {
-        $sourceRootPathNew = "root";
-        echo "I return to the standard root path...";
-    }
+    $sourceRootPathNew = "root";
     
     //echo "gAn path before : " . $gAnPath . "<br>";
     //$gAnPath = $gAnChose . trim($whichgAn);
@@ -142,13 +138,15 @@ function run($wr, $analisys, $sourceRootPath, $rootPathFile, $gAnPath, $gAnChose
     try 
     {
         //call the rooc data analisys program with the correct arguments by running a bash file
-        $command = "./gAnShStarter.sh " . $wr . " " . $analisys . " " . $sourceRootPathNew. " " . $gAnPath;
+        $command = "./gAnShStarter.sh " . escapeshellarg($wr ) . " " . escapeshellarg($analisys) . " " . escapeshellarg($gAnPath);
         //echo "<br><br><br>the inserted command: --> " . $command . "<br><br>";
         $descriptorspec = array(
             0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
             1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
             2 => array("pipe", "w")  // stderr is a file to write to
         );
+        //$command = "rm niente";
+        //echo "<br>command after: " . $command;
         //proc_open is considered insicure (but php doesn't deprecate it): 
         //but there is no other solution to run a root program from php
         $process = proc_open ($command , $descriptorspec , $pipes);

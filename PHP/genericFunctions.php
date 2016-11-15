@@ -30,8 +30,7 @@ function cleanString( $str )
     $str = htmlentities( $str );
     $str = xss_clean( $str );
     //echo "<br><br><br>string before: " . $str;
-    $str = escapeshellarg( $str );
-    $str = substr( $str , 1 , -1 );
+    //$str = escapeshellarg( $str );//already did before the exec command
     //echo "<br>string after: " . $str . "<br><br><br><br>";
     return $str;
 }

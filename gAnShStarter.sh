@@ -34,7 +34,7 @@ source /home/andrea/Downloads/buildRoot/bin/thisroot.sh
 #source /home/andrea/Downloads/buildRoot/bin/thisroot.sh #questo pc
 #source /usr/local/root/bin/thisroot.sh # altra
 
-cd $4
+cd $3
 #echo $1
 #echo $2
 #cd gAn/gAn-updated/ #questo pc
