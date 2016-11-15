@@ -22,9 +22,10 @@ $(function () {
 
  function rootDownload()
  {
- 	var run = "run_" + $("#rootFileRun").text().trim() + "_gAnOut.root";
- 	//alert(run);
- 	toHref = 'downloadRootFile.php/?file='  + run;
+ 	var run = $("#rootFileRun").text().trim();
+ 	//alert( run );
+ 	toHref = 'downloadRootFile.php?run=' + run ;
+    //alert( toHref );
     window.location.href = toHref;
  }
 

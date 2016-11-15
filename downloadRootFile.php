@@ -3,32 +3,22 @@
 	include "Globals.php";
 	include "PHP/genericFunctions.php";
 
-	echo "alive <br>";
+	//echo "alive <br>";
 
-	$file = trim($_GET['file']);
-	$gAn = trim( fileReaderGeneral($gAnPathFile) );
-	echo "gAn: " . $gAn . "<br>";
-	echo "file: " . $file . "<br>";
+	$file = trim($_GET['run']);
+	//echo "file: " . $file . "<br>";
 
-	if( validateFile($file) == 0 )
-	{
-		echo "good <br>";
-		//$file = 'root' . $gAn . '/'.$file;
-		echo $file . "<br>";
-		if(!$file){ // file does not exist
-		    die('file not found');
-		} else {
-			echo "Location: http://localhost/Tesi/gAn/". $gAn ."/root/".$file;
-			header("Location: http://localhost/Tesi/gAn/". $gAn ."/root/".$file);
-		}
+	$file = 'output/gout_' . $file . ".root";
+	echo $file;
+	if(!$file){ // file does not exist
+	    die('file not found');
+	} else {
+		echo "Location: ".$file;
+		header("Location: ".$file);
 	}
-	else
-	{
-		echo "bad";
-	}
-	
 
-	function validateFile($file)// 0 good 1 bad
+
+/*	function validateFile($file)// 0 good 1 bad
 	{
 		$ris = 0;
 		$start = substr($file,0,4);
@@ -52,5 +42,5 @@
 	    }    
 		return $ris;
 	}
-
+*/
 ?>
