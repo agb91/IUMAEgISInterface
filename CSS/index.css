@@ -13,7 +13,7 @@ and open the template in the editor.
   .indexGeneral .littleRight {
     margin-left: 13px; }
   .indexGeneral .well-height {
-    height: 139px; }
+    height: 250px; }
   .indexGeneral .absoluteCenter {
     position: fixed;
     bottom: 400px; }
@@ -51,6 +51,7 @@ and open the template in the editor.
   .indexGeneral .green {
     background-color: greenyellow; }
   .indexGeneral .red {
+    color: white;
     background-color: red; }
   .indexGeneral .blackText {
     color: black; }
@@ -78,5 +79,12 @@ and open the template in the editor.
     max-height: 270px; }
   .indexGeneral .littlePadding {
     margin: 5px; }
+  .indexGeneral .setting {
+    position: absolute;
+    left: 78px;
+    top: 265px; }
+  .indexGeneral .settingButton {
+    font-weight: bold;
+    padding: 20px; }
 
 /*# sourceMappingURL=index.css.map */

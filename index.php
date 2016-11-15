@@ -224,13 +224,11 @@
                             </div>    
                         </div> 
                         <br><br>
-                        <div>
-                            <form>
+                        <div id = "advancedSettings" class = "setting" >
                                 <?php 
                                     //echo "WhichGan: " . $whichgAn . "<br>";
-                                    echo '<input type="button" data-toggle="tooltip" title="With this button you can modify some parameters of the configuration file: be careful, it is for advanced users" class="btn btn-primary" value="Edit Configuration File" onclick="window.location.href=\'editConfig.php\'" />';
+                                    echo '<input type="button" data-toggle="tooltip" title="With this button you can modify some parameters of the configuration file: be careful, it is for advanced users" class="btn btn-primary settingButton" value="Advanced Settings" onclick="window.location.href=\'editConfig.php\'" />';
                                 ?>
-                            </form>
                         </div>    
                         <br><br>
                     </div>       

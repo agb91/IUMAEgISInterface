@@ -8,7 +8,7 @@
     }
     .well-height
     {
-        height: 139px;
+        height: 250px   //139px;
     }
     .absoluteCenter
     {
@@ -81,6 +81,7 @@
     }
     .red
     {
+        color: white;
         background-color: $disabled-button;
     }
     .blackText 
@@ -129,5 +130,16 @@
     .littlePadding
     {
         margin: 5px;
+    }
+    .setting
+    {
+        position: absolute;
+        left: 78px;
+        top: 265px;
+    }
+    .settingButton
+    {
+        font-weight: bold;
+        padding: 20px;
     }
 }

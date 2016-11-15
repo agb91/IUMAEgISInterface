@@ -22,6 +22,7 @@ $( document ).ready(function() {
     $( "#warningSelectAnalysisSingle" ).hide();
     $( "#warningSelectAnalysisMultiple" ).hide();
 
+    //$( "#advancedSettings" ).css({top: 554});
 
     //check if the run-number make sense, and at that moment unlock the send-run-button
     //validate( 0 );
