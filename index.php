@@ -45,10 +45,13 @@
                         <div id="multiple"> 
                             <div class="col-xs-12">    
                                 <div class="row"><!-- run row -->
-                                    <h3> Choose a run (or more). Last existing run: 
-                                        <?php
-                                            lastRun($dirRawFiles , 0);
-                                        ?>
+                                    <h3> Choose a run (or more). 
+                                        <span data-toggle='tooltip' title='This is the most recent run in the database'>
+                                            Last existing run: 
+                                            <?php
+                                                lastRun($dirRawFiles);
+                                            ?>
+                                        </span>
                                     </h3>
                                 </div>
                                 
@@ -138,13 +141,15 @@
                         <div id="single">    
                             <div class="col-xs-12">    
                                 <div class="row"><!-- run row -->
-                                    <h3> Choose a run. Last existing run: 
-                                        <?php
-                                            //include "Globals.php";
-                                            //include "PHP/genericFunctions.php";
-                                            $whichgAn = "gAn-dev";
-                                            lastRun($dirRawFiles , 0);
-                                        ?>
+                                    <h3> Choose a run. 
+                                        <span data-toggle='tooltip' title='This is the most recent run in the database'>
+                                            Last existing run: 
+                                            <?php
+                                                //include "Globals.php";
+                                                //include "PHP/genericFunctions.php";
+                                                lastRun($dirRawFiles);
+                                            ?>
+                                        </span>
                                     </h3>
                                 </div>
                                 

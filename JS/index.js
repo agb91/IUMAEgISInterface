@@ -14,11 +14,12 @@ $( document ).ready(function() {
     //version of the interface, some other times in multiple 
     //validate the inserted runs
     //first of all, disable the run-send-button (until the run number isn't correct)
-    $("#sendRunButtonSingle").prop("disabled",true);
-    $("#warningRunNumberSingle").hide();
-    $("#sendRunButtonMultiple").prop("disabled",true);
-    $("#warningRunNumberMultiple").hide();
-
+    $( "#sendRunButtonSingle" ).prop("disabled",true);
+    $( "#warningRunNumberSingle" ).hide();
+    $( "#sendRunButtonMultiple" ).prop("disabled",true);
+    $( "#warningRunNumberMultiple" ).hide();
+    $( "#warningSelectAnalysisSingle" ).hide();
+    $( "#warningSelectAnalysisMultiple" ).hide();
     //check if the run-number make sense, and at that moment unlock the send-run-button
     //validate( 0 );
     //validate( 1 );
@@ -44,16 +45,16 @@ $( document ).ready(function() {
         validate( 1 );
     });
 
-    $( "#whichRunSingle" ).mouseover(function() {//check also only if the mouse pass on the input form
+    //$( "#whichRunSingle" ).mouseover(function() {//check also only if the mouse pass on the input form
         //it make sense because if you insert by range when the form is empty this check and only this 
         // allows the green button 
-        validate( 0 );
-    });
-    $( "#whichRunMultiple" ).mouseover(function() {//check also only if the mouse pass on the input form
+        //validate( 0 );
+    //});
+    //$( "#whichRunMultiple" ).mouseover(function() {//check also only if the mouse pass on the input form
         //it make sense because if you insert by range when the form is empty this check and only this 
         // allows the green button 
-        validate( 1 );
-    })
+        //validate( 1 );
+    //})
 });
 
 //select if you want to work with single or multiple runs

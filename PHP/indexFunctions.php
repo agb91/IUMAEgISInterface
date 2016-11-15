@@ -35,7 +35,7 @@ function getLastTime( $dirRawFiles )
 	return $splittedDataLast[ 1 ]; //and I write it
 }
 
-function lastRun( $dirRawFiles , $n)
+function lastRun( $dirRawFiles)
 {
 	$dataLast = findLastRunAndTime( $dirRawFiles );
 	$splittedDataLast = explode ( "-" , $dataLast );
@@ -93,20 +93,19 @@ function writeInitialOptions()
 {
 	//the row that asks the user what modality (single vs multiple run) he prefers
 	echo "<div id='chooseModality' class='row'>";
-	echo "<h3 class = 'center' > Choose your modality: Single Runs vs Multiple Runs</h3>";
+	echo "<h3 class = 'center' > Choose your modality: Single Run vs Multiple Runs</h3>";
 	echo "<div class='col-xs-4'></div>";
 	echo "<div class='col-xs-4'>";
-	
 	/*echo "<ul class='nav navbar-nav full'>";
     echo "<li id='choice0' class='well well-sm greenWell half' onclick='selectSingleVsMultiple(0)'><div class='blackText'>Work with a Single Run</div></li>";
     echo "<li id='choice1' class='well well-sm greenWell half' onclick='selectSingleVsMultiple(1)'><div class='blackText'>Work with Multiple Runs</div></li>";
     echo "</ul>";*/
     echo "<div class='row'>";
     echo "<div class = 'col-xs-6' >";
-    echo "<button id='choice0' class='btn btn-primary center' onclick='selectSingleVsMultiple(0)'> Work with a Single Run </button>";
+    echo "<button id='choice0' data-toggle='tooltip' title='This modality allows you to analyze only one run at time, and to access only the single-run pre-existing analyzes' class='btn btn-primary center' onclick='selectSingleVsMultiple(0)'> Work with a Single Run </button>";
   	echo "</div>";
   	echo "<div class = 'col-xs-6' >";
-  	echo "<button id='choice1' class='btn btn-primary center' onclick='selectSingleVsMultiple(1)'> Work with Multiple Runs </button>";
+  	echo "<button id='choice1' data-toggle='tooltip' title='This modality allows you to analyze many runs at time, and to access only the multiple-runs pre-existing analyzes' class='btn btn-primary center' onclick='selectSingleVsMultiple(1)'> Work with Multiple Runs </button>";
     echo "</div>";
     echo "</div>";
     
