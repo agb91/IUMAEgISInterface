@@ -91,7 +91,7 @@
                                                 <label class="form-control-label littleRight"><div hidden class = "col-xs-2"> place </div></label> 
                                             </div>   
                                             <div class = "row" >
-                                                <div id = "mouseOverTargetMultiple" class="col-xs-2 starter">
+                                                <div id = "mouseOverTargetMultiple" class="starter">
                                                     <button id="sendRunButtonMultiple" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait( 1 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
                                                 </div>
                                             </div> 
@@ -179,7 +179,7 @@
                                                 <label class="form-control-label littleRight"><div hidden class = "col-xs-2"> place </div></label> 
                                             </div>   
                                             <div class = "row" >
-                                                <div id = "mouseOverTargetSingle" class="col-xs-2 starter">
+                                                <div id = "mouseOverTargetSingle" class="starter">
                                                     <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
                                                 </div>
                                             </div> 
