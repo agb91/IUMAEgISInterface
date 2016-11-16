@@ -173,11 +173,11 @@ function readAnalyzes( $allAnalyzesSingle , $n)
 	echo "<div class='dropdown col-xs-12'>";
 	if( $n == 0 )
 	{
-		echo "<button id='buttonSelectAnalysisSingle' class='btn btn-primary dropdown-toggle littlePadding' type='button' data-toggle='dropdown'>Select an Analysis:";
+		echo "<button id='buttonSelectAnalysisSingle' class='btn btn-default dropdown-toggle littlePadding' type='button' data-toggle='dropdown'>Select an Analysis:";
 	}
 	else
 	{
-		echo "<button id='buttonSelectAnalysisMultiple' class='btn btn-primary dropdown-toggle littlePadding' type='button' data-toggle='dropdown'>Select an Analysis:";
+		echo "<button id='buttonSelectAnalysisMultiple' class='btn btn-default dropdown-toggle littlePadding' type='button' data-toggle='dropdown'>Select an Analysis:";
 	}
     echo "<span class='caret'></span></button>";
     echo "<ul class='dropdown-menu'>";

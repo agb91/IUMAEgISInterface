@@ -17,6 +17,12 @@ and open the template in the editor.
   .indexGeneral .absoluteCenter {
     position: fixed;
     bottom: 400px; }
+  .indexGeneral .borderGroupInternal {
+    border-radius: 25px;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    padding: 10px;
+    width: 100%;
+    height: 123px; }
   .indexGeneral .borderGroup {
     border-radius: 25px;
     border: 2px solid #5e5ebb;
@@ -36,6 +42,8 @@ and open the template in the editor.
     display: block;
     margin-left: auto;
     margin-right: auto; }
+  .indexGeneral .centerTextAlign {
+    text-align: center; }
   .indexGeneral .white {
     background: white; }
     .indexGeneral .white:hover {

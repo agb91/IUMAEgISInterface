@@ -61,26 +61,26 @@
                                 <form class = "well well-height"  action="runner.php" method="post">
                                     <div class = "row" >
                                         <div data-toggle="tooltip" title="Insert here some run numbers, on which the selected multiple-run analyzes will be applied." class = "col-xs-6">
-                                            <div class = "row" >
+                                            <div class = "row centerTextAlign" >
                                                 <label for="whichRunsMultiple" class="form-control-label">Insert some Runs: </label>
                                             </div>   
                                             <div class = "row" >
                                                 <input type="text" id="whichRunsMultiple" name="whichRun" class="form-control littlePadding" placeholder="example: 30000; 31111; 32222">
                                             </div> 
-                                            <div class = "row" >
+                                            <div class = "row centerTextAlign" >
                                                 <h4 id="warningRunNumberMultiple">
                                                     <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert numbers, without letters!</div>
                                                 </h4>
                                             </div>
                                         </div>
                                         <div class = "col-xs-4" data-toggle='tooltip' title='Select an analysis from the dropdown menu; this will be applied to the selected run'>
-                                            <div class = "row" >
-                                                <label for="buttonSelectAnalysisMultiple" class="form-control-label littleRight">Choose an analysis</label>
+                                            <div class = "row centerTextAlign" >
+                                                <label for="buttonSelectAnalysisMultiple" class="form-control-label">Choose an analysis</label>
                                             </div>   
-                                            <div class = "row" >
+                                            <div class = "row centerTextAlign" >
                                                 <?php readAnalyzes( $allAnalyzesMultiple , 1); ?>
                                             </div> 
-                                            <div class = "row" >
+                                            <div class = "row centerTextAlign" >
                                                 <h4 id="warningSelectAnalysisMultiple">
                                                     <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Select an analysis!</div>
                                                 </h4>
@@ -149,26 +149,26 @@
                                 <form class = "well well-height" action="runner.php" method="post">
                                     <div class = "row" >
                                         <div class = "col-xs-6" data-toggle="tooltip" title="Insert here a run number, on which the selected single-run analysis will be applied.">
-                                            <div class = "row" >
+                                            <div class = "row  centerTextAlign" >
                                                 <label for="whichRunSingle" class="form-control-label">Insert a Run: </label>
                                             </div>   
                                             <div class = "row" >
                                                 <input type="text" id="whichRunSingle" name="whichRun" class="form-control littlePadding" placeholder="example: 30000">
                                             </div> 
-                                            <div class = "row" >
+                                            <div class = "row  centerTextAlign" >
                                                 <h4 id="warningRunNumberSingle">
                                                     <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Insert a number (only one!), without letters!</div>
                                                 </h4>
                                             </div>
                                         </div>
                                         <div class = "col-xs-4" data-toggle='tooltip' title='Select an analysis from the dropdown menu; this will be applied to the selected run'>
-                                            <div class = "row" >
-                                                <label for="buttonSelectAnalysisSingle" class="form-control-label littleRight">Choose an analysis</label>
+                                            <div class = "row centerTextAlign" >
+                                                <label for="buttonSelectAnalysisSingle" class="form-control-label">Choose an analysis</label>
                                             </div>   
-                                            <div class = "row" >
+                                            <div class = "row centerTextAlign" >
                                                 <?php readAnalyzes( $allAnalyzesSingle , 0); ?>
                                             </div> 
-                                            <div class = "row" >
+                                            <div class = "row centerTextAlign" >
                                                 <h4 id="warningSelectAnalysisSingle">
                                                     <div style="color: red;"><span class="glyphicon glyphicon-remove"></span> Select an analysis!</div>
                                                 </h4>
