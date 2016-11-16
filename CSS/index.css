@@ -55,11 +55,6 @@ and open the template in the editor.
     width: 50%; }
   .indexGeneral .greenWell:hover {
     background: greenyellow; }
-  .indexGeneral .green {
-    background-color: greenyellow; }
-  .indexGeneral .red {
-    color: white;
-    background-color: red; }
   .indexGeneral .blackText {
     color: black; }
   .indexGeneral .fixedTopRight {

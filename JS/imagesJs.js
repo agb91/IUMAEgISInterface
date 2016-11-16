@@ -158,6 +158,40 @@ function downloadImages()
     }
 }
 
+function isScrolledIntoView(el) {
+    var elemTop = el.position().top;
+    var myPosition = $( window ).scrollTop();
+    //console.log( "top image: " + elemTop + ";  we are: " );
+    var isVisible = ( elemTop <= myPosition );
+    //console.log( isVisible );
+    return isVisible;
+}
+
+function showTipWell()
+{
+    $( "#tipWell" ).show();
+}
+
+function hideTipWell()
+{
+    $( "#tipWell" ).hide();
+}
+
+// when the screen scroll understands if we are in the picture part
+function scrolled()
+{
+    var picturesTab = $( "#picturesTab" );
+    var ans = isScrolledIntoView( picturesTab );
+    if( ans )
+    {
+        showTipWell();
+    }
+    else
+    {
+        hideTipWell();
+    }
+}
+
 function updateGUI() 
 {
     var runs = $( "#getRuns" ).text();
@@ -194,6 +228,7 @@ function updateGUI()
 
 $( document ).ready(function() {// start only when the page is already charged, to avoid all problems
   updateGUI();
-
+  //every time user scrolls the page
+  window.onscroll = function() { scrolled() };
 });
 

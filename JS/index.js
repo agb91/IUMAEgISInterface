@@ -260,6 +260,7 @@ function manageWait( n ) {
     $( "#commonTop" ).hide();
     $( "#commonSemiTop" ).hide();
     $( "#workBlock" ).hide();
+    $( "#modalityWell").hide();
     //alert( $( "#commonWait") );
     //$( "#commonWait").show();
     w = document.getElementById("commonWait");

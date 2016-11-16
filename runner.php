@@ -217,18 +217,6 @@
 
 
             ?>
-            <!--<button onclick="window.location.href='index.php'" type="button" 
-                    class="btn btn-primary btn-lg fixedTopRight">
-                Back to Home
-            </button>-->
-            <!--<button data-toggle="tooltip" title="Download automatically on your hard disk (in the default download folder) all the images related created by gAn" onclick="download()" type="button" 
-                    class="btn btn-lg fixedUnderTopRight green">
-                Download All Images
-            </button>-->
-            <!--<button onclick="window.history.back();" type="button" 
-                    class="btn btn-primary btn-lg fixedTopLeft">
-                Back Previous Page
-            </button>-->        
             <div class="row">    
                 <div class="col-xs-2"></div>
                 <div class="col-xs-8">
@@ -281,6 +269,10 @@
                     </div>    
                 </div>
                 <div class="col-xs-2"></div>
+            </div>
+
+            <div hidden id = "tipWell" class="well col-xs-2 fixedMiddleRight"> 
+                "Right-click on the image for more options"  
             </div>
 
             <div class = "row">
