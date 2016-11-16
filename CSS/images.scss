@@ -1,5 +1,11 @@
 @import '_variables';
 
+.borderVertical
+{
+    border-left: ridge;
+    border-right: ridge;
+}  
+
 .imagesGeneral
 {
     background-color: $general-background !important;   

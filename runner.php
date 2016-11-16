@@ -47,7 +47,7 @@
     </head>
     <body id="body" class="general">
         <div class = "row" >
-            <ul class="nav nav-tabs navbarColor">
+            <ul class="nav nav-tabs navbar-default">
                 <li class="nav-item">
                     <a class = "nav-link active" onclick = "showTextualRunner()" >
                         <h2> Textual Output </h2>    

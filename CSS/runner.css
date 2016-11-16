@@ -12,6 +12,8 @@ and open the template in the editor.
   padding: 20px; }
   .general .navbarColor {
     background-color: white; }
+  .general .borderVertical {
+    border-style: ridge; }
   .general .runnerGeneral .right {
     position: absolute;
     right: 20px; }

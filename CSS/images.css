@@ -7,6 +7,10 @@ and open the template in the editor.
     Created on : Jun 4, 2016, 5:28:11 PM
     Author     : andrea
 */
+.borderVertical {
+  border-left: ridge;
+  border-right: ridge; }
+
 .imagesGeneral {
   background-color: #C5D8DA !important; }
   .imagesGeneral .right {
