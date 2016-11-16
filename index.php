@@ -60,7 +60,7 @@
                                 
                                 <form class = "well well-height"  action="runner.php" method="post">
                                     <div class = "row" >
-                                        <div data-toggle="tooltip" title="Insert here some run numbers, on which the selected multiple-run analyzes will be applied." class = "col-xs-6">
+                                        <div  class = "col-xs-6 ridge" data-toggle="tooltip" title="Insert here some run numbers, on which the selected multiple-run analyzes will be applied.">
                                             <div class = "row centerTextAlign" >
                                                 <label for="whichRunsMultiple" class="form-control-label">Insert some Runs: </label>
                                             </div>   
@@ -73,7 +73,7 @@
                                                 </h4>
                                             </div>
                                         </div>
-                                        <div class = "col-xs-4" data-toggle='tooltip' title='Select an analysis from the dropdown menu; this will be applied to the selected run'>
+                                        <div class = "col-xs-4 ridge" data-toggle='tooltip' title='Select an analysis from the dropdown menu; this will be applied to the selected run'>
                                             <div class = "row centerTextAlign" >
                                                 <label for="buttonSelectAnalysisMultiple" class="form-control-label">Choose an analysis</label>
                                             </div>   
@@ -92,7 +92,7 @@
                                             </div>   
                                             <div class = "row" >
                                                 <div id = "mouseOverTargetMultiple" class="starter">
-                                                    <button id="sendRunButtonMultiple" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait( 1 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
+                                                    <button id="sendRunButtonMultiple" data-toggle="tooltip" title="Start the program with the inserted runs" onclick="manageWait( 1 )" type="submit" class="btn btn-primary"> Start </button>
                                                 </div>
                                             </div> 
                                             <div class = "row" >
@@ -148,7 +148,7 @@
                                 
                                 <form class = "well well-height" action="runner.php" method="post">
                                     <div class = "row" >
-                                        <div class = "col-xs-6" data-toggle="tooltip" title="Insert here a run number, on which the selected single-run analysis will be applied.">
+                                        <div class = "col-xs-6 ridge" data-toggle="tooltip" title="Insert here a run number, on which the selected single-run analysis will be applied.">
                                             <div class = "row  centerTextAlign" >
                                                 <label for="whichRunSingle" class="form-control-label">Insert a Run: </label>
                                             </div>   
@@ -161,7 +161,7 @@
                                                 </h4>
                                             </div>
                                         </div>
-                                        <div class = "col-xs-4" data-toggle='tooltip' title='Select an analysis from the dropdown menu; this will be applied to the selected run'>
+                                        <div class = "col-xs-4 ridge" data-toggle='tooltip' title='Select an analysis from the dropdown menu; this will be applied to the selected run'>
                                             <div class = "row centerTextAlign" >
                                                 <label for="buttonSelectAnalysisSingle" class="form-control-label">Choose an analysis</label>
                                             </div>   
@@ -180,7 +180,7 @@
                                             </div>   
                                             <div class = "row" >
                                                 <div id = "mouseOverTargetSingle" class="starter">
-                                                    <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="red btn btn-secondary littlePadding"> Start </button>
+                                                    <button id="sendRunButtonSingle" data-toggle="tooltip" title="Start the program with the inserted run" onclick="manageWait( 0 )" type="submit" class="btn btn-primary"> Start </button>
                                                 </div>
                                             </div> 
                                             <div class = "row" >

@@ -17,6 +17,12 @@
     {
         height: 250px   //139px;
     }
+
+    .ridge
+    {
+        //border-style: ridge;
+        //height: 117px;
+    }
     
     .absoluteCenter
     {
@@ -46,7 +52,8 @@
 
     .starter
     {
-        margin-top: 4px;
+        padding: 5px;
+        margin-top: 5px;
     }
     
     .row
@@ -86,11 +93,11 @@
 
     .green
     {
-        background: $active-button;
-        &:focus
-        {
-            background: $active-button;
-        }
+        //background: $active-button;
+        //&:focus
+        //{
+        //    background: $active-button;
+        //}
     }
 
     .full

@@ -31,7 +31,8 @@ and open the template in the editor.
     width: 100%;
     height: 450px; }
   .indexGeneral .starter {
-    margin-top: 4px; }
+    padding: 5px;
+    margin-top: 5px; }
   .indexGeneral .row .logoImage {
     display: block;
     margin-left: auto;
@@ -47,10 +48,6 @@ and open the template in the editor.
   .indexGeneral .white {
     background: white; }
     .indexGeneral .white:hover {
-      background: greenyellow; }
-  .indexGeneral .green {
-    background: greenyellow; }
-    .indexGeneral .green:focus {
       background: greenyellow; }
   .indexGeneral .full {
     width: 100%; }
