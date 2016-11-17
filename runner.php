@@ -43,6 +43,7 @@
         <script src="bootstrap/js/bootstrap.js"></script>
         <script src="JSROOTlibraries/scripts/JSRootCore.js" type="text/javascript"></script>
         <link rel="stylesheet" href="jqueryUI/jquery-ui.css">
+        <link rel="stylesheet" href="JSROOTlibraries/style/JSRootPainter.min.css">
         <script src="jqueryUI/jquery-ui.js"></script>
     </head>
     <body id="body" class="general">

@@ -539,6 +539,7 @@
     fill: steelblue;
     cursor: pointer;
     opacity: 0.3;
+    visibility: hidden;
 }
 
 .jsroot .svg_toolbar_btn:hover {

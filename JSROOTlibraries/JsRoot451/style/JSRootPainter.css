@@ -538,7 +538,7 @@
 .jsroot .svg_toolbar_btn {
     fill: steelblue;
     cursor: pointer;
-    opacity: 0.3;
+    opacity: 1.0;
 }
 
 .jsroot .svg_toolbar_btn:hover {
