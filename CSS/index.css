@@ -10,6 +10,9 @@ and open the template in the editor.
 .indexGeneral {
   padding: 20px;
   background-color: #C5D8DA; }
+  .indexGeneral .styleMenu {
+    width: 70%;
+    margin-left: 12%; }
   .indexGeneral .littleRight {
     margin-left: 13px; }
   .indexGeneral .well-height {

@@ -180,7 +180,7 @@ function readAnalyzes( $allAnalyzesSingle , $n)
 		echo "<button id='buttonSelectAnalysisMultiple' class='btn btn-default dropdown-toggle littlePadding' type='button' data-toggle='dropdown'>Select an Analysis:";
 	}
     echo "<span class='caret'></span></button>";
-    echo "<ul class='dropdown-menu'>";
+    echo "<ul class='dropdown-menu styleMenu'>";
     for ( $i = 0 ; $i < count( $cleanAnalyzes ) ; $i++ )
 	{
 		echo "<li><a href='#' onclick='setAnalysis(" . $i . " , " . $n . ")'>" . $cleanAnalyzes[ $i ] . "</a></li>";    
